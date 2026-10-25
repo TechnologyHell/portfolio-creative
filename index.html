@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitish Singh | Creative Designer & Motion Artist</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23050505'/><path d='M30 70V30L55 55V30H70V70L45 45V70H30Z' fill='%2300f2fe'/></svg>">
+    <meta name="description" content="Portfolio of Nitish Singh — A multidisciplinary creative working across graphic design, visual identity, motion and video editing, with a background in Computer Science & AI/ML.">
+
+    <!-- Google Fonts: Outfit & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Dynamic Background Glow & Custom Cursor -->
+    <div id="bg-glow"></div>
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+
+    <!-- Navigation (5 Core Destinations) -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo magnetic" data-magnetic-strength="10">NITISH<span class="dot">.</span></a>
+            
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="works.html" class="hover-blur nav-item">All Works</a></li>
+                    <li><a href="#work" class="hover-blur nav-item" data-section="work">Case Study</a></li>
+                    <li><a href="#about" class="hover-blur nav-item" data-section="about">About</a></li>
+                    <li><a href="#recognition" class="hover-blur nav-item" data-section="recognition">Recognition</a></li>
+                    <li><a href="assets/Nitish_Singh_Creative_Resume.pdf" target="_blank" class="hover-blur nav-item">Resume</a></li>
+                    <li><a href="#contact" class="hover-blur nav-item" data-section="contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Navigation Toggle -->
+            <button id="mobileNavToggle" class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                <span>MENU</span>
+            </button>
+
+            <!-- Draggable fixed action button -->
+            <a href="mailto:nitishsinghslg@gmail.com" id="draggable-btn" class="btn magnetic sm" data-magnetic-strength="20">
+                <span class="btn-text">CONNECT</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Drawer Overlay -->
+    <div id="mobileMenu" class="mobile-menu-drawer">
+        <button id="mobileMenuClose" class="mobile-menu-close" aria-label="Close menu">&times;</button>
+        <a href="works.html">All Works</a>
+        <a href="#work">Case Study</a>
+        <a href="#about">About</a>
+        <a href="#recognition">Recognition</a>
+        <a href="assets/Nitish_Singh_Creative_Resume.pdf" target="_blank">Resume ↗</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <main>
+        <!-- Hero Section (Centered Desktop Composition & Warm Reddish Atmosphere) -->
+        <section class="hero" id="hero">
+            <div class="container hero-layout">
+                <div class="hero-text-block">
+                    <div class="reveal-mask">
+                        <p class="greeting reveal-line delay-1">DESIGN. MOTION. VISUAL STORYTELLING.</p>
+                    </div>
+                    <div class="reveal-mask">
+                        <h1 class="hero-title reveal-line delay-2">NITISH</h1>
+                    </div>
+                    <div class="reveal-mask">
+                        <h1 class="hero-title outline reveal-line delay-3">SINGH</h1>
+                    </div>
+
+                    <div class="reveal-mask mt-2">
+                        <p class="hero-desc reveal-line delay-4">
+                            A multidisciplinary creative working across graphic design, visual identity, video editing, and digital content. 
+                            Built through years of experimentation, independent projects, client work, and event-led creative production.
+                        </p>
+                    </div>
+
+                    <div class="cta-wrapper reveal-up delay-5">
+                        <a href="works.html" class="btn primary magnetic" data-magnetic-strength="25">
+                            <span class="btn-text">EXPLORE MY WORK</span>
+                        </a>
+                        <a href="#motion" class="btn secondary magnetic" data-magnetic-strength="20">
+                            <span class="btn-text">WATCH SHOWREEL</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scrolling Ticker (Compact Identity Phrases) -->
+        <section class="ticker" aria-hidden="true">
+            <div class="ticker-wrapper">
+                <div class="ticker-content">
+                    <span>GRAPHIC DESIGN</span> <span class="bullet">•</span>
+                    <span>VISUAL IDENTITY</span> <span class="bullet">•</span>
+                    <span>MOTION & EDITING</span> <span class="bullet">•</span>
+                    <span>EVENT BRANDING</span> <span class="bullet">•</span>
+                    <span>CREATIVE PRODUCTION</span> <span class="bullet">•</span>
+                    <span>INDEPENDENT CREATOR SINCE 2017</span> <span class="bullet">•</span>
+                    <span>SIT IDEATHON 3.0 & 4.0</span> <span class="bullet">•</span>
+                    <span>DIGITAL + PHYSICAL MAKING</span> <span class="bullet">•</span>
+
+                    <!-- Seamless single repeat for marquee loop -->
+                    <span>GRAPHIC DESIGN</span> <span class="bullet">•</span>
+                    <span>VISUAL IDENTITY</span> <span class="bullet">•</span>
+                    <span>MOTION & EDITING</span> <span class="bullet">•</span>
+                    <span>EVENT BRANDING</span> <span class="bullet">•</span>
+                    <span>CREATIVE PRODUCTION</span> <span class="bullet">•</span>
+                    <span>INDEPENDENT CREATOR SINCE 2017</span> <span class="bullet">•</span>
+                    <span>SIT IDEATHON 3.0 & 4.0</span> <span class="bullet">•</span>
+                    <span>DIGITAL + PHYSICAL MAKING</span> <span class="bullet">•</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flagship Case Study: SIT Ideathon 3.0 & 4.0 -->
+        <section class="padding-y" id="work">
+            <div class="container">
+                <div class="section-title reveal-mask">
+                    <p class="greeting reveal-line delay-1">FEATURED CASE STUDY</p>
+                    <h2 class="reveal-line">SIT IDEATHON — <span class="outline">Two Editions. One Creative Journey.</span></h2>
+                    <p class="section-intro-text reveal-line delay-2">
+                        Across Ideathon 3.0 and 4.0, I led creative production in two consecutive leadership roles—building the event's visual identity, designing its collateral, and editing the main event montages.
+                    </p>
+                </div>
+
+                <!-- Two Edition Cards Side-by-Side on Desktop -->
+                <div class="edition-cards-grid">
+                    <!-- CARD A: SIT IDEATHON 3.0 -->
+                    <div class="tilt-wrapper">
+                        <div class="tilt-element glass-card edition-card">
+                            <div class="glare"></div>
+                            <div class="edition-card-media" onclick="openCaseStudy('idt3')">
+                                <img src="assets/optimized/IDT/3/id3_banner.webp" alt="SIT Ideathon 3.0 Stage Banner" loading="lazy">
+                            </div>
+                            <div class="edition-card-body">
+                                <div>
+                                    <span class="edition-meta-tag">Vice President & Design Lead • 2024–2025</span>
+                                    <h3 class="edition-title">SIT Ideathon 3.0</h3>
+                                    <p class="edition-desc">
+                                        Visual identity and event collateral including promotional flyers, stage banners, logo treatments, tiered participant credentials, dummy checks, and the event recap video.
+                                    </p>
+                                    <div class="edition-chips">
+                                        <span class="chip">Vice President & Design Lead</span>
+                                        <span class="chip">Brandmark & Stage Banners</span>
+                                        <span class="chip">Event Recap Video</span>
+                                    </div>
+                                </div>
+                                <div class="edition-actions">
+                                    <button onclick="openCaseStudy('idt3')" class="btn primary sm magnetic" data-magnetic-strength="15">
+                                        <span class="btn-text">VIEW EDITION 3.0</span>
+                                    </button>
+                                    <button onclick="openVideoModal('fYRBwF7v4Vk', 'SIT Ideathon 3.0 — Event Recap Montage', false)" class="btn secondary sm magnetic" data-magnetic-strength="15">
+                                        <span class="btn-text">PLAY RECAP VIDEO</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD B: SIT IDEATHON 4.0 -->
+                    <div class="tilt-wrapper">
+                        <div class="tilt-element glass-card edition-card">
+                            <div class="glare"></div>
+                            <div class="edition-card-media" onclick="openCaseStudy('idt4')">
+                                <img src="assets/optimized/IDT/4/id4_backdropbanner.webp" alt="SIT Ideathon 4.0 Main Stage Backdrop" loading="lazy">
+                            </div>
+                            <div class="edition-card-body">
+                                <div>
+                                    <span class="edition-meta-tag">President & Creative Lead • 2025–2026</span>
+                                    <h3 class="edition-title">SIT Ideathon 4.0</h3>
+                                    <p class="edition-desc">
+                                        Visual identity and complete collateral suite including grand stage backdrops, red-carpet photography walls, posters, credentials, digital displays, publications, and opening montage.
+                                    </p>
+                                    <div class="edition-chips">
+                                        <span class="chip">President & Creative Lead</span>
+                                        <span class="chip">Stage & Print Collateral</span>
+                                        <span class="chip">Opening Montage</span>
+                                    </div>
+                                </div>
+                                <div class="edition-actions">
+                                    <button onclick="openCaseStudy('idt4')" class="btn primary sm magnetic" data-magnetic-strength="15">
+                                        <span class="btn-text">VIEW EDITION 4.0</span>
+                                    </button>
+                                    <button onclick="openVideoModal('3i-MoULXUFg', 'SIT Ideathon 4.0 — Opening Montage', false)" class="btn secondary sm magnetic" data-magnetic-strength="15">
+                                        <span class="btn-text">PLAY OPENING MONTAGE</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Motion & Editing Section (Clean Unbroken 3-Column Grid) -->
+        <section class="padding-y" id="motion" style="padding-top: 2rem;">
+            <div class="container">
+                <div class="section-title reveal-mask">
+                    <p class="greeting reveal-line delay-1">MOTION PORTFOLIO</p>
+                    <h2 class="reveal-line">MOTION & <span class="outline">EDITING</span></h2>
+                    <p class="section-intro-text reveal-line delay-2">
+                        Music-led gaming edits, tournament announcements, promotional trailers, and experimental 3D sequences exploring timing, velocity curves, sound synchronization, and pacing.
+                    </p>
+                </div>
+
+                <!-- Unbroken 3-Column Grid populated dynamically with 6 cards -->
+                <div class="motion-grid" id="motionGridContainer">
+                    <!-- Populated dynamically via script.js from PORTFOLIO_DATA.motionWorks -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Perspectives Section: Creative Arts & Computer Science (Equal Heights & Aligned Bottoms) -->
+        <section class="padding-y" id="about" style="background: rgba(255, 255, 255, 0.015); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+            <div class="container relative">
+                <div class="bg-letter outline">MIND</div>
+                <div class="section-title reveal-mask text-center">
+                    <p class="greeting reveal-line delay-1" style="color: var(--accent-cyan); letter-spacing: 2px;">PERSPECTIVES</p>
+                    <h2 class="reveal-line">Creative instinct. <span class="outline">Engineering perspective.</span></h2>
+                </div>
+
+                <div class="dual-grid mt-4">
+                    <!-- Creative Card -->
+                    <div class="tilt-wrapper">
+                        <div class="tilt-element glass-card dual-card">
+                            <div class="glare"></div>
+                            <div class="dual-card-body">
+                                <span class="project-tag" style="color: var(--accent-cyan); margin-bottom: 0.5rem; display: block;">PRACTICAL CRAFT</span>
+                                <h3>Creative Arts & Motion</h3>
+                                <p class="lead">
+                                    Practical experimentation across graphic design, photo manipulation, promotional layouts, event collateral, and video editing.
+                                </p>
+                                <ul class="dual-list">
+                                    <li>
+                                        <span class="bullet-dot">✦</span>
+                                        <span><strong>Photoshop:</strong> compositing, photo manipulation, and layout work.</span>
+                                    </li>
+                                    <li>
+                                        <span class="bullet-dot">✦</span>
+                                        <span><strong>Premiere Pro:</strong> editing, pacing, transitions, and music synchronization.</span>
+                                    </li>
+                                    <li>
+                                        <span class="bullet-dot">✦</span>
+                                        <span><strong>Event collateral:</strong> posters, invitations, credentials, backdrops, and digital displays.</span>
+                                    </li>
+                                    <li>
+                                        <span class="bullet-dot">✦</span>
+                                        <span><strong>Motion & experimental:</strong> short-form trailers and selected 3D sequences.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="dual-card-footer">
+                                <div style="margin-bottom: 1.25rem;">
+                                    <a id="behanceProfileLink" href="https://www.behance.net/technologyhell" target="_blank" class="btn sm secondary magnetic" data-magnetic-strength="15">
+                                        <span class="btn-text">VIEW BEHANCE PORTFOLIO ↗</span>
+                                    </a>
+                                </div>
+                                <div class="stack-icons">
+                                    <span class="chip">Photoshop</span>
+                                    <span class="chip">Premiere Pro</span>
+                                    <span class="chip">After Effects</span>
+                                    <span class="chip">Blender</span>
+                                    <span class="chip">Filmora</span>
+                                    <span class="chip">Lightroom</span>
+                                    <span class="chip">Canva</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Card (Backend, Systems, OOP & Hardware Focus) -->
+                    <div class="tilt-wrapper">
+                        <div class="tilt-element glass-card dual-card">
+                            <div class="glare"></div>
+                            <div class="dual-card-body">
+                                <span class="project-tag" style="color: var(--accent-indigo); margin-bottom: 0.5rem; display: block;">TECHNICAL FOUNDATION</span>
+                                <h3>Computer Science & Technology</h3>
+                                <p class="lead">
+                                    An engineering foundation in object-oriented programming, relational databases, backend services, and hardware prototyping.
+                                </p>
+                                <ul class="dual-list">
+                                    <li>
+                                        <span class="bullet-dot">✦</span>
+                                        <span><strong>B.Tech in CSE (AI/ML):</strong> Siliguri Institute of Technology, CGPA 7.97.</span>
+                                    </li>
+                                    <li>
+                                        <span class="bullet-dot">✦</span>
+                                        <span><strong>DeltaX Internship:</strong> Associate Product Engineer intern developing modular backend console applications, REST APIs, and SQL Server database schemas using C# and OOP principles.</span>
+                                    </li>
+                                    <li>
+                                        <span class="bullet-dot">✦</span>
+                                        <span><strong>Hardware & Systems:</strong> TechDeck programmable macropad prototyping with CAD in CATIA V5, custom firmware, and Python macro engine.</span>
+                                    </li>
+                                    <li>
+                                        <span class="bullet-dot">✦</span>
+                                        <span><strong>Cloud & Networking:</strong> foundational interests in server infrastructure, network-attached storage, and secure data wiping utilities.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="dual-card-footer">
+                                <div style="margin-bottom: 1.25rem;">
+                                    <a href="https://nitish.technologyhell.in/" target="_blank" class="btn sm secondary magnetic" data-magnetic-strength="15">
+                                        <span class="btn-text">EXPLORE TECH PORTFOLIO ↗</span>
+                                    </a>
+                                </div>
+                                <div class="stack-icons">
+                                    <span class="chip">C# & OOP</span>
+                                    <span class="chip">SQL Server</span>
+                                    <span class="chip">REST APIs</span>
+                                    <span class="chip">Python</span>
+                                    <span class="chip">Hardware Prototyping</span>
+                                    <span class="chip">Git & Bitbucket</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Creative Archive (6 Primary Tabs ONLY; NO Search/Dropdown UI; 4-Card Preview with Dedicated Category Pages) -->
+        <section class="grid-projects padding-y" id="archive">
+            <div class="container relative">
+                <div class="bg-letter outline">GFX</div>
+                <div class="section-title reveal-mask text-right">
+                    <p class="greeting reveal-line delay-1" style="color: var(--accent-cyan); letter-spacing: 2px;">EXPLORATION & ARCHIVE</p>
+                    <h2 class="reveal-line">Creative <span class="outline">Archive.</span></h2>
+                </div>
+
+                <!-- Archive Controls: ONLY the 6 Primary Tabs -->
+                <div class="archive-controls mt-2">
+                    <div class="filter-bar-primary">
+                        <button class="filter-pill active" data-category="featured">Featured</button>
+                        <button class="filter-pill" data-category="branding">Branding & Identity</button>
+                        <button class="filter-pill" data-category="graphics">Graphic Design</button>
+                        <button class="filter-pill" data-category="motion">Motion & Video</button>
+                        <button class="filter-pill" data-category="3d">3D & Mockups</button>
+                        <button class="filter-pill" data-category="social">Social Content</button>
+                    </div>
+                </div>
+
+                <!-- Bento Grid Container (Up to 4 curated cards) -->
+                <div class="bento-grid" id="bentoGridContainer">
+                    <!-- Populated dynamically via script.js -->
+                </div>
+
+                <!-- Bottom Explore Action Button (Opens Dedicated Category Route) -->
+                <div class="archive-action-wrap">
+                    <button id="archiveCategoryActionBtn" class="btn secondary magnetic" data-magnetic-strength="15">
+                        <span class="btn-text" id="archiveActionBtnText">EXPLORE ALL WORKS →</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beyond the Canvas: Creator Journey & Community Metrics (Clickable Platforms & Balanced Baselines) -->
+        <section class="padding-y" id="creator-journey" style="background: rgba(255, 255, 255, 0.015); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+            <div class="container relative">
+                <div class="bg-letter outline">COMM</div>
+                <div class="section-title reveal-mask">
+                    <p class="greeting reveal-line delay-1" style="color: var(--accent-cyan); letter-spacing: 2px;">AUDIENCE & PUBLISHING</p>
+                    <h2 class="reveal-line">Beyond the <span class="outline">Canvas.</span></h2>
+                    <p class="hero-desc reveal-line delay-2" style="max-width: 750px; margin-top: 0.5rem; color: var(--text-muted);">
+                        Years of creating, editing, publishing, and building communities around digital content.
+                    </p>
+                </div>
+
+                <div class="creator-stats-grid">
+                    <!-- YouTube Card -->
+                    <div class="tilt-wrapper">
+                        <div class="tilt-element glass-card creator-card">
+                            <div class="glare"></div>
+                            <div>
+                                <div class="creator-card-header">
+                                    <a href="https://www.youtube.com/technologyhell" target="_blank" class="platform-tag" title="Visit YouTube Channel">YOUTUBE ↗</a>
+                                    <span style="font-family: monospace; font-size: 0.8rem; color: var(--text-muted);">Started May 2017</span>
+                                </div>
+                                <div class="creator-metric-zone">
+                                    <div class="stat-highlight">3M+</div>
+                                    <div class="stat-sublabel">Lifetime Channel Views</div>
+                                    <div style="display: flex; gap: 0.6rem; align-items: baseline; margin-top: 0.25rem;">
+                                        <span style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: #fff;">~5,730</span>
+                                        <span style="font-family: monospace; font-size: 0.8rem; color: var(--text-muted);">Subscribers</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="stat-desc">
+                                Long-term content creation covering tutorials, gameplay edits, DIY projects, and technology videos across 7+ years of active publishing.
+                            </p>
+                            <div>
+                                <a href="https://www.youtube.com/technologyhell" target="_blank" class="btn sm secondary magnetic" data-magnetic-strength="15">
+                                    <span class="btn-text">VISIT CHANNEL ↗</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Discord Community Card -->
+                    <div class="tilt-wrapper">
+                        <div class="tilt-element glass-card creator-card">
+                            <div class="glare"></div>
+                            <div>
+                                <div class="creator-card-header">
+                                    <a href="https://discord.com/invite/6ME9TDt" target="_blank" class="platform-tag" style="color: var(--accent-indigo); border-color: rgba(79,172,254,0.3);" title="Join Discord Community">DISCORD ↗</a>
+                                    <span style="font-family: monospace; font-size: 0.8rem; color: var(--text-muted);">Est. May 2021</span>
+                                </div>
+                                <div class="creator-metric-zone">
+                                    <div class="stat-highlight">2,660+</div>
+                                    <div class="stat-sublabel">Total Community Size</div>
+                                    <div style="margin-top: 0.25rem;">
+                                        <span style="font-family: monospace; font-size: 0.8rem; color: var(--text-muted);">Supporters & Gaming Hub</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="stat-desc">
+                                Community hub for YouTube channel supporters, gaming enthusiasts, creative feedback, and technical discussions. (Total community membership size).
+                            </p>
+                            <div>
+                                <a href="https://discord.com/invite/6ME9TDt" target="_blank" class="btn sm secondary magnetic" data-magnetic-strength="15">
+                                    <span class="btn-text">JOIN SERVER ↗</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Instagram Card (No Prominent Follower Count Displayed) -->
+                    <div class="tilt-wrapper">
+                        <div class="tilt-element glass-card creator-card">
+                            <div class="glare"></div>
+                            <div>
+                                <div class="creator-card-header">
+                                    <a href="https://www.instagram.com/technologyhell/" target="_blank" class="platform-tag" title="Visit Instagram Profile">INSTAGRAM ↗</a>
+                                    <span style="font-family: monospace; font-size: 0.8rem; color: var(--text-muted);">@technologyhell</span>
+                                </div>
+                                <div class="creator-metric-zone">
+                                    <div class="stat-highlight" style="font-size: 2.1rem; letter-spacing: 0;">REELS &amp; VISUALS</div>
+                                    <div class="stat-sublabel">Short-Form Creative Channel</div>
+                                    <div style="margin-top: 0.25rem;">
+                                        <span style="font-family: monospace; font-size: 0.8rem; color: var(--text-muted);">Experiments &amp; Photography</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="stat-desc">
+                                Supporting creative channel dedicated to short-form video reels, creative experiments, gaming edits, and product photography.
+                            </p>
+                            <div>
+                                <a href="https://www.instagram.com/technologyhell/" target="_blank" class="btn sm secondary magnetic" data-magnetic-strength="15">
+                                    <span class="btn-text">VIEW REELS ↗</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Historical Note -->
+                <div class="creator-footnote">
+                    <span style="color: var(--accent-cyan); font-weight: bold;">✦ Historical note:</span>
+                    <span>An earlier Facebook creator page surpassed 600 followers before being compromised, representing an early chapter in multi-platform content distribution.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beyond the Screen: Physical Products & Prototyping (Equal Heights) -->
+        <section class="padding-y" id="physical-creations">
+            <div class="container relative">
+                <div class="bg-letter left outline">BUILD</div>
+                <div class="section-title reveal-mask">
+                    <p class="greeting reveal-line delay-1" style="color: var(--accent-cyan); letter-spacing: 2px;">PHYSICAL & FABRICATION</p>
+                    <h2 class="reveal-line">Beyond the <span class="outline">Screen.</span></h2>
+                    <p class="hero-desc reveal-line delay-2" style="max-width: 750px; margin-top: 0.5rem; color: var(--text-muted);">
+                        Physical products, prototypes, and experimental builds that connect digital creativity with hands-on execution.
+                    </p>
+                </div>
+
+                <div class="physical-grid">
+                    <!-- Project 1: TechDeck Macropad -->
+                    <div class="tilt-wrapper">
+                        <div class="tilt-element glass-card physical-card">
+                            <div class="glare"></div>
+                            <div class="physical-img-wrap" onclick="openProjectLightbox('techdeck-hardware')">
+                                <img src="assets/optimized/techdeck_physical.webp" alt="TechDeck Macropad" class="physical-img" loading="lazy">
+                            </div>
+                            <div class="physical-body">
+                                <div class="physical-info">
+                                    <span class="project-tag" style="margin-bottom: 0.4rem; display: inline-block;">Physical Hardware • 2025–2026</span>
+                                    <h4>TechDeck Macropad</h4>
+                                    <p>Standalone programmable macro keypad with a custom FDM 3D-printed enclosure modeled in CATIA V5, integrated with custom firmware and dynamic Python macro mappings.</p>
+                                </div>
+                                <div class="physical-bottom">
+                                    <div class="stack-icons" style="margin-bottom: 1rem;">
+                                        <span class="chip">🥇 CDAC Rank #1</span>
+                                        <span class="chip">🏆 4th Globally IHMMC '26</span>
+                                    </div>
+                                    <button onclick="openProjectLightbox('techdeck-hardware')" class="btn sm secondary magnetic" data-magnetic-strength="15">
+                                        <span class="btn-text">VIEW DETAILS ↗</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Custom Play Button -->
+                    <div class="tilt-wrapper">
+                        <div class="tilt-element glass-card physical-card">
+                            <div class="glare"></div>
+                            <div class="physical-img-wrap" onclick="openVideoModal('n7gZTElnXp0', 'Custom 1K Subscriber Creator Award (Unofficial Milestone Piece)', false)">
+                                <img src="assets/optimized/play_button_custom.webp" alt="Custom 1K Creator Award" class="physical-img" loading="lazy">
+                                <div class="video-play-badge">
+                                    <div class="video-play-btn">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" style="transform: translateX(2px);"><path d="M8 5v14l11-7z"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="physical-body">
+                                <div class="physical-info">
+                                    <span class="project-tag" style="margin-bottom: 0.4rem; display: inline-block;">Custom Fabrication • 2020</span>
+                                    <h4>Custom 1K Creator Award</h4>
+                                    <p>Unofficial custom-made creator award piece fabricated to celebrate crossing 1,000 YouTube subscribers, exploring material layering, metallic finishing, and plaque layout.</p>
+                                </div>
+                                <div class="physical-bottom">
+                                    <div class="stack-icons" style="margin-bottom: 1rem;">
+                                        <span class="chip">Unofficial Custom Plaque</span>
+                                        <span class="chip">1,000 Subs Milestone</span>
+                                    </div>
+                                    <button onclick="openVideoModal('n7gZTElnXp0', 'Custom 1K Subscriber Creator Award (Unofficial Milestone Piece)', false)" class="btn sm secondary magnetic" data-magnetic-strength="15">
+                                        <span class="btn-text">PLAY VIDEO ↗</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: 3D Printing & Additive Manufacturing -->
+                    <div class="tilt-wrapper">
+                        <div class="tilt-element glass-card physical-card">
+                            <div class="glare"></div>
+                            <div class="physical-img-wrap" onclick="openProjectLightbox('3d-printing-prototyping')">
+                                <img src="assets/optimized/Posters/3dprintingWorkshopPoster.webp" alt="Additive Manufacturing & Structural CAD" class="physical-img" loading="lazy">
+                            </div>
+                            <div class="physical-body">
+                                <div class="physical-info">
+                                    <span class="project-tag" style="margin-bottom: 0.4rem; display: inline-block;">CAD & Additive Manufacturing • 2025</span>
+                                    <h4>Additive Manufacturing & CAD</h4>
+                                    <p>Hands-on 3D CAD modeling in CATIA V5, slicing calibration, and print-bed tolerance testing for functional enclosures under the CDAC training programme.</p>
+                                </div>
+                                <div class="physical-bottom">
+                                    <div class="stack-icons" style="margin-bottom: 1rem;">
+                                        <span class="chip">CATIA V5</span>
+                                        <span class="chip">CDAC Training Program</span>
+                                    </div>
+                                    <button onclick="openProjectLightbox('3d-printing-prototyping')" class="btn sm secondary magnetic" data-magnetic-strength="15">
+                                        <span class="btn-text">VIEW DETAILS ↗</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recognition / Hall of Fame (Balanced Card Text Density) -->
+        <section class="achievements-section padding-y" id="recognition">
+            <div class="container relative">
+                <div class="bg-letter left outline">AWARDS</div>
+                <div class="section-title reveal-mask">
+                    <p class="greeting reveal-line delay-1" style="color: var(--accent-cyan); letter-spacing: 2px;">RECOGNITION & HONORS</p>
+                    <h2 class="reveal-line">Hall of <span class="outline">Fame.</span></h2>
+                </div>
+
+                <div class="achievements-grid mt-4">
+                    <!-- 1. DesignCon 1st Runner-up -->
+                    <div class="tilt-wrapper">
+                        <div class="tilt-element glass-card achievement-card">
+                            <div class="glare"></div>
+                            <span class="project-tag" style="margin-bottom: 0.5rem; display: block;">Creative Recognition • April 2024</span>
+                            <h4>1st Runner-up — DesignCon</h4>
+                            <p class="description">
+                                Placed second in the visual design and digital marketing competition during the college annual tech-management fest.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 2. SIT Ideathon Leadership & Creative Production (Shortened & Balanced) -->
+                    <div class="tilt-wrapper">
+                        <div class="tilt-element glass-card achievement-card">
+                            <div class="glare"></div>
+                            <span class="project-tag" style="margin-bottom: 0.5rem; display: block;">Institutional Leadership • 2024 – 2026</span>
+                            <h4>SIT Ideathon 3.0 & 4.0 — Leadership & Creative Production</h4>
+                            <p class="description">
+                                Served as Vice President for 3.0 and President for 4.0, contributing to event visual identity, collateral design, and media production across both editions.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 3. IHMMC 2026 4th Position -->
+                    <div class="tilt-wrapper">
+                        <div class="tilt-element glass-card achievement-card">
+                            <div class="glare"></div>
+                            <span class="project-tag" style="margin-bottom: 0.5rem; display: block;">Hardware Competition • February 2026</span>
+                            <h4>4th Position — IHMMC 2026</h4>
+                            <p class="description">
+                                Placed 4th among 180+ teams at the Innovative Hardware Model Making Competition hosted by Asansol Engineering College with the TechDeck macropad.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 4. CDAC Additive Manufacturing #1 Ranked Project -->
+                    <div class="tilt-wrapper">
+                        <div class="tilt-element glass-card achievement-card">
+                            <div class="glare"></div>
+                            <span class="project-tag" style="margin-bottom: 0.5rem; display: block;">Technical Training Ranking • July 2025</span>
+                            <h4>#1 Ranked Project — CDAC Additive Manufacturing</h4>
+                            <p class="description">
+                                Project ranked first during the CDAC 3D Printing and Additive Manufacturing training programme.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 5. SIT Hack-A-Verse Winner -->
+                    <div class="tilt-wrapper">
+                        <div class="tilt-element glass-card achievement-card">
+                            <div class="glare"></div>
+                            <span class="project-tag" style="margin-bottom: 0.5rem; display: block;">College Hackathon • April 2025</span>
+                            <h4>Winner — SIT Hack-A-Verse</h4>
+                            <p class="description">
+                                First place at the college-level hackathon organized by the Computer Engineering Society, developing a modern institutional web platform.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 6. Smart India Hackathon Internal Winner -->
+                    <div class="tilt-wrapper">
+                        <div class="tilt-element glass-card achievement-card">
+                            <div class="glare"></div>
+                            <span class="project-tag" style="margin-bottom: 0.5rem; display: block;">Internal Selection • August 2025</span>
+                            <h4>Winner — Smart India Hackathon (Internal)</h4>
+                            <p class="description">
+                                Selected as winner in the college-level internal evaluation for Smart India Hackathon with a secure data-wiping utility project.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Experience (Concise, Value-Focused Professional Highlights) -->
+        <section class="experience padding-y" id="experience">
+            <div class="container relative">
+                <div class="bg-letter outline">TIME</div>
+                <div class="section-title reveal-mask">
+                    <p class="greeting reveal-line delay-1" style="color: var(--accent-cyan); letter-spacing: 2px;">CAREER HIGHLIGHTS</p>
+                    <h2 class="reveal-line">Selected <span class="outline">Experience.</span></h2>
+                </div>
+
+                <div class="timeline-container">
+                    <!-- Entry A: SIT Ideathon Creative Leadership -->
+                    <div class="timeline-row">
+                        <div class="time">2024 – 2026</div>
+                        <div class="role-group">
+                            <h4>SIT Ideathon — Creative Leadership</h4>
+                            <span class="company">Siliguri Institute of Technology</span>
+                            <div>
+                                <a href="#work" class="timeline-link">VIEW FLAGSHIP CASE STUDY →</a>
+                            </div>
+                        </div>
+                        <div class="timeline-desc">
+                            Combined Vice Presidential (3.0) and Presidential (4.0) leadership with comprehensive creative direction across two editions. Directed the complete event visual identity, large-format stage backdrops, red-carpet photography walls, credentials, publications, and music-synchronized video montages.
+                        </div>
+                    </div>
+
+                    <!-- Entry B: Creative Internships & Client Work -->
+                    <div class="timeline-row">
+                        <div class="time">2023 – 2024</div>
+                        <div class="role-group">
+                            <h4>Creative Internships & Client Work</h4>
+                            <span class="company">WebMarvel • Tann Mann Gaadi • VLE Bazaar</span>
+                        </div>
+                        <div class="timeline-desc">
+                            Delivered social media graphics, promotional videos, product unboxings, and brand identity concepts. Managed intern coordination and client acquisition at WebMarvel, produced health and awareness media for Tann Mann Gaadi Foundation, and created ecommerce video collateral for VLE Bazaar.
+                        </div>
+                    </div>
+
+                    <!-- Entry C: Independent Creation & Publishing -->
+                    <div class="timeline-row">
+                        <div class="time">2017 ONWARD</div>
+                        <div class="role-group">
+                            <h4>Independent Creation & Content Publishing</h4>
+                            <span class="company">@TechnologyHell (YouTube & Community)</span>
+                            <div>
+                                <a href="#creator-journey" class="timeline-link">VIEW CREATOR JOURNEY →</a>
+                            </div>
+                        </div>
+                        <div class="timeline-desc">
+                            Over 7 years of self-directed digital publishing, producing 10+ rhythm-synchronized gameplay montages with non-linear time remapping, 3D worldbuilding in Blender ('Submerged Civilization'), hardware guides, and nurturing a 2,660+ member Discord community.
+                        </div>
+                    </div>
+
+                    <!-- Entry D: DeltaX Software Engineering Internship -->
+                    <div class="timeline-row">
+                        <div class="time">FEB – SEP 2026</div>
+                        <div class="role-group">
+                            <h4>Software Engineering Internship</h4>
+                            <span class="company">DeltaX (Associate Product Engineer Intern)</span>
+                            <div>
+                                <a href="https://nitish.technologyhell.in/" target="_blank" class="timeline-link">VIEW TECH PORTFOLIO ↗</a>
+                            </div>
+                        </div>
+                        <div class="timeline-desc">
+                            Developed modular backend console applications and REST APIs using C# and ASP.NET Core. Designed structured SQL Server relational database schemas and practiced collaborative code workflows using Git and Bitbucket.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Contact -->
+        <footer class="footer padding-y" id="contact">
+            <div class="container text-center relative">
+                <div class="bg-letter outline">TALK</div>
+                <p class="display-sm mb-4">HAVE A CREATIVE PROJECT IN MIND?</p>
+                <a href="mailto:nitishsinghslg@gmail.com" class="circle-btn magnetic-huge" data-magnetic-strength="50">
+                    <span>LET'S TALK</span>
+                </a>
+                
+                <div class="footer-bottom">
+                    <div class="socials">
+                        <a href="https://www.linkedin.com/in/nitishsinghslg/" target="_blank" class="hover-blur">LINKEDIN</a>
+                        <a href="https://github.com/TechnologyHell" target="_blank" class="hover-blur">GITHUB</a>
+                        <a href="https://nitish.technologyhell.in/" target="_blank" class="hover-blur">TECH PORTFOLIO</a>
+                    </div>
+                    <div class="copy" style="color: var(--text-muted); font-size: 0.85rem; font-family: monospace;">
+                        &copy; 2026 NITISH SINGH • DESIGN &bull; MOTION &bull; PRODUCTION
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Dedicated Full-Screen Case Study View Overlay -->
+    <div id="caseStudyView" class="case-study-overlay" role="dialog" aria-modal="true" aria-label="Flagship Case Study Details">
+        <div class="case-study-topbar">
+            <button class="case-study-back-btn" onclick="closeCaseStudy()" aria-label="Back to Portfolio">
+                <span>← BACK TO PORTFOLIO</span>
+            </button>
+            <span style="font-family: monospace; font-size: 0.8rem; color: var(--text-muted);">ESC TO CLOSE</span>
+        </div>
+        <div id="caseStudyContent" class="case-study-content">
+            <!-- Dynamically populated via script.js -->
+        </div>
+    </div>
+
+    <!-- Dedicated Full-Screen Category Collection Page Overlay -->
+    <div id="categoryPageView" class="category-page-overlay" role="dialog" aria-modal="true" aria-label="Category Works Collection">
+        <div class="case-study-topbar">
+            <button class="case-study-back-btn" onclick="closeCategoryPage()" aria-label="Back to Portfolio">
+                <span>← BACK TO PORTFOLIO</span>
+            </button>
+            <span id="categoryPageCountBadge" style="font-family: monospace; font-size: 0.8rem; color: var(--accent-cyan);">COLLECTION</span>
+        </div>
+        <div class="case-study-content">
+            <div style="margin-bottom: 3rem;">
+                <span class="project-tag" style="color: var(--accent-cyan); font-size: 0.85rem;">COMPLETE ARCHIVE</span>
+                <h1 id="categoryPageTitle" class="display-sm" style="margin-top: 0.5rem; margin-bottom: 0.5rem;">CATEGORY TITLE</h1>
+                <p id="categoryPageDesc" style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.7; max-width: 800px;">Category description</p>
+            </div>
+            <div class="bento-grid" id="categoryGridContainer">
+                <!-- Populated dynamically via script.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal (High-Res Asset Previews) -->
+    <div id="lightboxModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Asset Preview">
+        <button class="modal-close-btn" onclick="closeLightboxModal()" aria-label="Close modal">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+
+        <div class="modal-container">
+            <div class="modal-image-view">
+                <button id="lightboxPrevBtn" class="modal-nav-arrow prev" onclick="prevLightboxSlide()" aria-label="Previous">
+                    <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <img id="lightboxMainImage" src="" alt="Artwork Preview">
+                <button id="lightboxNextBtn" class="modal-nav-arrow next" onclick="nextLightboxSlide()" aria-label="Next">
+                    <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M9 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+                    <span id="lightboxCategoryTag" class="project-tag" style="margin: 0; display: inline-block;">Category</span>
+                </div>
+                <h3 id="lightboxTitle" class="modal-title">Project Title</h3>
+                <p id="lightboxDescription" class="modal-desc">Project description</p>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+                    <div id="lightboxTools" style="display: flex; flex-wrap: wrap; gap: 0.4rem;"></div>
+                    <a id="lightboxRawLink" href="#" target="_blank" class="btn sm secondary magnetic" data-magnetic-strength="15">
+                        <span class="btn-text">VIEW SOURCE FILE ↗</span>
+                    </a>
+                </div>
+
+                <div id="lightboxThumbStrip" class="modal-thumbs-strip"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal (Supports YouTube Embeds and Native MP4 Videos) -->
+    <div id="videoModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Video Player">
+        <button class="modal-close-btn" onclick="closeVideoModal()" aria-label="Close video player">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+
+        <div class="modal-container" style="max-width: 920px; background: #000;">
+            <div id="videoPlayerWrap" class="video-responsive-wrap">
+                <!-- Dynamically populated via openVideoModal -->
+            </div>
+            <div style="padding: 1.25rem 2rem; background: var(--bg-darker); display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--glass-border);">
+                <h4 id="videoModalTitle" style="font-size: 1.15rem; color: #fff;">Video Title</h4>
+                <span style="font-family: monospace; font-size: 0.8rem; color: var(--text-muted);">ESC TO CLOSE</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/portfolio-data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
