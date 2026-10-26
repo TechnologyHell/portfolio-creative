@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>SIT Ideathon 3.0 — Comprehensive Event Identity & Creative Production | Nitish Singh</title>
     <meta name="description" content="Complete creative case study and collateral package for SIT Ideathon 3.0. Stage banners, brandmark, credentials, flyer brochure, dummy check, and recap montage authored by Nitish Singh.">
     <link rel="stylesheet" href="../../style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23050505'/><path d='M30 70V30L55 55V30H70V70L45 45V70H30Z' fill='%2300f2fe'/></svg>">
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
     <style>
         .study-hero {
@@ -121,6 +124,13 @@
             height: 100%;
             border: none;
         }
+        .video-embed-card {
+            cursor: default !important;
+        }
+        .video-embed-card:hover {
+            transform: none !important;
+            border-color: rgba(0, 242, 254, 0.4);
+        }
     </style>
 </head>
 
@@ -136,12 +146,10 @@
             <a href="../../index.html" class="logo magnetic" data-magnetic-strength="10">NITISH<span class="dot">.</span></a>
             <nav class="desktop-nav">
                 <ul class="nav-links">
-                    <li><a href="../../index.html" class="hover-blur nav-item">Overview</a></li>
-                    <li><a href="../../works/index.html" class="hover-blur nav-item">All Works</a></li>
-                    <li><a href="../../ideathon/4/index.html" class="hover-blur nav-item">Edition 4.0 →</a></li>
+                    <li><a href="../../works/index.html" class="hover-blur nav-item">Creations</a></li>
                     <li><a href="../../achievements/index.html" class="hover-blur nav-item">Achievements</a></li>
                     <li><a href="../../contact/index.html" class="hover-blur nav-item">Contact</a></li>
-                    <li><a href="../../assets/Nitish_Singh_Creative_Resume.pdf" target="_blank" class="hover-blur nav-item">Resume ↗</a></li>
+                    <li><a href="https://drive.google.com/file/d/1DieFi6Mk-B6EoKDMg8yGlseBv7SV4-5v/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover-blur nav-item">Resume ↗</a></li>
                 </ul>
             </nav>
             <button id="mobileNavToggle" class="mobile-nav-toggle" aria-label="Toggle navigation menu">
@@ -153,12 +161,11 @@
     <!-- Mobile Drawer -->
     <div class="mobile-menu-drawer" id="mobileMenu">
         <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&times;</button>
-        <a href="../../index.html">Overview</a>
-        <a href="../../works/index.html">All Works</a>
-        <a href="../../ideathon/4/index.html">SIT Ideathon 4.0</a>
+        <a href="../../index.html">Home</a>
+        <a href="../../works/index.html">Creations</a>
         <a href="../../achievements/index.html">Achievements</a>
         <a href="../../contact/index.html">Contact</a>
-        <a href="../../assets/Nitish_Singh_Creative_Resume.pdf" target="_blank">Resume ↗</a>
+        <a href="https://drive.google.com/file/d/1DieFi6Mk-B6EoKDMg8yGlseBv7SV4-5v/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume ↗</a>
     </div>
 
     <main class="page-content">
@@ -207,7 +214,7 @@
 
                 <!-- Video Feature Player (Recap Montage) -->
                 <div class="video-feature-wrap">
-                    <iframe src="https://www.youtube.com/embed/fYRBwF7v4Vk?rel=0&modestbranding=1" title="SIT Ideathon 3.0 Event Recap Montage" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/fYRBwF7v4Vk?si=yMYTuxpAeMr2LBxK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
@@ -328,40 +335,31 @@
                             <h4>Volunteer Crew ID Badge</h4>
                         </div>
                     </div>
-                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_idcard1.png', 'Tier 1 Credential Pass', 'Dignitary and guest credential pass')">
+                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_idcard1.png', 'Organizing Committee ID Card', 'Organizing committee credential badge')">
                         <div class="study-asset-thumb">
-                            <img src="../../_CreativeWorkCollection/IDT/3/id3_idcard1.png" alt="Tier 1 Credential Pass" loading="lazy">
+                            <img src="../../_CreativeWorkCollection/IDT/3/id3_idcard1.png" alt="Organizing Committee ID Card" loading="lazy">
                         </div>
                         <div class="study-asset-body">
                             <span class="asset-type">Credential Badge</span>
-                            <h4>Dignitary & Guest Access Pass</h4>
+                            <h4>Organizing Committee ID Card</h4>
                         </div>
                     </div>
-                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_idcard2.png', 'Tier 2 Credential Pass', 'Jury credential pass')">
+                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_idcard2.png', 'Organizing Committee ID Card', 'Organizing committee credential badge')">
                         <div class="study-asset-thumb">
-                            <img src="../../_CreativeWorkCollection/IDT/3/id3_idcard2.png" alt="Tier 2 Credential Pass" loading="lazy">
+                            <img src="../../_CreativeWorkCollection/IDT/3/id3_idcard2.png" alt="Organizing Committee ID Card" loading="lazy">
                         </div>
                         <div class="study-asset-body">
                             <span class="asset-type">Credential Badge</span>
-                            <h4>Jury Evaluation Pass</h4>
+                            <h4>Organizing Committee ID Card</h4>
                         </div>
                     </div>
-                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_idcard3.png', 'Tier 3 Credential Pass', 'Organizing committee pass')">
+                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_idcard3.png', 'Organizing Committee ID Card', 'Organizing committee credential badge')">
                         <div class="study-asset-thumb">
-                            <img src="../../_CreativeWorkCollection/IDT/3/id3_idcard3.png" alt="Tier 3 Credential Pass" loading="lazy">
+                            <img src="../../_CreativeWorkCollection/IDT/3/id3_idcard3.png" alt="Organizing Committee ID Card" loading="lazy">
                         </div>
                         <div class="study-asset-body">
                             <span class="asset-type">Credential Badge</span>
-                            <h4>Organizing Committee Pass</h4>
-                        </div>
-                    </div>
-                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_idcard4.png', 'Tier 4 Credential Pass', 'Technical operations pass')">
-                        <div class="study-asset-thumb">
-                            <img src="../../_CreativeWorkCollection/IDT/3/id3_idcard4.png" alt="Tier 4 Credential Pass" loading="lazy">
-                        </div>
-                        <div class="study-asset-body">
-                            <span class="asset-type">Credential Badge</span>
-                            <h4>Technical Operations Pass</h4>
+                            <h4>Organizing Committee ID Card</h4>
                         </div>
                     </div>
                 </div>
@@ -375,29 +373,29 @@
                     <h3>05. Motion Visuals & Timeline Breakdown</h3>
                     <p>Stage backdrop animations and behind-the-scenes editing timeline breakdown of the multi-track video master cut.</p>
                 </div>
-                <div class="study-media-grid">
-                    <div class="study-asset-card" onclick="openVideoModal('FxehnLpjCeI', 'Ideathon 3.0 — Premiere Pro Timeline Breakdown', false)">
-                        <div class="study-asset-thumb">
-                            <img src="../../_CreativeWorkCollection/Thumbnails/ideathon/id3_premiere.png" alt="Premiere Pro Timeline Breakdown" loading="lazy">
-                            <div class="video-play-badge">
-                                <div class="video-play-btn"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" style="transform: translateX(2px);"><path d="M8 5v14l11-7z"/></svg></div>
-                            </div>
+                <div class="study-media-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));">
+                    <div class="study-asset-card video-embed-card">
+                        <div class="video-feature-wrap" style="aspect-ratio: 16/9; border-radius: 14px 14px 0 0; border: none; box-shadow: none;">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/FxehnLpjCeI?si=9EHiTuFnkdOiDHy3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                         <div class="study-asset-body">
                             <span class="asset-type">Editing Breakdown</span>
                             <h4>Premiere Pro Multi-Track Timeline Breakdown</h4>
+                            <div style="margin-top: 0.75rem;">
+                                <a href="https://www.youtube.com/watch?v=FxehnLpjCeI" target="_blank" rel="noopener noreferrer" class="timeline-link" style="font-size: 0.8rem;">WATCH ON YOUTUBE ↗</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="study-asset-card" onclick="openVideoModal('fmkYAUBqaiM', 'Ideathon 3.0 — Backdrop Loop Animation', false)">
-                        <div class="study-asset-thumb">
-                            <img src="../../_CreativeWorkCollection/Thumbnails/ideathon/id3_backdrop.png" alt="Backdrop Loop Animation" loading="lazy">
-                            <div class="video-play-badge">
-                                <div class="video-play-btn"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" style="transform: translateX(2px);"><path d="M8 5v14l11-7z"/></svg></div>
-                            </div>
+                    <div class="study-asset-card video-embed-card">
+                        <div class="video-feature-wrap" style="aspect-ratio: 16/9; border-radius: 14px 14px 0 0; border: none; box-shadow: none;">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/fmkYAUBqaiM?si=z2m1j7bDjEujyKhj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                         <div class="study-asset-body">
                             <span class="asset-type">Stage Motion Graphic</span>
                             <h4>Auditorium Stage Backdrop Loop Animation</h4>
+                            <div style="margin-top: 0.75rem;">
+                                <a href="https://www.youtube.com/watch?v=fmkYAUBqaiM" target="_blank" rel="noopener noreferrer" class="timeline-link" style="font-size: 0.8rem;">WATCH ON YOUTUBE ↗</a>
+                            </div>
                         </div>
                     </div>
                 </div>

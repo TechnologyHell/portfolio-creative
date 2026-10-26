@@ -188,7 +188,7 @@ function initPersistentDraggableBtn() {
         if (!dragBtnText) return;
         if (window.innerWidth <= 768) {
             dragBtnText.textContent = 'RESUME';
-            dragBtn.href = fixPath('assets/Nitish_Singh_Creative_Resume.pdf');
+            dragBtn.href = 'https://drive.google.com/file/d/1DieFi6Mk-B6EoKDMg8yGlseBv7SV4-5v/view?usp=sharing';
             dragBtn.target = '_blank';
         } else {
             dragBtnText.textContent = 'CONNECT';
@@ -639,7 +639,7 @@ function openVideoModal(source, title, isLocal = false) {
         const ytId = extractYouTubeId(source);
         const embedUrl = `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1`;
         wrap.innerHTML = `
-            <iframe src="${embedUrl}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; border: none;"></iframe>
+            <iframe id="videoIframe" src="${embedUrl}" title="${title || 'Video Player'}" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="width: 100%; height: 100%; border: none;"></iframe>
         `;
         if (!ytLinkEl) {
             const footer = modal.querySelector('.modal-container > div:last-child');

@@ -8,7 +8,7 @@ const PORTFOLIO_DATA = {
     email: "nitishsinghslg@gmail.com",
     phone: "+91 78118 38862",
     experienceYears: "9+",
-    resumeUrl: "assets/Nitish_Singh_Creative_Resume.pdf",
+    resumeUrl: "https://drive.google.com/file/d/1DieFi6Mk-B6EoKDMg8yGlseBv7SV4-5v/view?usp=sharing",
     socials: {
       linkedin: "https://www.linkedin.com/in/nitishsinghslg/",
       github: "https://github.com/TechnologyHell",
@@ -155,10 +155,9 @@ const PORTFOLIO_DATA = {
           items: [
             { src: "_CreativeWorkCollection/IDT/3/id3_idcardparticipant.png", original: "_CreativeWorkCollection/IDT/3/id3_idcardparticipant.png", title: "Participant ID Badge", type: "Credential Badge" },
             { src: "_CreativeWorkCollection/IDT/3/id3_idcardvolunteer.png", original: "_CreativeWorkCollection/IDT/3/id3_idcardvolunteer.png", title: "Volunteer Crew ID Badge", type: "Credential Badge" },
-            { src: "_CreativeWorkCollection/IDT/3/id3_idcard1.png", original: "_CreativeWorkCollection/IDT/3/id3_idcard1.png", title: "Tier 1 Credential Pass", type: "Credential Badge" },
-            { src: "_CreativeWorkCollection/IDT/3/id3_idcard2.png", original: "_CreativeWorkCollection/IDT/3/id3_idcard2.png", title: "Tier 2 Credential Pass", type: "Credential Badge" },
-            { src: "_CreativeWorkCollection/IDT/3/id3_idcard3.png", original: "_CreativeWorkCollection/IDT/3/id3_idcard3.png", title: "Tier 3 Credential Pass", type: "Credential Badge" },
-            { src: "_CreativeWorkCollection/IDT/3/id3_idcard4.png", original: "_CreativeWorkCollection/IDT/3/id3_idcard4.png", title: "Tier 4 Credential Pass", type: "Credential Badge" },
+            { src: "_CreativeWorkCollection/IDT/3/id3_idcard1.png", original: "_CreativeWorkCollection/IDT/3/id3_idcard1.png", title: "Organizing Committee ID Card", type: "Credential Badge" },
+            { src: "_CreativeWorkCollection/IDT/3/id3_idcard2.png", original: "_CreativeWorkCollection/IDT/3/id3_idcard2.png", title: "Organizing Committee ID Card", type: "Credential Badge" },
+            { src: "_CreativeWorkCollection/IDT/3/id3_idcard3.png", original: "_CreativeWorkCollection/IDT/3/id3_idcard3.png", title: "Organizing Committee ID Card", type: "Credential Badge" },
             { src: "_CreativeWorkCollection/IDT/3/id3_dummycheck.jpg", original: "_CreativeWorkCollection/IDT/3/id3_dummycheck.jpg", title: "Cash Prize Dummy Check", type: "Ceremonial Check" }
           ]
         }
@@ -2121,25 +2120,19 @@ const PORTFOLIO_DATA = {
             {
                 "src": "_CreativeWorkCollection/IDT/3/id3_idcard1.png",
                 "original": "_CreativeWorkCollection/IDT/3/id3_idcard1.png",
-                "title": "Tier 1 Credential Pass",
+                "title": "Organizing Committee ID Card",
                 "type": "Badge"
             },
             {
                 "src": "_CreativeWorkCollection/IDT/3/id3_idcard2.png",
                 "original": "_CreativeWorkCollection/IDT/3/id3_idcard2.png",
-                "title": "Tier 2 Credential Pass",
+                "title": "Organizing Committee ID Card",
                 "type": "Badge"
             },
             {
                 "src": "_CreativeWorkCollection/IDT/3/id3_idcard3.png",
                 "original": "_CreativeWorkCollection/IDT/3/id3_idcard3.png",
-                "title": "Tier 3 Credential Pass",
-                "type": "Badge"
-            },
-            {
-                "src": "_CreativeWorkCollection/IDT/3/id3_idcard4.png",
-                "original": "_CreativeWorkCollection/IDT/3/id3_idcard4.png",
-                "title": "Tier 4 Credential Pass",
+                "title": "Organizing Committee ID Card",
                 "type": "Badge"
             }
         ]

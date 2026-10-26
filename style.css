@@ -1684,6 +1684,28 @@ button, a {
     transform: translateY(-4px);
 }
 
+.portfolios-networks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+
+@media (max-width: 900px) {
+    .portfolios-networks-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .portfolios-networks-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+[data-page="contact"] #draggable-btn {
+    display: none !important;
+}
+
 .contact-channel-icon {
     width: 48px;
     height: 48px;
