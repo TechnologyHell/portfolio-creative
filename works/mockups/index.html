@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D & Mockups | Nitish Singh — Designer & Motion Artist</title>
+    <meta name="description" content="Hard-surface 3D models, Blender compositions, device mockups, retail packaging concepts, and CAD prototypes by Nitish Singh.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body data-category="3d">
+    <script>window.IS_SUBDIR = true; window.SUBDIR_DEPTH = 2; window.PATH_PREFIX = '../../';</script>
+
+    <!-- Background Glow Follower -->
+    <div id="bg-glow"></div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo magnetic" data-magnetic-strength="10">NITISH<span class="dot">.</span></a>
+
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="../../index.html" class="hover-blur nav-item">Overview</a></li>
+                    <li><a href="../index.html" class="hover-blur nav-item">All Works</a></li>
+                    <li><a href="../../index.html#work" class="hover-blur nav-item">Case Study</a></li>
+                    <li><a href="../../achievements/index.html" class="hover-blur nav-item">Achievements</a></li>
+                    <li><a href="../../contact/index.html" class="hover-blur nav-item">Contact</a></li>
+                    <li><a href="../../assets/Nitish_Singh_Creative_Resume.pdf" target="_blank" class="hover-blur nav-item">Resume ↗</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Navigation Toggle -->
+            <button id="mobileNavToggle" class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                <span>MENU</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Drawer Overlay -->
+    <div id="mobileMenu" class="mobile-menu-drawer">
+        <button id="mobileMenuClose" class="mobile-menu-close" aria-label="Close menu">&times;</button>
+        <a href="../../index.html">Overview</a>
+        <a href="../index.html">All Works</a>
+        <a href="../branding/index.html">Branding & Identity</a>
+        <a href="../graphics/index.html">Graphic Design</a>
+        <a href="../motionvideo/index.html">Motion & Video</a>
+        <a href="index.html">3D & Mockups</a>
+        <a href="../socialcontent/index.html">Social Content</a>
+        <a href="../../achievements/index.html">Achievements</a>
+        <a href="../../contact/index.html">Contact</a>
+        <a href="../../assets/Nitish_Singh_Creative_Resume.pdf" target="_blank">Resume ↗</a>
+    </div>
+
+    <main>
+        <!-- Dedicated Category Hero & Controls -->
+        <section class="works-page-hero padding-y">
+            <div class="container relative">
+                <div class="bg-letter outline">SPATIAL</div>
+
+                <!-- Back Navigation Action -->
+                <div class="works-header-top">
+                    <a href="../../index.html" class="back-btn-pill magnetic" data-magnetic-strength="15">
+                        ← BACK TO OVERVIEW
+                    </a>
+                    <span id="worksCountBadge" style="font-family: monospace; font-size: 0.85rem; color: var(--accent-cyan); letter-spacing: 1px;">
+                        LOADING COLLECTION...
+                    </span>
+                </div>
+
+                <!-- Section Heading -->
+                <div class="section-title">
+                    <p class="greeting" style="color: var(--accent-cyan); letter-spacing: 3px;">SPATIAL RENDERS & PROTOTYPES</p>
+                    <h1 class="display-sm">3D & <span class="outline">Mockups.</span></h1>
+                    <p class="hero-desc" style="max-width: 760px; margin-top: 0.6rem; color: var(--text-muted); font-size: 1.05rem; line-height: 1.7;">
+                        Hard-surface modelling, Blender compositions, device mockups, retail packaging concepts, custom enclosures, and physical hardware prototypes.
+                    </p>
+                </div>
+
+                <!-- Category Filter Tabs (Clean Directory Navigation) -->
+                <div class="archive-controls" style="margin-top: 2.5rem; margin-bottom: 2rem;">
+                    <div class="filter-bar-primary">
+                        <a href="../index.html" class="filter-pill">All Works</a>
+                        <a href="../branding/index.html" class="filter-pill">Branding & Identity</a>
+                        <a href="../graphics/index.html" class="filter-pill">Graphic Design</a>
+                        <a href="../motionvideo/index.html" class="filter-pill">Motion & Video</a>
+                        <a href="index.html" class="filter-pill active">3D & Mockups</a>
+                        <a href="../socialcontent/index.html" class="filter-pill">Social Content</a>
+                    </div>
+                </div>
+
+                <!-- Meta Status Bar -->
+                <div class="works-meta-bar">
+                    <span>SHOWING 3D & MOCKUPS COLLECTION</span>
+                    <span style="color: var(--accent-cyan); font-weight: 700;">3D & SPATIAL MOCKUPS</span>
+                </div>
+
+                <!-- Row-Major 2-Column Works Grid -->
+                <div class="bento-grid" id="worksGridContainer">
+                    <!-- Dynamically populated via shared.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Contact CTA -->
+        <footer class="footer padding-y">
+            <div class="container text-center relative">
+                <div class="bg-letter outline">TALK</div>
+                <p class="greeting" style="color: var(--accent-cyan); letter-spacing: 3px;">COLLABORATION</p>
+                <p class="display-sm mb-4">NEED PRODUCT PACKAGING OR 3D VISUALIZATION?</p>
+                <a href="../../contact/index.html" class="circle-btn magnetic-huge" data-magnetic-strength="50">
+                    <span>LET'S TALK</span>
+                </a>
+
+                <div class="footer-bottom">
+                    <div class="socials">
+                        <a href="https://www.linkedin.com/in/nitishsinghslg/" target="_blank" class="hover-blur">LINKEDIN</a>
+                        <a href="https://github.com/TechnologyHell" target="_blank" class="hover-blur">GITHUB</a>
+                        <a href="https://www.behance.net/technologyhell" target="_blank" class="hover-blur">BEHANCE</a>
+                        <a href="https://nitish.technologyhell.in/" target="_blank" class="hover-blur">TECH PORTFOLIO</a>
+                    </div>
+                    <div class="copy" style="color: var(--text-muted); font-size: 0.85rem; font-family: monospace;">
+                        &copy; 2026 NITISH SINGH • DESIGN &bull; MOTION &bull; PRODUCTION
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Global Draggable Connect Quick Action Button (Persistent across reloads) -->
+    <a href="mailto:nitishsinghslg@gmail.com" id="draggable-btn" class="btn magnetic sm" data-magnetic-strength="20" aria-label="Connect with Nitish">
+        <span class="btn-text">CONNECT</span>
+    </a>
+
+    <!-- Modals -->
+    <div id="lightboxModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Asset Preview">
+        <button class="modal-close-btn" onclick="closeLightboxModal()" aria-label="Close modal">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="modal-container">
+            <div class="modal-image-view">
+                <button id="lightboxPrevBtn" class="modal-nav-arrow prev" onclick="prevLightboxSlide()" aria-label="Previous">
+                    <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <img id="lightboxMainImage" src="" alt="Artwork Preview">
+                <button id="lightboxNextBtn" class="modal-nav-arrow next" onclick="nextLightboxSlide()" aria-label="Next">
+                    <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M9 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+                    <span id="lightboxCategoryTag" class="project-tag" style="margin: 0; display: inline-block;">Category</span>
+                </div>
+                <h3 id="lightboxTitle" class="modal-title">Project Title</h3>
+                <p id="lightboxDescription" class="modal-desc">Project description</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+                    <div id="lightboxTools" style="display: flex; flex-wrap: wrap; gap: 0.4rem;"></div>
+                    <a id="lightboxRawLink" href="#" target="_blank" class="btn sm secondary magnetic" data-magnetic-strength="15">
+                        <span class="btn-text">VIEW SOURCE FILE ↗</span>
+                    </a>
+                </div>
+                <div id="lightboxThumbStrip" class="modal-thumbs-strip"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="videoModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Video Player">
+        <button class="modal-close-btn" onclick="closeVideoModal()" aria-label="Close video player">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="modal-container" style="max-width: 920px; background: #000;">
+            <div id="videoPlayerWrap" class="video-responsive-wrap"></div>
+            <div style="padding: 1.25rem 2rem; background: var(--bg-darker); display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--glass-border);">
+                <h4 id="videoModalTitle" style="font-size: 1.15rem; color: #fff;">Video Title</h4>
+                <span style="font-family: monospace; font-size: 0.8rem; color: var(--text-muted);">ESC TO CLOSE</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="caseStudyView" class="case-study-overlay" role="dialog" aria-modal="true" aria-label="Flagship Case Study Details">
+        <div class="case-study-topbar">
+            <button class="case-study-back-btn" onclick="closeCaseStudy()" aria-label="Back to Works">
+                <span>← BACK TO WORKS</span>
+            </button>
+            <span style="font-family: monospace; font-size: 0.8rem; color: var(--text-muted);">ESC TO CLOSE</span>
+        </div>
+        <div id="caseStudyContent" class="case-study-content"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../assets/portfolio-data.js"></script>
+    <script src="../../shared.js"></script>
+</body>
+
+</html>

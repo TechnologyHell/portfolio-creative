@@ -12,9 +12,28 @@ let currentLightboxProject = null;
 let currentGalleryIndex = 0;
 let currentLightboxGallery = [];
 
-// Helper references for interaction bindings
-let attachTiltCards = () => {};
-let attachCursorHovers = () => {};
+// Clean URL handling for live servers (removes /index.html from URL bar if hosted on http/https)
+if (window.location.protocol !== 'file:' && window.location.pathname.endsWith('/index.html')) {
+    const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash;
+    window.history.replaceState(null, '', cleanPath);
+}
+
+// Protocol-aware link handler: ensures local file:/// testing directly opens pages without folder listings
+document.addEventListener('click', (e) => {
+    if (window.location.protocol !== 'file:') return;
+    const link = e.target.closest('a');
+    if (!link) return;
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('#')) return;
+
+    if (href.endsWith('/')) {
+        e.preventDefault();
+        window.location.href = href + 'index.html';
+    } else if (href === '..' || href === '.') {
+        e.preventDefault();
+        window.location.href = href + '/index.html';
+    }
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     
@@ -238,70 +257,137 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // 8. Draggable Quick Button
+    // 8. Global Draggable Quick Button with LocalStorage Persistence
     const dragBtn = document.getElementById('draggable-btn');
-    if(dragBtn) {
+    if (dragBtn) {
+        const STORAGE_KEY = 'nitish_draggable_btn_pos';
         const dragBtnText = dragBtn.querySelector('.btn-text');
+
         function updateDragBtn() {
             if (window.innerWidth <= 768) {
-                dragBtnText.textContent = 'RESUME';
+                if (dragBtnText) dragBtnText.textContent = 'RESUME';
                 dragBtn.href = 'assets/Nitish_Singh_Creative_Resume.pdf';
                 dragBtn.target = '_blank';
             } else {
-                dragBtnText.textContent = 'CONNECT';
+                if (dragBtnText) dragBtnText.textContent = 'CONNECT';
                 dragBtn.href = 'mailto:nitishsinghslg@gmail.com';
                 dragBtn.removeAttribute('target');
             }
         }
         updateDragBtn();
         window.addEventListener('resize', updateDragBtn);
+
+        // Restore saved position on page load and reload
+        function restoreDragBtnPosition() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (!saved) return;
+            try {
+                const pos = JSON.parse(saved);
+                if (typeof pos.x === 'number' && typeof pos.y === 'number') {
+                    const width = dragBtn.offsetWidth || 120;
+                    const height = dragBtn.offsetHeight || 44;
+                    const maxX = Math.max(10, window.innerWidth - width - 10);
+                    const maxY = Math.max(10, window.innerHeight - height - 10);
+                    const clampedX = Math.max(10, Math.min(pos.x, maxX));
+                    const clampedY = Math.max(10, Math.min(pos.y, maxY));
+
+                    dragBtn.style.position = 'fixed';
+                    dragBtn.style.left = clampedX + 'px';
+                    dragBtn.style.top = clampedY + 'px';
+                    dragBtn.style.right = 'auto';
+                    dragBtn.style.bottom = 'auto';
+                }
+            } catch (e) {}
+        }
+        restoreDragBtnPosition();
+        window.addEventListener('resize', restoreDragBtnPosition);
         
         let isDragging = false;
         let hasDragged = false;
-        let startX, startY, initialLeft, initialTop;
+        let startX = 0, startY = 0;
+        let initialLeft = 0, initialTop = 0;
 
-        dragBtn.addEventListener('mousedown', (e) => {
+        function startDrag(clientX, clientY) {
             isDragging = true;
             hasDragged = false;
             dragBtn.classList.add('is-dragging');
-            e.preventDefault();
             
-            startX = e.clientX;
-            startY = e.clientY;
+            startX = clientX;
+            startY = clientY;
             
             const rect = dragBtn.getBoundingClientRect();
             initialLeft = rect.left;
             initialTop = rect.top;
             
+            dragBtn.style.position = 'fixed';
             dragBtn.style.right = 'auto';
             dragBtn.style.bottom = 'auto';
             dragBtn.style.left = initialLeft + 'px';
             dragBtn.style.top = initialTop + 'px';
-        });
+        }
 
-        window.addEventListener('mousemove', (e) => {
-            if(!isDragging) return;
+        function moveDrag(clientX, clientY) {
+            if (!isDragging) return;
+            const dx = clientX - startX;
+            const dy = clientY - startY;
             
-            const dx = e.clientX - startX;
-            const dy = e.clientY - startY;
-            
-            if(Math.abs(dx) > 5 || Math.abs(dy) > 5) {
+            if (Math.abs(dx) > 4 || Math.abs(dy) > 4) {
                 hasDragged = true;
             }
             
-            dragBtn.style.left = (initialLeft + dx) + 'px';
-            dragBtn.style.top = (initialTop + dy) + 'px';
-        });
+            const width = dragBtn.offsetWidth || 120;
+            const height = dragBtn.offsetHeight || 44;
+            let newX = initialLeft + dx;
+            let newY = initialTop + dy;
 
-        window.addEventListener('mouseup', () => {
-            if(isDragging) {
-                isDragging = false;
-                dragBtn.classList.remove('is-dragging');
+            newX = Math.max(8, Math.min(newX, window.innerWidth - width - 8));
+            newY = Math.max(8, Math.min(newY, window.innerHeight - height - 8));
+
+            dragBtn.style.left = newX + 'px';
+            dragBtn.style.top = newY + 'px';
+        }
+
+        function stopDrag() {
+            if (!isDragging) return;
+            isDragging = false;
+            dragBtn.classList.remove('is-dragging');
+
+            if (hasDragged) {
+                const rect = dragBtn.getBoundingClientRect();
+                localStorage.setItem(STORAGE_KEY, JSON.stringify({
+                    x: rect.left,
+                    y: rect.top
+                }));
             }
+        }
+
+        // Mouse listeners
+        dragBtn.addEventListener('mousedown', (e) => {
+            startDrag(e.clientX, e.clientY);
+            e.preventDefault();
         });
+        window.addEventListener('mousemove', (e) => moveDrag(e.clientX, e.clientY));
+        window.addEventListener('mouseup', stopDrag);
+
+        // Touch listeners
+        dragBtn.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                startDrag(e.touches[0].clientX, e.touches[0].clientY);
+            }
+        }, { passive: true });
+        window.addEventListener('touchmove', (e) => {
+            if (isDragging && e.touches.length === 1) {
+                moveDrag(e.touches[0].clientX, e.touches[0].clientY);
+                if (e.cancelable) e.preventDefault();
+            }
+        }, { passive: false });
+        window.addEventListener('touchend', stopDrag);
 
         dragBtn.addEventListener('click', (e) => {
-            if(hasDragged) e.preventDefault();
+            if (hasDragged) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
         });
     }
 
@@ -316,7 +402,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 11. Behance Link Configuration Binding
     setupBehanceLink();
 
-    // 12. Centralized Hash Routing (Flagship Case Studies & Category Collection Pages)
+    // 12. Centralized Hash Routing (Flagship Case Studies & Route Redirects)
     handleHashRouting();
     window.addEventListener('hashchange', handleHashRouting);
     window.addEventListener('popstate', handleHashRouting);
@@ -324,7 +410,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // 13. Keyboard Navigation for Modals & Overlays
     document.addEventListener('keydown', (e) => {
         if(e.key === 'Escape') {
-            closeCategoryPage();
             closeCaseStudy();
             closeLightboxModal();
             closeVideoModal();
@@ -349,7 +434,7 @@ document.addEventListener("DOMContentLoaded", () => {
    CENTRALIZED HASH ROUTER
    Supports:
    - #case-study/:editionId (e.g. #case-study/idt3, #case-study/idt4)
-   - #works/:route (e.g. #works/all, #works/branding, #works/graphic-design, #works/motion, #works/3d, #works/social)
+   - #works/:route (cleanly redirects to works/[category]/index.html)
    ========================================================= */
 
 function handleHashRouting() {
@@ -357,29 +442,24 @@ function handleHashRouting() {
     
     if (hash.startsWith('#case-study/')) {
         const editionId = hash.replace('#case-study/', '').trim();
-        // Close category overlay if open
-        const catView = document.getElementById('categoryPageView');
-        if (catView && catView.classList.contains('is-active')) {
-            catView.classList.remove('is-active');
-        }
         openCaseStudy(editionId, false);
     } else if (hash.startsWith('#works/')) {
         const route = hash.replace('#works/', '').trim();
-        // Close case study overlay if open
-        const csView = document.getElementById('caseStudyView');
-        if (csView && csView.classList.contains('is-active')) {
-            csView.classList.remove('is-active');
-        }
-        openCategoryPage(route, false);
+        const catMap = {
+            'all': 'works/index.html',
+            'branding': 'works/branding/index.html',
+            'graphic-design': 'works/graphics/index.html',
+            'graphics': 'works/graphics/index.html',
+            'motion': 'works/motionvideo/index.html',
+            '3d': 'works/mockups/index.html',
+            'social': 'works/socialcontent/index.html'
+        };
+        const dest = catMap[route] || 'works/index.html';
+        window.location.href = dest;
     } else {
-        // If neither overlay route is present, ensure both are closed
         const csView = document.getElementById('caseStudyView');
         if (csView && csView.classList.contains('is-active')) {
             csView.classList.remove('is-active');
-        }
-        const catView = document.getElementById('categoryPageView');
-        if (catView && catView.classList.contains('is-active')) {
-            catView.classList.remove('is-active');
         }
         document.body.style.overflow = 'initial';
     }
@@ -613,13 +693,13 @@ const categoryActionLabels = {
     'social': 'EXPLORE ALL SOCIAL CONTENT →'
 };
 
-const categoryToRoute = {
-    'featured': 'all',
-    'branding': 'branding',
-    'graphics': 'graphic-design',
-    'motion': 'motion',
-    '3d': '3d',
-    'social': 'social'
+const categoryToWorksHref = {
+    'featured': 'works/index.html',
+    'branding': 'works/branding/index.html',
+    'graphics': 'works/graphics/index.html',
+    'motion': 'works/motionvideo/index.html',
+    '3d': 'works/mockups/index.html',
+    'social': 'works/socialcontent/index.html'
 };
 
 function setupPrimaryArchiveTabs() {
@@ -636,17 +716,7 @@ function setupPrimaryArchiveTabs() {
 }
 
 function setupArchiveActionButton() {
-    const btn = document.getElementById('archiveCategoryActionBtn');
-    if (!btn) return;
-
-    btn.addEventListener('click', () => {
-        navigateToCategory(currentPrimaryCategory);
-    });
-}
-
-function navigateToCategory(catKey) {
-    const route = categoryToRoute[catKey] || 'all';
-    window.location.hash = `#works/${route}`;
+    // Native multi-page link navigation to clean folder directories
 }
 
 function renderHomepageArchive() {
@@ -675,109 +745,38 @@ function renderHomepageArchive() {
 
     renderBentoGrid(displayProjects, 'bentoGridContainer');
 
-    // Update bottom action button text
+    // Update bottom action button text and destination URL
+    const actionBtn = document.getElementById('archiveCategoryActionBtn');
     const actionBtnText = document.getElementById('archiveActionBtnText');
+    if (actionBtn) {
+        actionBtn.href = categoryToWorksHref[currentPrimaryCategory] || 'works/index.html';
+    }
     if (actionBtnText) {
         actionBtnText.textContent = categoryActionLabels[currentPrimaryCategory] || 'EXPLORE ALL WORKS →';
     }
 }
 
 /* =========================================================
-   DEDICATED CATEGORY PAGES / ROUTING ENGINE
-   Routes: /works/all, /works/branding, /works/graphic-design,
-           /works/motion, /works/3d, /works/social
+   DEDICATED CATEGORY PAGES / REDIRECT STUBS
+   Directs any residual calls to clean folder directories
    ========================================================= */
 
-const routeDefinitions = {
-    'all': {
-        title: 'COMPLETE CREATIVE WORKS',
-        desc: 'Comprehensive catalogue spanning visual identity systems, motion designs, editorial typography, 3D explorations, and event collateral.',
-        filter: () => true
-    },
-    'branding': {
-        title: 'BRANDING & IDENTITY ARCHIVE',
-        desc: 'Complete visual identity systems, event emblems, promotional collateral packages, and brand style guides.',
-        filter: (p) => (p.categories && p.categories.includes('branding')) || p.primaryCategory === 'branding'
-    },
-    'graphic-design': {
-        title: 'GRAPHIC DESIGN ARCHIVE',
-        desc: 'Posters, social banners, typography experiments, and key visual artworks.',
-        filter: (p) => (p.categories && p.categories.includes('graphics')) || p.primaryCategory === 'graphics'
-    },
-    'graphics': {
-        title: 'GRAPHIC DESIGN ARCHIVE',
-        desc: 'Posters, social banners, typography experiments, and key visual artworks.',
-        filter: (p) => (p.categories && p.categories.includes('graphics')) || p.primaryCategory === 'graphics'
-    },
-    'motion': {
-        title: 'MOTION & VIDEO ARCHIVE',
-        desc: 'Rhythm editing, cinematic typography, trailer pacing, speed ramping, and kinetic visual storytelling.',
-        filter: (p) => (p.categories && p.categories.includes('motion')) || p.primaryCategory === 'motion'
-    },
-    '3d': {
-        title: '3D & SPATIAL MOCKUPS ARCHIVE',
-        desc: 'Hard-surface modelling, Blender compositions, device mockups, retail packaging concepts, and CAD prototypes.',
-        filter: (p) => (p.categories && p.categories.includes('3d')) || p.primaryCategory === '3d'
-    },
-    'social': {
-        title: 'SOCIAL CONTENT & CREATOR ASSETS',
-        desc: 'High-CTR YouTube thumbnails, digital marketing collateral, channel branding, and creator graphics.',
-        filter: (p) => (p.categories && p.categories.includes('social')) || p.primaryCategory === 'social'
-    }
-};
-
-function openCategoryPage(routeKey, updateHash = true) {
-    if (typeof PORTFOLIO_DATA === 'undefined' || !PORTFOLIO_DATA.projects) return;
-
-    const routeInfo = routeDefinitions[routeKey] || routeDefinitions['all'];
-    const canonicalRoute = routeKey === 'graphics' ? 'graphic-design' : (routeDefinitions[routeKey] ? routeKey : 'all');
-
-    if (updateHash) {
-        window.history.pushState(null, '', `#works/${canonicalRoute}`);
-    }
-
-    const overlay = document.getElementById('categoryPageView');
-    const titleEl = document.getElementById('categoryPageTitle');
-    const descEl = document.getElementById('categoryPageDesc');
-    const badgeEl = document.getElementById('categoryPageCountBadge');
-
-    if (!overlay) return;
-
-    // Filter all matching projects
-    let matchingProjects = PORTFOLIO_DATA.projects.filter(routeInfo.filter);
-
-    // If 3d category, include physical projects without duplicating IDs
-    if (routeKey === '3d' && PORTFOLIO_DATA.physicalProjects) {
-        PORTFOLIO_DATA.physicalProjects.forEach(pp => {
-            if (!matchingProjects.some(p => p.id === pp.id)) {
-                matchingProjects.push(pp);
-            }
-        });
-    }
-
-    if (titleEl) titleEl.textContent = routeInfo.title;
-    if (descEl) descEl.textContent = routeInfo.desc;
-    if (badgeEl) badgeEl.textContent = `${matchingProjects.length} PROJECTS IN COLLECTION`;
-
-    renderBentoGrid(matchingProjects, 'categoryGridContainer');
-
-    overlay.classList.add('is-active');
-    document.body.style.overflow = 'hidden';
-    overlay.scrollTop = 0;
-    attachCursorHovers();
+function openCategoryPage(routeKey) {
+    const catMap = {
+        'all': 'works/index.html',
+        'branding': 'works/branding/index.html',
+        'graphic-design': 'works/graphics/index.html',
+        'graphics': 'works/graphics/index.html',
+        'motion': 'works/motionvideo/index.html',
+        '3d': 'works/mockups/index.html',
+        'social': 'works/socialcontent/index.html'
+    };
+    const dest = catMap[routeKey] || 'works/index.html';
+    window.location.href = dest;
 }
 
 function closeCategoryPage() {
-    const overlay = document.getElementById('categoryPageView');
-    if (!overlay) return;
-
-    overlay.classList.remove('is-active');
-    document.body.style.overflow = 'initial';
-
-    // If current hash is a category route, revert cleanly to #archive
-    if (window.location.hash.startsWith('#works/')) {
-        window.history.pushState(null, '', '#archive');
-    }
+    // No-op for MPA architecture
 }
 
 /* =========================================================
@@ -975,19 +974,54 @@ function closeLightboxModal() {
    VIDEO MODAL ENGINE (YouTube Embeds & Native MP4s)
    ========================================================= */
 
+function extractYouTubeId(urlOrId) {
+    if (!urlOrId) return '';
+    const clean = String(urlOrId).trim();
+    if (/^[a-zA-Z0-9_-]{11}$/.test(clean)) return clean;
+    const match = clean.match(/(?:youtu\.be\/|youtube\.com\/(?:shorts\/|embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+    return match ? match[1] : clean;
+}
+
 function openVideoModal(source, title, isLocal = false) {
     const modal = document.getElementById('videoModal');
     const wrap = document.getElementById('videoPlayerWrap');
-    document.getElementById('videoModalTitle').innerText = title;
+    const titleEl = document.getElementById('videoModalTitle');
+    let ytLinkEl = document.getElementById('videoModalYtLink');
 
-    if (isLocal || source.endsWith('.mp4')) {
+    if (!modal || !wrap) return;
+
+    if (titleEl) titleEl.innerText = title || 'Video Player';
+
+    if (isLocal || (typeof source === 'string' && source.endsWith('.mp4'))) {
         wrap.innerHTML = `
             <video controls autoplay class="video-native-player" src="${source}" playsinline></video>
         `;
+        if (ytLinkEl) ytLinkEl.style.display = 'none';
     } else {
+        const ytId = extractYouTubeId(source);
         wrap.innerHTML = `
-            <iframe id="videoIframe" src="https://www.youtube.com/embed/${source}?autoplay=1&rel=0" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="videoIframe" src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1" title="${title || 'Video Player'}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; border: none;"></iframe>
         `;
+        if (!ytLinkEl) {
+            const footer = modal.querySelector('.modal-container > div:last-child');
+            if (footer) {
+                ytLinkEl = document.createElement('a');
+                ytLinkEl.id = 'videoModalYtLink';
+                ytLinkEl.target = '_blank';
+                ytLinkEl.rel = 'noopener noreferrer';
+                ytLinkEl.className = 'btn sm';
+                ytLinkEl.style.fontSize = '0.75rem';
+                ytLinkEl.style.textDecoration = 'none';
+                ytLinkEl.style.marginLeft = 'auto';
+                ytLinkEl.style.marginRight = '1rem';
+                ytLinkEl.innerHTML = '<span>WATCH ON YOUTUBE ↗</span>';
+                footer.insertBefore(ytLinkEl, footer.lastElementChild);
+            }
+        }
+        if (ytLinkEl) {
+            ytLinkEl.href = `https://youtu.be/${ytId}`;
+            ytLinkEl.style.display = 'inline-flex';
+        }
     }
 
     modal.classList.add('is-active');
@@ -997,7 +1031,10 @@ function openVideoModal(source, title, isLocal = false) {
 function closeVideoModal() {
     const modal = document.getElementById('videoModal');
     const wrap = document.getElementById('videoPlayerWrap');
-    if(wrap) wrap.innerHTML = '';
-    if(modal) modal.classList.remove('is-active');
-    document.body.style.overflow = 'initial';
+    if (wrap) wrap.innerHTML = '';
+    if (modal) modal.classList.remove('is-active');
+    if (!document.getElementById('caseStudyView')?.classList.contains('is-active')) {
+        document.body.style.overflow = 'initial';
+    }
 }
+

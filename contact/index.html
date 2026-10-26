@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Inquiries | Nitish Singh — Designer & Motion Artist</title>
+    <meta name="description" content="Get in touch with Nitish Singh for brand systems, motion design, video editing, and creative production.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body data-page="contact">
+    <script>window.IS_SUBDIR = true;</script>
+
+    <!-- Background Glow Follower -->
+    <div id="bg-glow"></div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo magnetic" data-magnetic-strength="10">NITISH<span class="dot">.</span></a>
+
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="../index.html" class="hover-blur nav-item">Overview</a></li>
+                    <li><a href="../works/index.html" class="hover-blur nav-item">All Works</a></li>
+                    <li><a href="../index.html#work" class="hover-blur nav-item">Case Study</a></li>
+                    <li><a href="../achievements/index.html" class="hover-blur nav-item">Achievements</a></li>
+                    <li><a href="../contact/index.html" class="hover-blur nav-item is-active">Contact</a></li>
+                    <li><a href="../assets/Nitish_Singh_Creative_Resume.pdf" target="_blank" class="hover-blur nav-item">Resume ↗</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Navigation Toggle -->
+            <button id="mobileNavToggle" class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                <span>MENU</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Drawer Overlay -->
+    <div id="mobileMenu" class="mobile-menu-drawer">
+        <button id="mobileMenuClose" class="mobile-menu-close" aria-label="Close menu">&times;</button>
+        <a href="../index.html">Overview</a>
+        <a href="../works/index.html">All Works</a>
+        <a href="../works/branding/index.html">Branding & Identity</a>
+        <a href="../works/graphics/index.html">Graphic Design</a>
+        <a href="../works/motionvideo/index.html">Motion & Video</a>
+        <a href="../works/mockups/index.html">3D & Mockups</a>
+        <a href="../works/socialcontent/index.html">Social Content</a>
+        <a href="../achievements/index.html">Achievements</a>
+        <a href="../contact/index.html">Contact</a>
+        <a href="../assets/Nitish_Singh_Creative_Resume.pdf" target="_blank">Resume ↗</a>
+    </div>
+
+    <main>
+        <!-- Contact Hero Section -->
+        <section class="works-page-hero padding-y">
+            <div class="container relative">
+                <div class="bg-letter outline">TALK</div>
+
+                <!-- Back Navigation Action -->
+                <div class="works-header-top">
+                    <a href="../index.html" class="back-btn-pill magnetic" data-magnetic-strength="15">
+                        ← BACK TO OVERVIEW
+                    </a>
+                    <span style="font-family: monospace; font-size: 0.85rem; color: var(--accent-cyan); letter-spacing: 1px;">
+                        DIRECT INQUIRIES & AVAILABILITY
+                    </span>
+                </div>
+
+                <!-- Section Heading -->
+                <div class="section-title">
+                    <p class="greeting" style="color: var(--accent-cyan); letter-spacing: 3px;">INITIATE COLLABORATION</p>
+                    <h1 class="display-sm">Let's Build <span class="outline">Together.</span></h1>
+                    <p class="hero-desc" style="max-width: 760px; margin-top: 0.6rem; color: var(--text-muted); font-size: 1.05rem; line-height: 1.7;">
+                        Currently open for select brand identity systems, motion graphics commissions, editorial direction, and multidisciplinary design leadership.
+                    </p>
+                </div>
+
+                <!-- Primary Communication Grid -->
+                <div class="contact-grid">
+                    <!-- Direct Email Card -->
+                    <div class="contact-card">
+                        <div>
+                            <div class="contact-channel-icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <span class="project-tag" style="margin: 0 0 0.5rem 0;">PRIMARY INQUIRIES</span>
+                            <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem; word-break: break-all;">nitishsinghslg@gmail.com</h3>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                                Best for client briefs, event design packaging proposals, and full-scale creative roles.
+                            </p>
+                        </div>
+                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                            <a href="mailto:nitishsinghslg@gmail.com" class="btn primary sm magnetic" data-magnetic-strength="12">
+                                <span class="btn-text">SEND EMAIL ↗</span>
+                            </a>
+                            <button onclick="copyToClipboard('nitishsinghslg@gmail.com', 'EMAIL COPIED TO CLIPBOARD!')" class="btn secondary sm magnetic" data-magnetic-strength="12">
+                                <span class="btn-text">COPY EMAIL</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Direct Phone & WhatsApp Card -->
+                    <div class="contact-card">
+                        <div>
+                            <div class="contact-channel-icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <span class="project-tag" style="margin: 0 0 0.5rem 0;">DIRECT PHONE / WHATSAPP</span>
+                            <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">+91 78118 38862</h3>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                                Available during IST business hours for rapid project scoping and production consults.
+                            </p>
+                        </div>
+                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                            <a href="tel:+917811838862" class="btn primary sm magnetic" data-magnetic-strength="12">
+                                <span class="btn-text">CALL ↗</span>
+                            </a>
+                            <button onclick="copyToClipboard('+917811838862', 'PHONE NUMBER COPIED!')" class="btn secondary sm magnetic" data-magnetic-strength="12">
+                                <span class="btn-text">COPY NUMBER</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Location & Remote Card -->
+                    <div class="contact-card">
+                        <div>
+                            <div class="contact-channel-icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <span class="project-tag" style="margin: 0 0 0.5rem 0;">BASE OF OPERATIONS</span>
+                            <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">Siliguri, India</h3>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                                Operating in Indian Standard Time (IST, UTC+5:30). Fully remote-capable with global design delivery experience.
+                            </p>
+                        </div>
+                        <div>
+                            <span class="chip" style="color: var(--accent-cyan); border-color: rgba(0,242,254,0.3); font-size: 0.8rem;">
+                                ● AVAILABLE FOR REMOTE WORLDWIDE
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Creative Profiles & Verified Links -->
+                <div style="margin-top: 4.5rem; padding: 2.5rem; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--glass-border); border-radius: 18px;">
+                    <span class="greeting" style="color: var(--accent-cyan); margin-bottom: 0.4rem;">PORTFOLIOS & NETWORKS</span>
+                    <h3 style="font-size: 1.8rem; color: #fff; margin-bottom: 1.5rem;">Explore Full Creative Ecosystem</h3>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                        <a href="https://www.behance.net/technologyhell" target="_blank" class="contact-card" style="padding: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span style="font-family: monospace; font-size: 0.8rem; color: var(--accent-indigo);">CREATIVE PORTFOLIO</span>
+                                    <h4 style="font-size: 1.2rem; color: #fff; margin-top: 0.2rem;">Behance</h4>
+                                </div>
+                                <span style="color: var(--accent-cyan); font-size: 1.2rem;">↗</span>
+                            </div>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/nitishsinghslg/" target="_blank" class="contact-card" style="padding: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span style="font-family: monospace; font-size: 0.8rem; color: var(--accent-indigo);">PROFESSIONAL NETWORK</span>
+                                    <h4 style="font-size: 1.2rem; color: #fff; margin-top: 0.2rem;">LinkedIn</h4>
+                                </div>
+                                <span style="color: var(--accent-cyan); font-size: 1.2rem;">↗</span>
+                            </div>
+                        </a>
+
+                        <a href="https://nitish.technologyhell.in/" target="_blank" class="contact-card" style="padding: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span style="font-family: monospace; font-size: 0.8rem; color: var(--accent-indigo);">ENGINEERING & CODE</span>
+                                    <h4 style="font-size: 1.2rem; color: #fff; margin-top: 0.2rem;">Tech Portfolio</h4>
+                                </div>
+                                <span style="color: var(--accent-cyan); font-size: 1.2rem;">↗</span>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/TechnologyHell" target="_blank" class="contact-card" style="padding: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span style="font-family: monospace; font-size: 0.8rem; color: var(--accent-indigo);">CODE REPOSITORIES</span>
+                                    <h4 style="font-size: 1.2rem; color: #fff; margin-top: 0.2rem;">GitHub</h4>
+                                </div>
+                                <span style="color: var(--accent-cyan); font-size: 1.2rem;">↗</span>
+                            </div>
+                        </a>
+
+                        <a href="https://www.youtube.com/technologyhell" target="_blank" class="contact-card" style="padding: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span style="font-family: monospace; font-size: 0.8rem; color: var(--accent-indigo);">CREATOR CHANNEL</span>
+                                    <h4 style="font-size: 1.2rem; color: #fff; margin-top: 0.2rem;">YouTube</h4>
+                                </div>
+                                <span style="color: var(--accent-cyan); font-size: 1.2rem;">↗</span>
+                            </div>
+                        </a>
+
+                        <a href="https://discord.com/invite/6ME9TDt" target="_blank" class="contact-card" style="padding: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span style="font-family: monospace; font-size: 0.8rem; color: var(--accent-indigo);">COMMUNITY SERVER</span>
+                                    <h4 style="font-size: 1.2rem; color: #fff; margin-top: 0.2rem;">Discord</h4>
+                                </div>
+                                <span style="color: var(--accent-cyan); font-size: 1.2rem;">↗</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Giant Final CTA -->
+                <div style="margin-top: 6rem; text-align: center;">
+                    <a href="mailto:nitishsinghslg@gmail.com" class="circle-btn magnetic-huge" data-magnetic-strength="50">
+                        <span>LET'S TALK</span>
+                    </a>
+                    <div style="margin-top: 2rem;">
+                        <a href="../assets/Nitish_Singh_Creative_Resume.pdf" target="_blank" class="btn secondary magnetic" data-magnetic-strength="15">
+                            <span class="btn-text">DOWNLOAD CREATIVE RESUME (PDF) ↗</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer padding-y" style="padding-top: 2rem;">
+            <div class="container text-center relative">
+                <div class="footer-bottom" style="margin-top: 0; border-top: none;">
+                    <div class="socials">
+                        <a href="https://www.linkedin.com/in/nitishsinghslg/" target="_blank" class="hover-blur">LINKEDIN</a>
+                        <a href="https://github.com/TechnologyHell" target="_blank" class="hover-blur">GITHUB</a>
+                        <a href="https://www.behance.net/technologyhell" target="_blank" class="hover-blur">BEHANCE</a>
+                        <a href="https://nitish.technologyhell.in/" target="_blank" class="hover-blur">TECH PORTFOLIO</a>
+                    </div>
+                    <div class="copy" style="color: var(--text-muted); font-size: 0.85rem; font-family: monospace;">
+                        &copy; 2026 NITISH SINGH • DESIGN &bull; MOTION &bull; PRODUCTION
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Global Draggable Connect Quick Action Button (Persistent across reloads) -->
+    <a href="mailto:nitishsinghslg@gmail.com" id="draggable-btn" class="btn magnetic sm" data-magnetic-strength="20" aria-label="Connect with Nitish">
+        <span class="btn-text">CONNECT</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../assets/portfolio-data.js"></script>
+    <script src="../shared.js"></script>
+</body>
+
+</html>

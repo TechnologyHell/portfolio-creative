@@ -33,12 +33,12 @@
             
             <nav class="desktop-nav">
                 <ul class="nav-links">
-                    <li><a href="works.html" class="hover-blur nav-item">All Works</a></li>
+                    <li><a href="works/index.html" class="hover-blur nav-item">All Works</a></li>
                     <li><a href="#work" class="hover-blur nav-item" data-section="work">Case Study</a></li>
                     <li><a href="#about" class="hover-blur nav-item" data-section="about">About</a></li>
-                    <li><a href="#recognition" class="hover-blur nav-item" data-section="recognition">Recognition</a></li>
-                    <li><a href="assets/Nitish_Singh_Creative_Resume.pdf" target="_blank" class="hover-blur nav-item">Resume</a></li>
-                    <li><a href="#contact" class="hover-blur nav-item" data-section="contact">Contact</a></li>
+                    <li><a href="achievements/index.html" class="hover-blur nav-item">Achievements</a></li>
+                    <li><a href="contact/index.html" class="hover-blur nav-item">Contact</a></li>
+                    <li><a href="assets/Nitish_Singh_Creative_Resume.pdf" target="_blank" class="hover-blur nav-item">Resume ↗</a></li>
                 </ul>
             </nav>
 
@@ -46,23 +46,23 @@
             <button id="mobileNavToggle" class="mobile-nav-toggle" aria-label="Toggle navigation menu">
                 <span>MENU</span>
             </button>
-
-            <!-- Draggable fixed action button -->
-            <a href="mailto:nitishsinghslg@gmail.com" id="draggable-btn" class="btn magnetic sm" data-magnetic-strength="20">
-                <span class="btn-text">CONNECT</span>
-            </a>
         </div>
     </header>
 
     <!-- Mobile Menu Drawer Overlay -->
     <div id="mobileMenu" class="mobile-menu-drawer">
         <button id="mobileMenuClose" class="mobile-menu-close" aria-label="Close menu">&times;</button>
-        <a href="works.html">All Works</a>
+        <a href="works/index.html">All Works</a>
+        <a href="works/branding/index.html">Branding & Identity</a>
+        <a href="works/graphics/index.html">Graphic Design</a>
+        <a href="works/motionvideo/index.html">Motion & Video</a>
+        <a href="works/mockups/index.html">3D & Mockups</a>
+        <a href="works/socialcontent/index.html">Social Content</a>
         <a href="#work">Case Study</a>
+        <a href="achievements/index.html">Achievements</a>
         <a href="#about">About</a>
-        <a href="#recognition">Recognition</a>
+        <a href="contact/index.html">Contact</a>
         <a href="assets/Nitish_Singh_Creative_Resume.pdf" target="_blank">Resume ↗</a>
-        <a href="#contact">Contact</a>
     </div>
 
     <main>
@@ -88,7 +88,7 @@
                     </div>
 
                     <div class="cta-wrapper reveal-up delay-5">
-                        <a href="works.html" class="btn primary magnetic" data-magnetic-strength="25">
+                        <a href="works/index.html" class="btn primary magnetic" data-magnetic-strength="25">
                             <span class="btn-text">EXPLORE MY WORK</span>
                         </a>
                         <a href="#motion" class="btn secondary magnetic" data-magnetic-strength="20">
@@ -357,11 +357,11 @@
                     <!-- Populated dynamically via script.js -->
                 </div>
 
-                <!-- Bottom Explore Action Button (Opens Dedicated Category Route) -->
+                <!-- Bottom Explore Action Button (Navigates to Dedicated Works Page) -->
                 <div class="archive-action-wrap">
-                    <button id="archiveCategoryActionBtn" class="btn secondary magnetic" data-magnetic-strength="15">
+                    <a href="works/index.html" id="archiveCategoryActionBtn" class="btn secondary magnetic" data-magnetic-strength="15">
                         <span class="btn-text" id="archiveActionBtnText">EXPLORE ALL WORKS →</span>
-                    </button>
+                    </a>
                 </div>
             </div>
         </section>
@@ -732,7 +732,7 @@
             <div class="container text-center relative">
                 <div class="bg-letter outline">TALK</div>
                 <p class="display-sm mb-4">HAVE A CREATIVE PROJECT IN MIND?</p>
-                <a href="mailto:nitishsinghslg@gmail.com" class="circle-btn magnetic-huge" data-magnetic-strength="50">
+                <a href="contact/index.html" class="circle-btn magnetic-huge" data-magnetic-strength="50">
                     <span>LET'S TALK</span>
                 </a>
                 
@@ -760,26 +760,6 @@
         </div>
         <div id="caseStudyContent" class="case-study-content">
             <!-- Dynamically populated via script.js -->
-        </div>
-    </div>
-
-    <!-- Dedicated Full-Screen Category Collection Page Overlay -->
-    <div id="categoryPageView" class="category-page-overlay" role="dialog" aria-modal="true" aria-label="Category Works Collection">
-        <div class="case-study-topbar">
-            <button class="case-study-back-btn" onclick="closeCategoryPage()" aria-label="Back to Portfolio">
-                <span>← BACK TO PORTFOLIO</span>
-            </button>
-            <span id="categoryPageCountBadge" style="font-family: monospace; font-size: 0.8rem; color: var(--accent-cyan);">COLLECTION</span>
-        </div>
-        <div class="case-study-content">
-            <div style="margin-bottom: 3rem;">
-                <span class="project-tag" style="color: var(--accent-cyan); font-size: 0.85rem;">COMPLETE ARCHIVE</span>
-                <h1 id="categoryPageTitle" class="display-sm" style="margin-top: 0.5rem; margin-bottom: 0.5rem;">CATEGORY TITLE</h1>
-                <p id="categoryPageDesc" style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.7; max-width: 800px;">Category description</p>
-            </div>
-            <div class="bento-grid" id="categoryGridContainer">
-                <!-- Populated dynamically via script.js -->
-            </div>
         </div>
     </div>
 
@@ -835,6 +815,11 @@
             </div>
         </div>
     </div>
+
+    <!-- Global Draggable Connect Quick Action Button (Persistent across reloads) -->
+    <a href="mailto:nitishsinghslg@gmail.com" id="draggable-btn" class="btn magnetic sm" data-magnetic-strength="20" aria-label="Connect with Nitish">
+        <span class="btn-text">CONNECT</span>
+    </a>
 
     <!-- Scripts -->
     <script src="assets/portfolio-data.js"></script>

@@ -2,29 +2,31 @@ Achievements SELF :
 
 0 - Runners Up - Quiz-O-Mania - Technical Quiz organized by Computer Engineers Society - Sep 2024
 
-1 - Special Jury - Tug of Words - Organized By C.R.C. IT Club - Obt 2024
+1 - Runners Up - Digital Marketing Competition - SIT Annual Fest, Graphics Designing Event - Sep 2024
 
-2 - Winner - SIT Hack-A-Verse - Hackathon organized by Computer Engineering Society - April 2025
+2 - Special Jury - Tug of Words - Organized By C.R.C. IT Club - Oct 2024
 
-3 - 2nd Runners Up - ExQuizIt - Technical Quiz organized by BCA Department - April 2025
+3 - Winner - SIT Hack-A-Verse - Hackathon organized by Computer Engineering Society - April 2025
 
-4 - Winner - CDAC Training Programme - Project ranked as #1 during the 3D Printing \& Additive Manufacturing Training - July 2025
+4 - 2nd Runners Up - ExQuizIt - Technical Quiz organized by BCA Department - April 2025
 
-5 - Winner - SIH College Level - Stood as Winner at Smart India Hackathon Internal Hackathon - Aug 2025
+5 - Winner - CDAC Training Programme - Project ranked as #1 during the 3D Printing \& Additive Manufacturing Training - July 2025
 
-6 - Winner - Vision to Venture - Winners at a Business Idea Event organized by Eureka IIT Bombay - Aug 2025
+6 - Winner - SIH College Level - Stood as Winner at Smart India Hackathon Internal Hackathon - Aug 2025
 
-7 - Runners Up - Debate Competition - Stood as runners up at college level Debate - Sep 25
+7 - Winner - Vision to Venture - Winners at a Business Idea Event organized by Eureka IIT Bombay - Aug 2025
 
-8 - Winner - SIT Ideathon 4.0 - National level idea pitching tournament, I took part, and emerged as winner - Jan 26
+8 - Runners Up - Debate Competition - Stood as runners up at college level Debate - Sep 25
 
-9 - 2nd Runners Up - Hardware Project Competition @ Technovision2k26 - SIT's own techfest, stood as 2nd runners up with the MacroPad Project - Feb 26
+9 - Winner - SIT Ideathon 4.0 - National level idea pitching tournament, I took part, and emerged as winner - Jan 26
 
-10 - Runners Up - Robotics Competition @ Technovision2k26 - Built the bot, and fought to stand as runners up in the Robosoccer tournament - Feb 26
+10 - 2nd Runners Up - Hardware Project Competition @ Technovision2k26 - SIT's own techfest, stood as 2nd runners up with the MacroPad Project - Feb 26
 
-11 - Winners - Startup Challenge @ Technovision2k26 - Went in with the business model, and stood as the winners!
+11 - Runners Up - Robotics Competition @ Technovision2k26 - Built the bot, and fought to stand as runners up in the Robosoccer tournament - Feb 26
 
-12 - 4th Position - IHMMC 26 - Took part with the Macropad variants in the Innovative Hardware Model Making Competition 2026 (by Asansol Engineering College) and ranked 4th among 180+ participating teams globally!
+12 - Winners - Startup Challenge @ Technovision2k26 - Went in with the business model, and stood as the winners!
+
+13 - 4th Position - IHMMC 26 - Took part with the Macropad variants in the Innovative Hardware Model Making Competition 2026 (by Asansol Engineering College) and ranked 4th among 180+ participating teams globally! - March 2026
 
 
 

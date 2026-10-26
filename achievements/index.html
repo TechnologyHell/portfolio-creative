@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements & Recognition | Nitish Singh — Designer & Motion Artist</title>
+    <meta name="description" content="Design leadership, hackathon victories, community building milestones, and creative recognition of Nitish Singh.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body data-page="achievements">
+    <script>window.IS_SUBDIR = true;</script>
+
+    <!-- Background Glow Follower -->
+    <div id="bg-glow"></div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo magnetic" data-magnetic-strength="10">NITISH<span class="dot">.</span></a>
+
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="../index.html" class="hover-blur nav-item">Overview</a></li>
+                    <li><a href="../works/index.html" class="hover-blur nav-item">All Works</a></li>
+                    <li><a href="../index.html#work" class="hover-blur nav-item">Case Study</a></li>
+                    <li><a href="../achievements/index.html" class="hover-blur nav-item is-active">Achievements</a></li>
+                    <li><a href="../contact/index.html" class="hover-blur nav-item">Contact</a></li>
+                    <li><a href="../assets/Nitish_Singh_Creative_Resume.pdf" target="_blank" class="hover-blur nav-item">Resume ↗</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Navigation Toggle -->
+            <button id="mobileNavToggle" class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                <span>MENU</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Drawer Overlay -->
+    <div id="mobileMenu" class="mobile-menu-drawer">
+        <button id="mobileMenuClose" class="mobile-menu-close" aria-label="Close menu">&times;</button>
+        <a href="../index.html">Overview</a>
+        <a href="../works/index.html">All Works</a>
+        <a href="../works/branding/index.html">Branding & Identity</a>
+        <a href="../works/graphics/index.html">Graphic Design</a>
+        <a href="../works/motionvideo/index.html">Motion & Video</a>
+        <a href="../works/mockups/index.html">3D & Mockups</a>
+        <a href="../works/socialcontent/index.html">Social Content</a>
+        <a href="../achievements/index.html">Achievements</a>
+        <a href="../contact/index.html">Contact</a>
+        <a href="../assets/Nitish_Singh_Creative_Resume.pdf" target="_blank">Resume ↗</a>
+    </div>
+
+    <main>
+        <!-- Dedicated Achievements Hero -->
+        <section class="works-page-hero padding-y">
+            <div class="container relative">
+                <div class="bg-letter outline">HONOR</div>
+
+                <!-- Back Navigation Action -->
+                <div class="works-header-top">
+                    <a href="../index.html" class="back-btn-pill magnetic" data-magnetic-strength="15">
+                        ← BACK TO OVERVIEW
+                    </a>
+                    <span style="font-family: monospace; font-size: 0.85rem; color: var(--accent-cyan); letter-spacing: 1px;">
+                        RECOGNITION & LEADERSHIP
+                    </span>
+                </div>
+
+                <!-- Section Heading -->
+                <div class="section-title">
+                    <p class="greeting" style="color: var(--accent-cyan); letter-spacing: 3px;">AWARDS & MILESTONES</p>
+                    <h1 class="display-sm">Honors & <span class="outline">Achievements.</span></h1>
+                    <p class="hero-desc" style="max-width: 760px; margin-top: 0.6rem; color: var(--text-muted); font-size: 1.05rem; line-height: 1.7;">
+                        Proven leadership in regional creative productions, design hackathon victories, community building, and technical media creation.
+                    </p>
+                </div>
+
+                <!-- Achievements Grid -->
+                <div class="achievements-grid" id="achievementsGridContainer" style="margin-top: 3.5rem;">
+                    <!-- Populated dynamically via shared.js -->
+                </div>
+
+                <!-- Creator Journey Metric Banner -->
+                <div style="margin-top: 5rem; padding: 3rem; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; backdrop-filter: blur(15px);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+                        <div>
+                            <span class="greeting" style="color: var(--accent-cyan); margin: 0;">AUDIENCE METRICS</span>
+                            <h3 style="font-size: 2.2rem; color: #fff; margin-top: 0.5rem; margin-bottom: 0.5rem;">7+ Years Publishing & Community</h3>
+                            <p style="color: var(--text-muted); max-width: 650px; line-height: 1.7;">
+                                Built a dedicated audience of 5,730+ subscribers and 3M+ views on YouTube, paired with an active 2,660+ member Discord community.
+                            </p>
+                        </div>
+                        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                            <a href="https://www.youtube.com/technologyhell" target="_blank" class="btn secondary magnetic" data-magnetic-strength="15">
+                                <span class="btn-text">YOUTUBE CHANNEL ↗</span>
+                            </a>
+                            <a href="https://discord.com/invite/6ME9TDt" target="_blank" class="btn primary magnetic" data-magnetic-strength="15">
+                                <span class="btn-text">DISCORD COMMUNITY ↗</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Contact CTA -->
+        <footer class="footer padding-y">
+            <div class="container text-center relative">
+                <div class="bg-letter outline">TALK</div>
+                <p class="greeting" style="color: var(--accent-cyan); letter-spacing: 3px;">COLLABORATION</p>
+                <p class="display-sm mb-4">LOOKING FOR CREATIVE LEADERSHIP?</p>
+                <a href="../contact/index.html" class="circle-btn magnetic-huge" data-magnetic-strength="50">
+                    <span>LET'S TALK</span>
+                </a>
+
+                <div class="footer-bottom">
+                    <div class="socials">
+                        <a href="https://www.linkedin.com/in/nitishsinghslg/" target="_blank" class="hover-blur">LINKEDIN</a>
+                        <a href="https://github.com/TechnologyHell" target="_blank" class="hover-blur">GITHUB</a>
+                        <a href="https://www.behance.net/technologyhell" target="_blank" class="hover-blur">BEHANCE</a>
+                        <a href="https://nitish.technologyhell.in/" target="_blank" class="hover-blur">TECH PORTFOLIO</a>
+                    </div>
+                    <div class="copy" style="color: var(--text-muted); font-size: 0.85rem; font-family: monospace;">
+                        &copy; 2026 NITISH SINGH • DESIGN &bull; MOTION &bull; PRODUCTION
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Global Draggable Connect Quick Action Button (Persistent across reloads) -->
+    <a href="mailto:nitishsinghslg@gmail.com" id="draggable-btn" class="btn magnetic sm" data-magnetic-strength="20" aria-label="Connect with Nitish">
+        <span class="btn-text">CONNECT</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../assets/portfolio-data.js"></script>
+    <script src="../shared.js"></script>
+</body>
+
+</html>
