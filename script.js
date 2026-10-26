@@ -78,9 +78,9 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     render();
 
-    // Attach hover effects to interactive elements
+    // Attach hover effects to interactive elements (only real interactive targets)
     attachCursorHovers = function() {
-        const hoverElements = document.querySelectorAll('a, button, select, .hover-trigger, .tilt-wrapper, .filter-pill, .modal-thumb, .modal-close-btn, .modal-nav-arrow, .case-study-item-card, .case-study-back-btn');
+        const hoverElements = document.querySelectorAll('a, button, select, .filter-pill, .modal-thumb, .modal-close-btn, .modal-nav-arrow, .card-action-btn, .case-study-item-card, .case-study-back-btn, .edition-card-media, .bento-card-thumb');
         hoverElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 if(outline) outline.classList.add('hover-active');
@@ -92,70 +92,15 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     attachCursorHovers();
 
-    // 2. Magnetic Buttons Engine (Hover proximity physics)
+    // 2. Magnetic Buttons Engine (Replaced with rock-solid CSS hover)
     function attachMagnetics() {
-        const magnetics = document.querySelectorAll('.magnetic, .magnetic-huge');
-        magnetics.forEach(btn => {
-            btn.addEventListener('mousemove', function(e) {
-                const rect = this.getBoundingClientRect();
-                const strength = this.getAttribute('data-magnetic-strength') || 20; 
-                
-                const hx = rect.left + rect.width / 2;
-                const hy = rect.top + rect.height / 2;
-                
-                const dx = e.clientX - hx;
-                const dy = e.clientY - hy;
-                
-                const maxPx = parseInt(strength);
-                const x = (dx / (rect.width / 2)) * maxPx;
-                const y = (dy / (rect.height / 2)) * maxPx;
-
-                this.style.transform = `translate(${x}px, ${y}px)`;
-            });
-
-            btn.addEventListener('mouseleave', function() {
-                 this.style.transform = 'translate(0px, 0px)';
-            });
-        });
+        // Disabled JS magnetic movement to guarantee 100% reliable physical button clickability
     }
     attachMagnetics();
 
-    // 3. 3D Tilt Cards (Vanilla Tilt Math + Glare Effect)
+    // 3. 3D Tilt Cards (Replaced with high-performance, non-interfering CSS hover glow)
     attachTiltCards = function() {
-        const cards = document.querySelectorAll('.tilt-wrapper');
-        cards.forEach(card => {
-            const tiltEl = card.querySelector('.tilt-element');
-            const glare = card.querySelector('.glare');
-            if(!tiltEl) return;
-
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const xc = (x / rect.width) * 2 - 1;
-                const yc = (y / rect.height) * 2 - 1;
-
-                const maxTilt = 8;
-                const rotateX = yc * -maxTilt;
-                const rotateY = xc * maxTilt;
-
-                tiltEl.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                
-                if (glare) {
-                    const glareX = (x / rect.width) * 100;
-                    const glareY = (y / rect.height) * 100;
-                    glare.style.background = `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255,255,255,0.18) 0%, transparent 60%)`;
-                }
-            });
-
-            card.addEventListener('mouseleave', () => {
-                tiltEl.style.transform = `rotateX(0deg) rotateY(0deg)`;
-                if(glare) {
-                    glare.style.background = `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08) 0%, transparent 60%)`;
-                }
-            });
-        });
+        // Disabled JS 3D matrix transforms on mousemove so clicks are never cancelled
     };
     attachTiltCards();
 
@@ -470,6 +415,15 @@ function handleHashRouting() {
    ========================================================= */
 
 function openCaseStudy(editionId, updateHash = true) {
+    if (editionId === 'idt3') {
+        window.location.href = 'ideathon/3/index.html';
+        return;
+    }
+    if (editionId === 'idt4') {
+        window.location.href = 'ideathon/4/index.html';
+        return;
+    }
+
     if (typeof PORTFOLIO_DATA === 'undefined' || !PORTFOLIO_DATA.flagshipCaseStudies) return;
     const study = PORTFOLIO_DATA.flagshipCaseStudies[editionId];
     if (!study) return;
@@ -535,7 +489,6 @@ function openCaseStudy(editionId, updateHash = true) {
             </p>
             <div class="tilt-wrapper" style="max-width: 900px;" onclick="openVideoModal('${study.youtubeId}', '${study.videoTitle.replace(/'/g, "\\'")}')">
                 <div class="tilt-element glass-card" style="padding: 0; border-radius: 20px;">
-                    <div class="glare"></div>
                     <div style="position: relative; aspect-ratio: 16/9; overflow: hidden;">
                         <img src="${study.heroImage}" alt="${study.videoTitle}" style="width: 100%; height: 100%; object-fit: cover;">
                         <div class="video-play-badge">
@@ -645,15 +598,16 @@ function renderMotionSection() {
 
     container.innerHTML = PORTFOLIO_DATA.motionWorks.map(item => {
         const isLocal = !!item.localVideo;
+        const ytId = item.youtubeId || (item.link ? extractYouTubeId(item.link) : '');
+        const ytUrl = item.link || (ytId ? `https://youtu.be/${ytId}` : '#');
         const clickParam = isLocal 
             ? `'${item.localVideo}', '${item.title.replace(/'/g, "\\'")}', true`
-            : `'${item.youtubeId}', '${item.title.replace(/'/g, "\\'")}', false`;
+            : `'${ytId}', '${item.title.replace(/'/g, "\\'")}', false`;
 
         return `
             <div class="tilt-wrapper">
                 <div class="tilt-element glass-card motion-card">
-                    <div class="glare"></div>
-                    <div class="motion-card-thumb" onclick="openVideoModal(${clickParam})">
+                    <div class="motion-card-thumb" onclick="openVideoModal(${clickParam})" style="cursor: pointer;">
                         <img src="${item.thumbnail}" alt="${item.title}" loading="lazy">
                         <div class="video-play-badge">
                             <div class="video-play-btn">
@@ -669,6 +623,14 @@ function renderMotionSection() {
                         </div>
                         <div class="motion-card-tags">
                             ${(item.techniques || []).map(t => `<span class="tag-tech">${t}</span>`).join('')}
+                        </div>
+                        <div class="motion-card-actions" style="display: flex; gap: 0.6rem; margin-top: 1.25rem; flex-wrap: wrap;">
+                            <button onclick="openVideoModal(${clickParam})" class="btn sm secondary" style="flex: 1; padding: 0.6rem 0.8rem; font-size: 0.76rem;">
+                                <span class="btn-text">PLAY IN POPUP ▶</span>
+                            </button>
+                            <a href="${ytUrl}" target="_blank" rel="noopener noreferrer" class="btn sm" style="background: rgba(255,255,255,0.06); border: 1px solid var(--glass-border); padding: 0.6rem 0.9rem; font-size: 0.76rem;" onclick="event.stopPropagation();">
+                                <span class="btn-text">YOUTUBE ↗</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -804,20 +766,48 @@ function renderBentoGrid(projects, containerId = 'bentoGridContainer') {
         box.className = 'bento-box tilt-wrapper';
         
         let clickHandler = '';
+        let actionMarkup = '';
+        const escapedTitle = p.title.replace(/'/g, "\\'");
+
         if (p.isCaseStudy && p.caseStudyEdition) {
-            clickHandler = `openCaseStudy('${p.caseStudyEdition}')`;
+            const csUrl = p.caseStudyEdition === 'idt3' ? 'ideathon/3/index.html' : 'ideathon/4/index.html';
+            clickHandler = `window.location.href='${csUrl}'`;
+            actionMarkup = `
+                <a href="${csUrl}" class="btn sm primary card-action-btn">
+                    <span>READ CASE STUDY →</span>
+                </a>
+            `;
         } else if (p.youtubeId) {
-            clickHandler = `openVideoModal('${p.youtubeId}', '${p.title.replace(/'/g, "\\'")}', false)`;
+            clickHandler = `openVideoModal('${p.youtubeId}', '${escapedTitle}', false)`;
+            actionMarkup = `
+                <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                    <button type="button" onclick="openVideoModal('${p.youtubeId}', '${escapedTitle}', false)" class="btn sm secondary card-action-btn">
+                        <span>PLAY ▶</span>
+                    </button>
+                    <a href="https://youtu.be/${p.youtubeId}" target="_blank" rel="noopener noreferrer" class="btn sm card-action-btn" style="background: rgba(255,255,255,0.06); border: 1px solid var(--glass-border);" onclick="event.stopPropagation();">
+                        <span>YOUTUBE ↗</span>
+                    </a>
+                </div>
+            `;
         } else if (p.localVideo) {
-            clickHandler = `openVideoModal('${p.localVideo}', '${p.title.replace(/'/g, "\\'")}', true)`;
+            clickHandler = `openVideoModal('${p.localVideo}', '${escapedTitle}', true)`;
+            actionMarkup = `
+                <button type="button" onclick="openVideoModal('${p.localVideo}', '${escapedTitle}', true)" class="btn sm secondary card-action-btn">
+                    <span>PLAY VIDEO ▶</span>
+                </button>
+            `;
         } else {
             clickHandler = `openProjectLightbox('${p.id}')`;
+            actionMarkup = `
+                <button type="button" onclick="openProjectLightbox('${p.id}')" class="btn sm secondary card-action-btn">
+                    <span>VIEW PROJECT ↗</span>
+                </button>
+            `;
         }
 
         box.innerHTML = `
-            <div class="tilt-element glass-card bento-card" onclick="${clickHandler}">
-                <div class="glare"></div>
-                <div class="bento-card-thumb">
+            <div class="tilt-element glass-card bento-card">
+                <div class="bento-card-thumb" onclick="${clickHandler}" style="cursor: pointer;">
                     <img src="${p.thumbnail}" alt="${p.title}" loading="lazy">
                     ${p.youtubeId || p.localVideo ? `
                         <div class="video-play-badge">
@@ -829,7 +819,7 @@ function renderBentoGrid(projects, containerId = 'bentoGridContainer') {
                 </div>
 
                 <div class="bento-card-body">
-                    <div class="bento-card-info">
+                    <div class="bento-card-info" onclick="${clickHandler}" style="cursor: pointer;">
                         <div class="bento-card-meta">
                             <span class="project-tag" style="margin: 0;">${p.categoryLabel} • ${p.year}</span>
                             ${p.isCaseStudy ? `<span class="chip" style="font-size: 0.7rem; color: var(--accent-cyan); border-color: rgba(0,242,254,0.3); margin: 0;">FLAGSHIP CASE STUDY</span>` : ''}
@@ -841,7 +831,7 @@ function renderBentoGrid(projects, containerId = 'bentoGridContainer') {
                         <div class="bento-card-tags">
                             ${(p.tools || []).slice(0, 3).map(t => `<span class="tag-tech">${t}</span>`).join('')}
                         </div>
-                        <span class="bento-card-action">VIEW PROJECT ↗</span>
+                        ${actionMarkup}
                     </div>
                 </div>
             </div>
@@ -861,16 +851,12 @@ function setupBehanceLink() {
     const behanceBtn = document.getElementById('behanceProfileLink');
     if (!behanceBtn) return;
 
-    const configuredUrl = PORTFOLIO_DATA?.profile?.socials?.behance;
-    if (configuredUrl && configuredUrl !== '#') {
-        behanceBtn.href = configuredUrl;
-        behanceBtn.target = '_blank';
-    } else {
-        behanceBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert("Behance URL Configuration Point: Set your actual Behance profile link in assets/portfolio-data.js (profile.socials.behance).");
-        });
-    }
+    const behanceUrl = "https://www.behance.net/technologyhell";
+    behanceBtn.href = behanceUrl;
+    behanceBtn.target = '_blank';
+    behanceBtn.rel = 'noopener noreferrer';
+    behanceBtn.removeAttribute('onclick');
+    behanceBtn.onclick = null;
 }
 
 /* =========================================================

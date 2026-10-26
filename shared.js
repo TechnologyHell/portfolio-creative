@@ -84,9 +84,9 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     render();
 
-    // 2. Cursor Hover Effects
+    // 2. Cursor Hover Effects (only real interactive targets)
     attachCursorHovers = function() {
-        const hoverElements = document.querySelectorAll('a, button, select, .hover-trigger, .tilt-wrapper, .filter-pill, .modal-thumb, .modal-close-btn, .modal-nav-arrow, .case-study-item-card, .back-btn-pill, .contact-card');
+        const hoverElements = document.querySelectorAll('a, button, select, .filter-pill, .modal-thumb, .modal-close-btn, .modal-nav-arrow, .card-action-btn, .case-study-item-card, .back-btn-pill, .contact-card, .edition-card-media, .bento-card-thumb');
         hoverElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 if (outline) outline.classList.add('hover-active');
@@ -98,65 +98,15 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     attachCursorHovers();
 
-    // 3. Magnetic Physics
+    // 3. Magnetic Physics (Replaced with rock-solid CSS hover)
     function attachMagnetics() {
-        const magnetics = document.querySelectorAll('.magnetic, .magnetic-huge');
-        magnetics.forEach(btn => {
-            btn.addEventListener('mousemove', function(e) {
-                const rect = this.getBoundingClientRect();
-                const strength = this.getAttribute('data-magnetic-strength') || 20; 
-                const hx = rect.left + rect.width / 2;
-                const hy = rect.top + rect.height / 2;
-                const dx = e.clientX - hx;
-                const dy = e.clientY - hy;
-                const maxPx = parseInt(strength);
-                const x = (dx / (rect.width / 2)) * maxPx;
-                const y = (dy / (rect.height / 2)) * maxPx;
-
-                this.style.transform = `translate(${x}px, ${y}px)`;
-            });
-
-            btn.addEventListener('mouseleave', function() {
-                this.style.transform = 'translate(0px, 0px)';
-            });
-        });
+        // Disabled JS magnetic movement to guarantee 100% reliable physical button clickability
     }
     attachMagnetics();
 
-    // 4. 3D Card Tilt Physics
+    // 4. 3D Card Tilt Physics (Replaced with high-performance, non-interfering CSS hover glow)
     attachTiltCards = function() {
-        const cards = document.querySelectorAll('.tilt-wrapper');
-        cards.forEach(card => {
-            const tiltEl = card.querySelector('.tilt-element');
-            const glare = card.querySelector('.glare');
-            if (!tiltEl) return;
-
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const xc = (x / rect.width) * 2 - 1;
-                const yc = (y / rect.height) * 2 - 1;
-                const maxTilt = 8;
-                const rotateX = yc * -maxTilt;
-                const rotateY = xc * maxTilt;
-
-                tiltEl.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                
-                if (glare) {
-                    const glareX = (x / rect.width) * 100;
-                    const glareY = (y / rect.height) * 100;
-                    glare.style.background = `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255,255,255,0.18) 0%, transparent 60%)`;
-                }
-            });
-
-            card.addEventListener('mouseleave', () => {
-                tiltEl.style.transform = `rotateX(0deg) rotateY(0deg)`;
-                if (glare) {
-                    glare.style.background = `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08) 0%, transparent 60%)`;
-                }
-            });
-        });
+        // Disabled JS 3D matrix transforms on mousemove so clicks are never cancelled
     };
     attachTiltCards();
 
@@ -419,23 +369,51 @@ function renderCategoryPageGrid(catKey) {
 
     container.innerHTML = projects.map(p => {
         let clickHandler = '';
+        let actionMarkup = '';
+        const escapedTitle = p.title.replace(/'/g, "\\'");
+
         if (p.isCaseStudy && p.caseStudyEdition) {
-            clickHandler = `openCaseStudy('${p.caseStudyEdition}')`;
+            const csUrl = p.caseStudyEdition === 'idt3' ? fixPath('ideathon/3/index.html') : fixPath('ideathon/4/index.html');
+            clickHandler = `window.location.href='${csUrl}'`;
+            actionMarkup = `
+                <a href="${csUrl}" class="btn sm primary card-action-btn">
+                    <span>READ CASE STUDY →</span>
+                </a>
+            `;
         } else if (p.youtubeId) {
-            clickHandler = `openVideoModal('${p.youtubeId}', '${p.title.replace(/'/g, "\\'")}', false)`;
+            clickHandler = `openVideoModal('${p.youtubeId}', '${escapedTitle}', false)`;
+            actionMarkup = `
+                <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                    <button type="button" onclick="openVideoModal('${p.youtubeId}', '${escapedTitle}', false)" class="btn sm secondary card-action-btn">
+                        <span>PLAY ▶</span>
+                    </button>
+                    <a href="https://youtu.be/${p.youtubeId}" target="_blank" rel="noopener noreferrer" class="btn sm card-action-btn" style="background: rgba(255,255,255,0.06); border: 1px solid var(--glass-border);" onclick="event.stopPropagation();">
+                        <span>YOUTUBE ↗</span>
+                    </a>
+                </div>
+            `;
         } else if (p.localVideo) {
-            clickHandler = `openVideoModal('${fixPath(p.localVideo)}', '${p.title.replace(/'/g, "\\'")}', true)`;
+            clickHandler = `openVideoModal('${fixPath(p.localVideo)}', '${escapedTitle}', true)`;
+            actionMarkup = `
+                <button type="button" onclick="openVideoModal('${fixPath(p.localVideo)}', '${escapedTitle}', true)" class="btn sm secondary card-action-btn">
+                    <span>PLAY VIDEO ▶</span>
+                </button>
+            `;
         } else {
             clickHandler = `openProjectLightbox('${p.id}')`;
+            actionMarkup = `
+                <button type="button" onclick="openProjectLightbox('${p.id}')" class="btn sm secondary card-action-btn">
+                    <span>VIEW PROJECT ↗</span>
+                </button>
+            `;
         }
 
         const thumbSrc = fixPath(p.thumbnail);
 
         return `
             <div class="bento-box tilt-wrapper">
-                <div class="tilt-element glass-card bento-card" onclick="${clickHandler}">
-                    <div class="glare"></div>
-                    <div class="bento-card-thumb">
+                <div class="tilt-element glass-card bento-card">
+                    <div class="bento-card-thumb" onclick="${clickHandler}" style="cursor: pointer;">
                         <img src="${thumbSrc}" alt="${p.title}" loading="lazy">
                         ${p.youtubeId || p.localVideo ? `
                             <div class="video-play-badge">
@@ -447,7 +425,7 @@ function renderCategoryPageGrid(catKey) {
                     </div>
 
                     <div class="bento-card-body">
-                        <div class="bento-card-info">
+                        <div class="bento-card-info" onclick="${clickHandler}" style="cursor: pointer;">
                             <div class="bento-card-meta">
                                 <span class="project-tag" style="margin: 0;">${p.categoryLabel} • ${p.year}</span>
                                 ${p.isCaseStudy ? `<span class="chip" style="font-size: 0.7rem; color: var(--accent-cyan); border-color: rgba(0,242,254,0.3); margin: 0;">FLAGSHIP CASE STUDY</span>` : ''}
@@ -459,7 +437,7 @@ function renderCategoryPageGrid(catKey) {
                             <div class="bento-card-tags">
                                 ${(p.tags || []).map(t => `<span class="tag-tech">${t}</span>`).join('')}
                             </div>
-                            <span class="card-action-link">${p.isCaseStudy ? 'READ CASE STUDY →' : (p.youtubeId || p.localVideo ? 'WATCH VIDEO ↗' : 'VIEW PROJECT ↗')}</span>
+                            ${actionMarkup}
                         </div>
                     </div>
                 </div>
@@ -484,7 +462,6 @@ function renderAchievementsPage() {
         return `
             <div class="tilt-wrapper">
                 <div class="tilt-element glass-card achievement-card">
-                    <div class="glare"></div>
                     <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem;">
                         <span class="chip">${item.badge}</span>
                         <span style="font-family: monospace; color: var(--accent-cyan); font-weight: 700;">${item.year}</span>
@@ -707,6 +684,15 @@ function closeVideoModal() {
    ========================================================= */
 
 function openCaseStudy(editionId) {
+    if (editionId === 'idt3') {
+        window.location.href = fixPath('ideathon/3/index.html');
+        return;
+    }
+    if (editionId === 'idt4') {
+        window.location.href = fixPath('ideathon/4/index.html');
+        return;
+    }
+
     if (typeof PORTFOLIO_DATA === 'undefined' || !PORTFOLIO_DATA.flagshipCaseStudies) return;
     const study = PORTFOLIO_DATA.flagshipCaseStudies[editionId];
     if (!study) return;
@@ -766,7 +752,6 @@ function openCaseStudy(editionId) {
                     ${sec.items.map((item, iIdx) => `
                         <div class="tilt-wrapper">
                             <div class="tilt-element glass-card case-study-item-card" onclick="openStudyGalleryModal('${study.id}', ${sIdx}, ${iIdx})">
-                                <div class="glare"></div>
                                 <div style="aspect-ratio: 16/10; overflow: hidden; background: #000; border-radius: 8px;">
                                     <img src="${fixPath(item.src)}" alt="${item.title}" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>

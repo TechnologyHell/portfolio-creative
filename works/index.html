@@ -188,9 +188,14 @@
 
         <div class="modal-container" style="max-width: 920px; background: #000;">
             <div id="videoPlayerWrap" class="video-responsive-wrap"></div>
-            <div style="padding: 1.25rem 2rem; background: var(--bg-darker); display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--glass-border);">
+            <div style="padding: 1.25rem 2rem; background: var(--bg-darker); display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--glass-border); flex-wrap: wrap; gap: 1rem;">
                 <h4 id="videoModalTitle" style="font-size: 1.15rem; color: #fff;">Video Title</h4>
-                <span style="font-family: monospace; font-size: 0.8rem; color: var(--text-muted);">ESC TO CLOSE</span>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <a id="videoModalYtLink" href="#" target="_blank" rel="noopener noreferrer" class="btn sm primary" style="font-size: 0.78rem; text-decoration: none;">
+                        <span class="btn-text">WATCH ON YOUTUBE ↗</span>
+                    </a>
+                    <span style="font-family: monospace; font-size: 0.8rem; color: var(--text-muted);">ESC TO CLOSE</span>
+                </div>
             </div>
         </div>
     </div>

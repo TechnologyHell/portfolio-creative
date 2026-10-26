@@ -111,11 +111,11 @@ const PORTFOLIO_DATA = {
       officialRole: "Vice President",
       creativeRole: "Design Lead (Print Collateral & Event Media)",
       description: "Visual identity assets and event collateral created for Ideathon 3.0, including stage banners, official flyers, logo mockups, and tiered participant ID cards.",
-      heroImage: "assets/optimized/IDT/3/id3_banner.webp",
+      heroImage: "_CreativeWorkCollection/IDT/3/id3_banner.jpg",
       videoUrl: "https://www.youtube.com/watch?v=fYRBwF7v4Vk",
       youtubeId: "fYRBwF7v4Vk",
       videoTitle: "SIT Ideathon 3.0 — Event Recap Montage",
-      videoLocalPath: "_CreativeWorkCollection/IDT/3/id3_montage_premierescreenrecording.mp4",
+      videoLocalPath: null,
       overview: "Across SIT Ideathon 3.0, I served as Vice President of the student organizing committee while directing the event's visual communication design. My responsibilities centered on creating a modern identity emblem, drafting high-resolution promotional print assets, designing auditorium stage banners and participant credentials, and cutting the event recap video.",
       responsibilities: [
         "Established the geometric circular emblem and 3D visual treatments",
@@ -130,36 +130,36 @@ const PORTFOLIO_DATA = {
           heading: "Visual Identity & Emblem",
           description: "Circular brandmark and 3D mockups designed for Ideathon 3.0 branding across digital and print collateral.",
           items: [
-            { src: "assets/optimized/IDT/3/id3_logo.webp", original: "_CreativeWorkCollection/IDT/3/id3_logo.jpg", title: "Brandmark Emblem", type: "Logo" },
-            { src: "assets/optimized/IDT/3/id3_logomockup.webp", original: "_CreativeWorkCollection/IDT/3/id3_logomockup.png", title: "3D Emblem Mockup", type: "Mockup" }
+            { src: "_CreativeWorkCollection/IDT/3/id3_logo.jpg", original: "_CreativeWorkCollection/IDT/3/id3_logo.jpg", title: "Brandmark Emblem", type: "Logo" },
+            { src: "_CreativeWorkCollection/IDT/3/id3_logomockup.jpg", original: "_CreativeWorkCollection/IDT/3/id3_logomockup.jpg", title: "3D Emblem Mockup", type: "Mockup" }
           ]
         },
         {
           heading: "Stage Backdrops & Banners",
           description: "Large-scale vector and raster graphics formatted with print bleeds for auditorium staging.",
           items: [
-            { src: "assets/optimized/IDT/3/id3_banner.webp", original: "_CreativeWorkCollection/IDT/3/id3_banner.jpg", title: "Main Stage Backdrop Banner", type: "Stage Banner" },
-            { src: "assets/optimized/IDT/3/id3_invitationbanner.webp", original: "_CreativeWorkCollection/IDT/3/id3_invitationbanner.jpg", title: "VIP Invitation Banner", type: "Banner" }
+            { src: "_CreativeWorkCollection/IDT/3/id3_banner.jpg", original: "_CreativeWorkCollection/IDT/3/id3_banner.jpg", title: "Main Stage Backdrop Banner", type: "Stage Banner" },
+            { src: "_CreativeWorkCollection/IDT/3/id3_invitationbanner.jpg", original: "_CreativeWorkCollection/IDT/3/id3_invitationbanner.jpg", title: "VIP Invitation Banner", type: "Banner" }
           ]
         },
         {
           heading: "Promotional Collateral",
           description: "Multi-panel brochures and informational flyers distributed across regional academic institutions.",
           items: [
-            { src: "assets/optimized/IDT/3/id3_flyer.webp", original: "_CreativeWorkCollection/IDT/3/id3_flyer.jpg", title: "Official Event Flyer Brochure", type: "Flyer" }
+            { src: "_CreativeWorkCollection/IDT/3/id3_flyer.jpg", original: "_CreativeWorkCollection/IDT/3/id3_flyer.jpg", title: "Official Event Flyer Brochure", type: "Flyer" }
           ]
         },
         {
           heading: "Credentials & Event Collateral",
           description: "Color-coded physical badges for attendees, jury, and committee members, along with the winner dummy check.",
           items: [
-            { src: "assets/optimized/IDT/3/id3_idcardparticipant.webp", original: "_CreativeWorkCollection/IDT/3/id3_idcardparticipant.png", title: "Participant ID Badge", type: "Credential Badge" },
-            { src: "assets/optimized/IDT/3/id3_idcardvolunteer.webp", original: "_CreativeWorkCollection/IDT/3/id3_idcardvolunteer.png", title: "Volunteer Crew ID Badge", type: "Credential Badge" },
-            { src: "assets/optimized/IDT/3/id3_idcard1.webp", original: "_CreativeWorkCollection/IDT/3/id3_idcard1.png", title: "Tier 1 Credential Pass", type: "Credential Badge" },
-            { src: "assets/optimized/IDT/3/id3_idcard2.webp", original: "_CreativeWorkCollection/IDT/3/id3_idcard2.png", title: "Tier 2 Credential Pass", type: "Credential Badge" },
-            { src: "assets/optimized/IDT/3/id3_idcard3.webp", original: "_CreativeWorkCollection/IDT/3/id3_idcard3.png", title: "Tier 3 Credential Pass", type: "Credential Badge" },
-            { src: "assets/optimized/IDT/3/id3_idcard4.webp", original: "_CreativeWorkCollection/IDT/3/id3_idcard4.png", title: "Tier 4 Credential Pass", type: "Credential Badge" },
-            { src: "assets/optimized/IDT/3/id3_dummycheck.webp", original: "_CreativeWorkCollection/IDT/3/id3_dummycheck.png", title: "Cash Prize Dummy Check", type: "Ceremonial Check" }
+            { src: "_CreativeWorkCollection/IDT/3/id3_idcardparticipant.png", original: "_CreativeWorkCollection/IDT/3/id3_idcardparticipant.png", title: "Participant ID Badge", type: "Credential Badge" },
+            { src: "_CreativeWorkCollection/IDT/3/id3_idcardvolunteer.png", original: "_CreativeWorkCollection/IDT/3/id3_idcardvolunteer.png", title: "Volunteer Crew ID Badge", type: "Credential Badge" },
+            { src: "_CreativeWorkCollection/IDT/3/id3_idcard1.png", original: "_CreativeWorkCollection/IDT/3/id3_idcard1.png", title: "Tier 1 Credential Pass", type: "Credential Badge" },
+            { src: "_CreativeWorkCollection/IDT/3/id3_idcard2.png", original: "_CreativeWorkCollection/IDT/3/id3_idcard2.png", title: "Tier 2 Credential Pass", type: "Credential Badge" },
+            { src: "_CreativeWorkCollection/IDT/3/id3_idcard3.png", original: "_CreativeWorkCollection/IDT/3/id3_idcard3.png", title: "Tier 3 Credential Pass", type: "Credential Badge" },
+            { src: "_CreativeWorkCollection/IDT/3/id3_idcard4.png", original: "_CreativeWorkCollection/IDT/3/id3_idcard4.png", title: "Tier 4 Credential Pass", type: "Credential Badge" },
+            { src: "_CreativeWorkCollection/IDT/3/id3_dummycheck.jpg", original: "_CreativeWorkCollection/IDT/3/id3_dummycheck.jpg", title: "Cash Prize Dummy Check", type: "Ceremonial Check" }
           ]
         }
       ],
@@ -174,7 +174,7 @@ const PORTFOLIO_DATA = {
       officialRole: "President",
       creativeRole: "Creative Lead & Media Producer",
       description: "Visual identity and comprehensive event collateral for the fourth edition of SIT Ideathon, including stage backdrops, red-carpet photography walls, credentials, digital displays, publications, and an opening montage.",
-      heroImage: "assets/optimized/IDT/4/id4_backdropbanner.webp",
+      heroImage: "_CreativeWorkCollection/IDT/4/id4_backdropbanner.jpg",
       videoUrl: "https://www.youtube.com/watch?v=3i-MoULXUFg",
       youtubeId: "3i-MoULXUFg",
       videoTitle: "SIT Ideathon 4.0 — Opening Montage",
@@ -188,39 +188,36 @@ const PORTFOLIO_DATA = {
         "Designed participant credentials, VIP invitation cards, dummy checks, and event publication covers",
         "Edited the music-synchronized opening montage utilizing non-linear time remapping in Premiere Pro"
       ],
-      publications: [
-        { title: "Book of Abstract (Official Event Publication)", path: "_CreativeWorkCollection/IDT/4/id4_bookofabstract.pdf", type: "PDF Publication" },
-        { title: "Participant Certificates Compilation", path: "_CreativeWorkCollection/IDT/4/id4_certificates.pdf", type: "PDF Document" }
-      ],
+      publications: [],
       sections: [
         {
           heading: "Stage Backdrops & Photography Walls",
           description: "High-contrast, large-format graphics designed for the main event auditorium and dignitary reception.",
           items: [
-            { src: "assets/optimized/IDT/4/id4_backdropbanner.webp", original: "_CreativeWorkCollection/IDT/4/id4_backdropbanner.jpg", title: "Main Stage Backdrop Banner", type: "Stage Backdrop" },
-            { src: "assets/optimized/IDT/4/id4_redcarpetbackdrop.webp", original: "_CreativeWorkCollection/IDT/4/id4_redcarpetbackdrop.jpg", title: "Red Carpet Photography Backdrop", type: "Photography Wall" }
+            { src: "_CreativeWorkCollection/IDT/4/id4_backdropbanner.jpg", original: "_CreativeWorkCollection/IDT/4/id4_backdropbanner.jpg", title: "Main Stage Backdrop Banner", type: "Stage Backdrop" },
+            { src: "_CreativeWorkCollection/IDT/4/id4_redcarpetbackdrop.jpg", original: "_CreativeWorkCollection/IDT/4/id4_redcarpetbackdrop.jpg", title: "Red Carpet Photography Backdrop", type: "Photography Wall" }
           ]
         },
         {
           heading: "Posters & Promotional Assets",
           description: "Promotional campaigns distributed across digital channels, social media, and campus notices.",
           items: [
-            { src: "assets/optimized/IDT/4/id4_poster.webp", original: "_CreativeWorkCollection/IDT/4/id4_poster.jpg", title: "Official Call For Ideas Poster", type: "Poster" },
-            { src: "assets/optimized/IDT/4/id4_carouselposter.webp", original: "_CreativeWorkCollection/IDT/4/id4_carouselposter.jpg", title: "Social Carousel Key Art", type: "Social Media" },
-            { src: "assets/optimized/IDT/4/id4_digitalscreenbanner.webp", original: "_CreativeWorkCollection/IDT/4/id4_digitalscreenbanner.jpg", title: "Auditorium Digital Screen Banner", type: "Digital Display" }
+            { src: "_CreativeWorkCollection/IDT/4/id4_poster.jpg", original: "_CreativeWorkCollection/IDT/4/id4_poster.jpg", title: "Official Call For Ideas Poster", type: "Poster" },
+            { src: "_CreativeWorkCollection/IDT/4/id4_carouselposter.jpg", original: "_CreativeWorkCollection/IDT/4/id4_carouselposter.jpg", title: "Social Carousel Key Art", type: "Social Media" },
+            { src: "_CreativeWorkCollection/IDT/4/id4_digitalscreenbanner.jpg", original: "_CreativeWorkCollection/IDT/4/id4_digitalscreenbanner.jpg", title: "Auditorium Digital Screen Banner", type: "Digital Display" }
           ]
         },
         {
           heading: "Credentials, Invitations & Collateral",
           description: "Tiered access passes, VIP invitation cards, and ceremony collateral for participants and guests.",
           items: [
-            { src: "assets/optimized/IDT/4/id4_invitationcard.webp", original: "_CreativeWorkCollection/IDT/4/id4_invitationcard.png", title: "VIP Invitation Card", type: "Invitation" },
-            { src: "assets/optimized/IDT/4/id4_idcardparticipant.webp", original: "_CreativeWorkCollection/IDT/4/id4_idcardparticipant.png", title: "Participant ID Credential Badge", type: "Credential Badge" },
-            { src: "assets/optimized/IDT/4/id4_icard1.webp", original: "_CreativeWorkCollection/IDT/4/id4_icard1.png", title: "Dignitary & Guest Pass", type: "Credential Badge" },
-            { src: "assets/optimized/IDT/4/id4_idcard2.webp", original: "_CreativeWorkCollection/IDT/4/id4_idcard2.png", title: "Jury Credential Pass", type: "Credential Badge" },
-            { src: "assets/optimized/IDT/4/id4_idcard3.webp", original: "_CreativeWorkCollection/IDT/4/id4_idcard3.png", title: "Organizing Committee Pass", type: "Credential Badge" },
-            { src: "assets/optimized/IDT/4/id4_idcard4.webp", original: "_CreativeWorkCollection/IDT/4/id4_idcard4.png", title: "Volunteer Crew Pass", type: "Credential Badge" },
-            { src: "assets/optimized/IDT/4/id4_dummycheck.webp", original: "_CreativeWorkCollection/IDT/4/id4_dummycheck.png", title: "Cash Prize Dummy Check", type: "Ceremonial Check" }
+            { src: "_CreativeWorkCollection/IDT/4/id4_invitationcard.png", original: "_CreativeWorkCollection/IDT/4/id4_invitationcard.png", title: "VIP Invitation Card", type: "Invitation" },
+            { src: "_CreativeWorkCollection/IDT/4/id4_idcardparticipant.png", original: "_CreativeWorkCollection/IDT/4/id4_idcardparticipant.png", title: "Participant ID Credential Badge", type: "Credential Badge" },
+            { src: "_CreativeWorkCollection/IDT/4/id4_icard1.png", original: "_CreativeWorkCollection/IDT/4/id4_icard1.png", title: "Dignitary & Guest Pass", type: "Credential Badge" },
+            { src: "_CreativeWorkCollection/IDT/4/id4_idcard2.png", original: "_CreativeWorkCollection/IDT/4/id4_idcard2.png", title: "Jury Credential Pass", type: "Credential Badge" },
+            { src: "_CreativeWorkCollection/IDT/4/id4_idcard3.png", original: "_CreativeWorkCollection/IDT/4/id4_idcard3.png", title: "Organizing Committee Pass", type: "Credential Badge" },
+            { src: "_CreativeWorkCollection/IDT/4/id4_idcard4.png", original: "_CreativeWorkCollection/IDT/4/id4_idcard4.png", title: "Volunteer Crew Pass", type: "Credential Badge" },
+            { src: "_CreativeWorkCollection/IDT/4/id4_dummycheck.png", original: "_CreativeWorkCollection/IDT/4/id4_dummycheck.png", title: "Cash Prize Dummy Check", type: "Ceremonial Check" }
           ]
         }
       ],
@@ -339,7 +336,7 @@ const PORTFOLIO_DATA = {
             "Embedded C++"
         ],
         "description": "Standalone programmable macro keypad designed with a custom 3D-printed enclosure modeled in CATIA V5, running custom firmware and a dynamic Python macro engine. Ranked #1 at CDAC Additive Manufacturing training; placed 4th globally at IHMMC 2026.",
-        "thumbnail": "assets/optimized/techdeck_physical.webp",
+        "thumbnail": "assets/techdeck_macropad.png",
         "original": "assets/techdeck_macropad.png",
         "featured": true,
         "tags": [
@@ -379,56 +376,56 @@ const PORTFOLIO_DATA = {
             "Posters"
         ],
         "description": "Comprehensive visual collateral designed for the fourth edition of SIT Ideathon, including stage backdrops, red-carpet photography walls, participant ID credentials, cash prize checks, and invitation cards.",
-        "thumbnail": "assets/optimized/IDT/4/id4_backdropbanner.webp",
+        "thumbnail": "_CreativeWorkCollection/IDT/4/id4_backdropbanner.jpg",
         "original": "_CreativeWorkCollection/IDT/4/id4_backdropbanner.jpg",
         "featured": true,
         "isCaseStudy": true,
         "caseStudyEdition": "idt4",
         "gallery": [
             {
-                "src": "assets/optimized/IDT/4/id4_backdropbanner.webp",
+                "src": "_CreativeWorkCollection/IDT/4/id4_backdropbanner.jpg",
                 "original": "_CreativeWorkCollection/IDT/4/id4_backdropbanner.jpg",
                 "title": "Main Stage Backdrop Banner",
                 "type": "Stage Backdrop"
             },
             {
-                "src": "assets/optimized/IDT/4/id4_redcarpetbackdrop.webp",
+                "src": "_CreativeWorkCollection/IDT/4/id4_redcarpetbackdrop.jpg",
                 "original": "_CreativeWorkCollection/IDT/4/id4_redcarpetbackdrop.jpg",
                 "title": "Red Carpet Photography Backdrop",
                 "type": "Photography Wall"
             },
             {
-                "src": "assets/optimized/IDT/4/id4_poster.webp",
+                "src": "_CreativeWorkCollection/IDT/4/id4_poster.jpg",
                 "original": "_CreativeWorkCollection/IDT/4/id4_poster.jpg",
                 "title": "Official Call For Ideas Poster",
                 "type": "Poster"
             },
             {
-                "src": "assets/optimized/IDT/4/id4_carouselposter.webp",
+                "src": "_CreativeWorkCollection/IDT/4/id4_carouselposter.jpg",
                 "original": "_CreativeWorkCollection/IDT/4/id4_carouselposter.jpg",
                 "title": "Social Carousel Key Art",
                 "type": "Social Media"
             },
             {
-                "src": "assets/optimized/IDT/4/id4_digitalscreenbanner.webp",
+                "src": "_CreativeWorkCollection/IDT/4/id4_digitalscreenbanner.jpg",
                 "original": "_CreativeWorkCollection/IDT/4/id4_digitalscreenbanner.jpg",
                 "title": "Auditorium Digital Screen Banner",
                 "type": "Digital Display"
             },
             {
-                "src": "assets/optimized/IDT/4/id4_dummycheck.webp",
+                "src": "_CreativeWorkCollection/IDT/4/id4_dummycheck.png",
                 "original": "_CreativeWorkCollection/IDT/4/id4_dummycheck.png",
                 "title": "Prize Dummy Check",
                 "type": "Event Collateral"
             },
             {
-                "src": "assets/optimized/IDT/4/id4_invitationcard.webp",
+                "src": "_CreativeWorkCollection/IDT/4/id4_invitationcard.png",
                 "original": "_CreativeWorkCollection/IDT/4/id4_invitationcard.png",
                 "title": "VIP Invitation Card",
                 "type": "Invitation"
             },
             {
-                "src": "assets/optimized/IDT/4/id4_idcardparticipant.webp",
+                "src": "_CreativeWorkCollection/IDT/4/id4_idcardparticipant.png",
                 "original": "_CreativeWorkCollection/IDT/4/id4_idcardparticipant.png",
                 "title": "Participant ID Credential Badge",
                 "type": "Credential Badge"
@@ -463,50 +460,50 @@ const PORTFOLIO_DATA = {
             "Flyers"
         ],
         "description": "Visual identity assets and event collateral created for Ideathon 3.0, including stage banners, official flyers, circular logo mockups, and tiered participant ID cards.",
-        "thumbnail": "assets/optimized/IDT/3/id3_banner.webp",
+        "thumbnail": "_CreativeWorkCollection/IDT/3/id3_banner.jpg",
         "original": "_CreativeWorkCollection/IDT/3/id3_banner.jpg",
         "featured": false,
         "isCaseStudy": true,
         "caseStudyEdition": "idt3",
         "gallery": [
             {
-                "src": "assets/optimized/IDT/3/id3_banner.webp",
+                "src": "_CreativeWorkCollection/IDT/3/id3_banner.jpg",
                 "original": "_CreativeWorkCollection/IDT/3/id3_banner.jpg",
                 "title": "Main Stage Backdrop Banner",
                 "type": "Stage Banner"
             },
             {
-                "src": "assets/optimized/IDT/3/id3_invitationbanner.webp",
+                "src": "_CreativeWorkCollection/IDT/3/id3_invitationbanner.jpg",
                 "original": "_CreativeWorkCollection/IDT/3/id3_invitationbanner.jpg",
                 "title": "VIP Invitation Banner",
                 "type": "Banner"
             },
             {
-                "src": "assets/optimized/IDT/3/id3_logo.webp",
+                "src": "_CreativeWorkCollection/IDT/3/id3_logo.jpg",
                 "original": "_CreativeWorkCollection/IDT/3/id3_logo.jpg",
                 "title": "Brandmark Emblem",
                 "type": "Logo"
             },
             {
-                "src": "assets/optimized/IDT/3/id3_logomockup.webp",
+                "src": "_CreativeWorkCollection/IDT/3/id3_logomockup.jpg",
                 "original": "_CreativeWorkCollection/IDT/3/id3_logomockup.jpg",
                 "title": "3D Emblem Mockup",
                 "type": "Mockup"
             },
             {
-                "src": "assets/optimized/IDT/3/id3_flyer.webp",
+                "src": "_CreativeWorkCollection/IDT/3/id3_flyer.jpg",
                 "original": "_CreativeWorkCollection/IDT/3/id3_flyer.jpg",
                 "title": "Official Event Flyer Brochure",
                 "type": "Flyer"
             },
             {
-                "src": "assets/optimized/IDT/3/id3_dummycheck.webp",
+                "src": "_CreativeWorkCollection/IDT/3/id3_dummycheck.jpg",
                 "original": "_CreativeWorkCollection/IDT/3/id3_dummycheck.jpg",
                 "title": "Cash Prize Dummy Check",
                 "type": "Ceremonial Check"
             },
             {
-                "src": "assets/optimized/IDT/3/id3_idcardparticipant.webp",
+                "src": "_CreativeWorkCollection/IDT/3/id3_idcardparticipant.png",
                 "original": "_CreativeWorkCollection/IDT/3/id3_idcardparticipant.png",
                 "title": "Participant ID Badge",
                 "type": "Credential Badge"
@@ -2500,30 +2497,16 @@ const PORTFOLIO_DATA = {
     {
         "badge": "WINNER",
         "year": "August 2025",
-        "title": "Smart India Hackathon (SIH) — College Winner",
-        "org": "Ministry of Education & SIT",
-        "desc": "Secured first place in the internal college evaluation rounds for the prestigious Smart India Hackathon nationwide engineering competition."
-    },
-    {
-        "badge": "WINNER",
-        "year": "August 2025",
-        "title": "Vision to Venture — Winner",
+        "title": "Winner — Vision to Venture",
         "org": "Eureka! IIT Bombay",
-        "desc": "Recognized as winner at the prestigious business idea and entrepreneurial venture contest organized by Eureka! IIT Bombay."
+        "desc": "Winners at a Business Idea Event organized by Eureka! IIT Bombay — went in with strategic venture proposition, market model, and business execution framework."
     },
     {
         "badge": "WINNER",
-        "year": "April 2025",
-        "title": "SIT Hack-A-Verse — 1st Place",
-        "org": "Computer Engineering Society",
-        "desc": "Developed an institutional institutional web platform on MERN stack, winning the 24-hour hackathon for modular frontend architecture and responsiveness."
-    },
-    {
-        "badge": "WINNERS",
         "year": "February 2026",
-        "title": "Startup Challenge — 1st Place",
+        "title": "Winner — Startup Challenge @ Technovision 2k26",
         "org": "Technovision 2k26",
-        "desc": "Pitched custom hardware business venture with production cost breakdown and go-to-market model, clinching first prize in the college startup challenge."
+        "desc": "Went in with the business model, unit economics, and go-to-market strategy, and stood as the winners!"
     },
     {
         "badge": "2ND RUNNERS UP",

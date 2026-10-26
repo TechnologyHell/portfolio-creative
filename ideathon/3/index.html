@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIT Ideathon 3.0 — Comprehensive Event Identity & Creative Production | Nitish Singh</title>
+    <meta name="description" content="Complete creative case study and collateral package for SIT Ideathon 3.0. Stage banners, brandmark, credentials, flyer brochure, dummy check, and recap montage authored by Nitish Singh.">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <style>
+        .study-hero {
+            padding: 8rem 0 4rem;
+            position: relative;
+        }
+        .study-meta-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+            margin: 1.5rem 0 2.5rem;
+            padding: 1.25rem 1.75rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+        }
+        .study-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        .study-meta-label {
+            font-family: monospace;
+            font-size: 0.72rem;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .study-meta-val {
+            font-size: 0.95rem;
+            color: #fff;
+            font-weight: 600;
+        }
+        .study-section {
+            padding: 3.5rem 0;
+            border-top: 1px solid var(--glass-border);
+        }
+        .study-section-title {
+            margin-bottom: 2rem;
+        }
+        .study-section-title h3 {
+            font-size: 1.75rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        .study-section-title p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 700px;
+        }
+        .study-media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.75rem;
+        }
+        .study-asset-card {
+            background: var(--bg-darker);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s var(--ease-out-expo), border-color 0.3s;
+            cursor: pointer;
+        }
+        .study-asset-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 242, 254, 0.4);
+        }
+        .study-asset-thumb {
+            width: 100%;
+            aspect-ratio: 16/10;
+            background: #000;
+            overflow: hidden;
+            position: relative;
+        }
+        .study-asset-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #08080c;
+            transition: transform 0.4s var(--ease-out-expo);
+        }
+        .study-asset-card:hover .study-asset-thumb img {
+            transform: scale(1.04);
+        }
+        .study-asset-body {
+            padding: 1.25rem 1.5rem;
+        }
+        .study-asset-body h4 {
+            font-size: 1.05rem;
+            color: #fff;
+            margin-bottom: 0.35rem;
+        }
+        .study-asset-body .asset-type {
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: var(--accent-indigo);
+            text-transform: uppercase;
+        }
+        .video-feature-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(0,242,254,0.15);
+        }
+        .video-feature-wrap iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+
+<body data-page="ideathon-3">
+    <!-- Glow Background & Custom Cursor -->
+    <div id="bg-glow"></div>
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo magnetic" data-magnetic-strength="10">NITISH<span class="dot">.</span></a>
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="../../index.html" class="hover-blur nav-item">Overview</a></li>
+                    <li><a href="../../works/index.html" class="hover-blur nav-item">All Works</a></li>
+                    <li><a href="../../ideathon/4/index.html" class="hover-blur nav-item">Edition 4.0 →</a></li>
+                    <li><a href="../../achievements/index.html" class="hover-blur nav-item">Achievements</a></li>
+                    <li><a href="../../contact/index.html" class="hover-blur nav-item">Contact</a></li>
+                    <li><a href="../../assets/Nitish_Singh_Creative_Resume.pdf" target="_blank" class="hover-blur nav-item">Resume ↗</a></li>
+                </ul>
+            </nav>
+            <button id="mobileNavToggle" class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                <span>MENU</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu-drawer" id="mobileMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&times;</button>
+        <a href="../../index.html">Overview</a>
+        <a href="../../works/index.html">All Works</a>
+        <a href="../../ideathon/4/index.html">SIT Ideathon 4.0</a>
+        <a href="../../achievements/index.html">Achievements</a>
+        <a href="../../contact/index.html">Contact</a>
+        <a href="../../assets/Nitish_Singh_Creative_Resume.pdf" target="_blank">Resume ↗</a>
+    </div>
+
+    <main class="page-content">
+        <!-- Hero Header -->
+        <section class="study-hero">
+            <div class="container">
+                <div style="margin-bottom: 1.5rem;">
+                    <a href="../../index.html#work" class="back-btn-pill magnetic" data-magnetic-strength="15">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        <span>BACK TO FEATURED CASE STUDIES</span>
+                    </a>
+                </div>
+
+                <div class="section-title">
+                    <p class="greeting" style="color: var(--accent-cyan);">FLAGSHIP EVENT CASE STUDY</p>
+                    <h1 class="display-sm">SIT Ideathon 3.0 — <span class="outline">Event Identity & Production</span></h1>
+                    <p class="section-intro-text" style="font-size: 1.15rem; max-width: 850px;">
+                        Serving as Vice President of the student organizing committee while directing event visual communication, I led the creation of Ideathon 3.0's brandmark emblem, auditorium stage banners, participant credentials, promotional flyers, ceremonial checks, and the music-synchronized event recap montage.
+                    </p>
+                </div>
+
+                <!-- Metadata Bar -->
+                <div class="study-meta-bar">
+                    <div class="study-meta-item">
+                        <span class="study-meta-label">LEADERSHIP ROLE</span>
+                        <span class="study-meta-val">Vice President</span>
+                    </div>
+                    <div class="study-meta-item">
+                        <span class="study-meta-label">CREATIVE ROLE</span>
+                        <span class="study-meta-val">Design Lead & Media Editor</span>
+                    </div>
+                    <div class="study-meta-item">
+                        <span class="study-meta-label">TIMEFRAME</span>
+                        <span class="study-meta-val">December 2024 – February 2025</span>
+                    </div>
+                    <div class="study-meta-item">
+                        <span class="study-meta-label">INSTITUTION</span>
+                        <span class="study-meta-val">Siliguri Institute of Technology</span>
+                    </div>
+                    <div class="study-meta-item" style="margin-left: auto;">
+                        <a href="https://youtu.be/fYRBwF7v4Vk" target="_blank" rel="noopener noreferrer" class="btn sm primary magnetic" data-magnetic-strength="15">
+                            <span class="btn-text">WATCH ON YOUTUBE ↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video Feature Player (Recap Montage) -->
+                <div class="video-feature-wrap">
+                    <iframe src="https://www.youtube.com/embed/fYRBwF7v4Vk?rel=0&modestbranding=1" title="SIT Ideathon 3.0 Event Recap Montage" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Visual Identity & Emblem -->
+        <section class="study-section">
+            <div class="container">
+                <div class="study-section-title">
+                    <h3>01. Visual Identity & Brandmark</h3>
+                    <p>Circular geometric identity emblem and 3D mockups crafted for Ideathon 3.0 across digital displays, merchandise, and print media.</p>
+                </div>
+                <div class="study-media-grid">
+                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_logo.jpg', 'Brandmark Vector Emblem', 'Ideathon 3.0 Official Logo')">
+                        <div class="study-asset-thumb">
+                            <img src="../../_CreativeWorkCollection/IDT/3/id3_logo.jpg" alt="Brandmark Vector Emblem" loading="lazy">
+                        </div>
+                        <div class="study-asset-body">
+                            <span class="asset-type">Official Brandmark</span>
+                            <h4>Geometric Circular Emblem</h4>
+                        </div>
+                    </div>
+                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_logomockup.jpg', '3D Emblem Presentation Mockup', 'Architectural lighting and metallic surface mockup')">
+                        <div class="study-asset-thumb">
+                            <img src="../../_CreativeWorkCollection/IDT/3/id3_logomockup.jpg" alt="3D Emblem Presentation Mockup" loading="lazy">
+                        </div>
+                        <div class="study-asset-body">
+                            <span class="asset-type">3D Presentation</span>
+                            <h4>3D Architectural Emblem Mockup</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Stage Backdrops & Banners -->
+        <section class="study-section">
+            <div class="container">
+                <div class="study-section-title">
+                    <h3>02. Stage Backdrops & Venue Banners</h3>
+                    <p>Large-format stage graphics with precise bleed margins for auditorium staging and dignitary reception.</p>
+                </div>
+                <div class="study-media-grid">
+                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_banner.jpg', 'Main Stage Backdrop Banner', 'Auditorium central backdrop banner')">
+                        <div class="study-asset-thumb">
+                            <img src="../../_CreativeWorkCollection/IDT/3/id3_banner.jpg" alt="Main Stage Backdrop Banner" loading="lazy">
+                        </div>
+                        <div class="study-asset-body">
+                            <span class="asset-type">Stage Banner</span>
+                            <h4>Auditorium Stage Backdrop Banner</h4>
+                        </div>
+                    </div>
+                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_invitationbanner.jpg', 'VIP Invitation Banner', 'VIP reception and welcome entrance banner')">
+                        <div class="study-asset-thumb">
+                            <img src="../../_CreativeWorkCollection/IDT/3/id3_invitationbanner.jpg" alt="VIP Invitation Banner" loading="lazy">
+                        </div>
+                        <div class="study-asset-body">
+                            <span class="asset-type">Venue Banner</span>
+                            <h4>VIP Welcome & Entrance Banner</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Promotional Print & Brochure -->
+        <section class="study-section">
+            <div class="container">
+                <div class="study-section-title">
+                    <h3>03. Promotional Collateral & Event Brochure</h3>
+                    <p>Multi-panel informational brochures and flyers distributed across colleges and regional academic partners.</p>
+                </div>
+                <div class="study-media-grid">
+                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_flyer.jpg', 'Official Event Flyer Brochure', 'Multi-panel event schedule and problem statement flyer')">
+                        <div class="study-asset-thumb" style="aspect-ratio: 4/3;">
+                            <img src="../../_CreativeWorkCollection/IDT/3/id3_flyer.jpg" alt="Official Event Flyer Brochure" loading="lazy">
+                        </div>
+                        <div class="study-asset-body">
+                            <span class="asset-type">Print Collateral</span>
+                            <h4>Official Event Information Flyer Brochure</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Credentials, Badges & Ceremonial Check -->
+        <section class="study-section">
+            <div class="container">
+                <div class="study-section-title">
+                    <h3>04. Tiered ID Credentials & Prize Check</h3>
+                    <p>Color-coded physical credential badges designed for participants, volunteers, faculty, and jury members, alongside the ceremonial winner dummy check.</p>
+                </div>
+                <div class="study-media-grid">
+                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_dummycheck.jpg', 'Cash Prize Presentation Dummy Check', 'Ceremonial check for cash prize presentation')">
+                        <div class="study-asset-thumb">
+                            <img src="../../_CreativeWorkCollection/IDT/3/id3_dummycheck.jpg" alt="Cash Prize Dummy Check" loading="lazy">
+                        </div>
+                        <div class="study-asset-body">
+                            <span class="asset-type">Ceremonial Collateral</span>
+                            <h4>Cash Prize Award Dummy Check</h4>
+                        </div>
+                    </div>
+                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_idcardparticipant.png', 'Participant ID Badge', 'Color-coded lanyard credential badge')">
+                        <div class="study-asset-thumb">
+                            <img src="../../_CreativeWorkCollection/IDT/3/id3_idcardparticipant.png" alt="Participant ID Badge" loading="lazy">
+                        </div>
+                        <div class="study-asset-body">
+                            <span class="asset-type">Credential Badge</span>
+                            <h4>Participant ID Credential Badge</h4>
+                        </div>
+                    </div>
+                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_idcardvolunteer.png', 'Volunteer Crew ID Badge', 'Staff and crew credential badge')">
+                        <div class="study-asset-thumb">
+                            <img src="../../_CreativeWorkCollection/IDT/3/id3_idcardvolunteer.png" alt="Volunteer Crew ID Badge" loading="lazy">
+                        </div>
+                        <div class="study-asset-body">
+                            <span class="asset-type">Credential Badge</span>
+                            <h4>Volunteer Crew ID Badge</h4>
+                        </div>
+                    </div>
+                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_idcard1.png', 'Tier 1 Credential Pass', 'Dignitary and guest credential pass')">
+                        <div class="study-asset-thumb">
+                            <img src="../../_CreativeWorkCollection/IDT/3/id3_idcard1.png" alt="Tier 1 Credential Pass" loading="lazy">
+                        </div>
+                        <div class="study-asset-body">
+                            <span class="asset-type">Credential Badge</span>
+                            <h4>Dignitary & Guest Access Pass</h4>
+                        </div>
+                    </div>
+                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_idcard2.png', 'Tier 2 Credential Pass', 'Jury credential pass')">
+                        <div class="study-asset-thumb">
+                            <img src="../../_CreativeWorkCollection/IDT/3/id3_idcard2.png" alt="Tier 2 Credential Pass" loading="lazy">
+                        </div>
+                        <div class="study-asset-body">
+                            <span class="asset-type">Credential Badge</span>
+                            <h4>Jury Evaluation Pass</h4>
+                        </div>
+                    </div>
+                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_idcard3.png', 'Tier 3 Credential Pass', 'Organizing committee pass')">
+                        <div class="study-asset-thumb">
+                            <img src="../../_CreativeWorkCollection/IDT/3/id3_idcard3.png" alt="Tier 3 Credential Pass" loading="lazy">
+                        </div>
+                        <div class="study-asset-body">
+                            <span class="asset-type">Credential Badge</span>
+                            <h4>Organizing Committee Pass</h4>
+                        </div>
+                    </div>
+                    <div class="study-asset-card" onclick="openDirectLightbox('../../_CreativeWorkCollection/IDT/3/id3_idcard4.png', 'Tier 4 Credential Pass', 'Technical operations pass')">
+                        <div class="study-asset-thumb">
+                            <img src="../../_CreativeWorkCollection/IDT/3/id3_idcard4.png" alt="Tier 4 Credential Pass" loading="lazy">
+                        </div>
+                        <div class="study-asset-body">
+                            <span class="asset-type">Credential Badge</span>
+                            <h4>Technical Operations Pass</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Behind-the-Scenes & Motion Breakdown -->
+        <section class="study-section">
+            <div class="container">
+                <div class="study-section-title">
+                    <h3>05. Motion Visuals & Timeline Breakdown</h3>
+                    <p>Stage backdrop animations and behind-the-scenes editing timeline breakdown of the multi-track video master cut.</p>
+                </div>
+                <div class="study-media-grid">
+                    <div class="study-asset-card" onclick="openVideoModal('FxehnLpjCeI', 'Ideathon 3.0 — Premiere Pro Timeline Breakdown', false)">
+                        <div class="study-asset-thumb">
+                            <img src="../../_CreativeWorkCollection/Thumbnails/ideathon/id3_premiere.png" alt="Premiere Pro Timeline Breakdown" loading="lazy">
+                            <div class="video-play-badge">
+                                <div class="video-play-btn"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" style="transform: translateX(2px);"><path d="M8 5v14l11-7z"/></svg></div>
+                            </div>
+                        </div>
+                        <div class="study-asset-body">
+                            <span class="asset-type">Editing Breakdown</span>
+                            <h4>Premiere Pro Multi-Track Timeline Breakdown</h4>
+                        </div>
+                    </div>
+                    <div class="study-asset-card" onclick="openVideoModal('fmkYAUBqaiM', 'Ideathon 3.0 — Backdrop Loop Animation', false)">
+                        <div class="study-asset-thumb">
+                            <img src="../../_CreativeWorkCollection/Thumbnails/ideathon/id3_backdrop.png" alt="Backdrop Loop Animation" loading="lazy">
+                            <div class="video-play-badge">
+                                <div class="video-play-btn"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" style="transform: translateX(2px);"><path d="M8 5v14l11-7z"/></svg></div>
+                            </div>
+                        </div>
+                        <div class="study-asset-body">
+                            <span class="asset-type">Stage Motion Graphic</span>
+                            <h4>Auditorium Stage Backdrop Loop Animation</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Edition Callout -->
+        <section class="study-section" style="padding-bottom: 6rem; background: rgba(0, 242, 254, 0.02);">
+            <div class="container text-center">
+                <p class="greeting" style="color: var(--accent-cyan); margin-bottom: 1rem;">NEXT IN THE JOURNEY</p>
+                <h2 style="font-size: 2.2rem; color: #fff; margin-bottom: 1.5rem;">SIT Ideathon 4.0 — Presidential Leadership</h2>
+                <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto 2.5rem; line-height: 1.7;">
+                    Explore how the design system evolved into a full-scale national brand identity in Edition 4.0 with 20-foot stage banners, red-carpet photography walls, and complete presidential event packaging.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="../../ideathon/4/index.html" class="btn primary magnetic" data-magnetic-strength="20">
+                        <span class="btn-text">EXPLORE EDITION 4.0 →</span>
+                    </a>
+                    <a href="../../works/index.html" class="btn secondary magnetic" data-magnetic-strength="20">
+                        <span class="btn-text">ALL CREATIVE WORKS</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Video Modal -->
+    <div id="videoModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Video Player">
+        <button class="modal-close-btn" onclick="closeVideoModal()" aria-label="Close video player">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="modal-container" style="max-width: 920px; background: #000;">
+            <div id="videoPlayerWrap" class="video-responsive-wrap"></div>
+            <div style="padding: 1.25rem 2rem; background: var(--bg-darker); display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--glass-border); flex-wrap: wrap; gap: 1rem;">
+                <h4 id="videoModalTitle" style="font-size: 1.15rem; color: #fff; margin: 0;">Video Title</h4>
+                <div style="display: flex; align-items: center; gap: 1.25rem;">
+                    <a id="videoModalYtLink" href="#" target="_blank" rel="noopener noreferrer" class="btn sm" style="font-size: 0.75rem; text-decoration: none; display: none;">
+                        <span>WATCH ON YOUTUBE ↗</span>
+                    </a>
+                    <span style="font-family: monospace; font-size: 0.8rem; color: var(--text-muted);">ESC TO CLOSE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Artwork Preview">
+        <button class="modal-close-btn" onclick="closeLightboxModal()" aria-label="Close artwork preview">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="modal-container">
+            <div class="modal-image-view">
+                <img id="lightboxMainImage" src="" alt="Artwork Preview">
+            </div>
+            <div class="modal-body">
+                <div class="modal-meta-row">
+                    <span id="lightboxCategoryTag" class="modal-cat-tag">Artwork Preview</span>
+                    <a id="lightboxRawLink" href="#" target="_blank" class="btn sm secondary magnetic" data-magnetic-strength="15">
+                        <span class="btn-text">OPEN FULL RESOLUTION ↗</span>
+                    </a>
+                </div>
+                <h3 id="lightboxTitle" class="modal-title">Artwork Title</h3>
+                <p id="lightboxDescription" class="modal-desc">Detailed artwork description.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Draggable Connect Button -->
+    <a href="mailto:nitishsinghslg@gmail.com" id="draggable-btn" class="btn magnetic sm" data-magnetic-strength="20" aria-label="Connect with Nitish">
+        <span class="btn-text">CONNECT</span>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        window.IS_SUBDIR = true;
+        window.SUBDIR_DEPTH = 2;
+        window.PATH_PREFIX = '../../';
+
+        function openDirectLightbox(src, title, desc) {
+            const modal = document.getElementById('lightboxModal');
+            const mainImg = document.getElementById('lightboxMainImage');
+            const titleEl = document.getElementById('lightboxTitle');
+            const descEl = document.getElementById('lightboxDescription');
+            const rawLink = document.getElementById('lightboxRawLink');
+
+            if (mainImg) mainImg.src = src;
+            if (titleEl) titleEl.textContent = title;
+            if (descEl) descEl.textContent = desc;
+            if (rawLink) rawLink.href = src;
+
+            if (modal) {
+                modal.classList.add('is-active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+    </script>
+    <script src="../../assets/portfolio-data.js"></script>
+    <script src="../../shared.js"></script>
+</body>
+</html>
