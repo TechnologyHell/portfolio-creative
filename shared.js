@@ -66,37 +66,41 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const render = () => {
-        outlineX = lerp(outlineX, mouseX, 0.15);
-        outlineY = lerp(outlineY, mouseY, 0.15);
-        if (outline) {
-            outline.style.left = outlineX + 'px';
-            outline.style.top = outlineY + 'px';
-        }
+        if (!document.body.classList.contains('modal-open')) {
+            outlineX = lerp(outlineX, mouseX, 0.15);
+            outlineY = lerp(outlineY, mouseY, 0.15);
+            if (outline) {
+                outline.style.left = outlineX + 'px';
+                outline.style.top = outlineY + 'px';
+            }
 
-        glowX = lerp(glowX, mouseX, 0.05);
-        glowY = lerp(glowY, mouseY, 0.05);
-        if (bgGlow) {
-            bgGlow.style.left = glowX + 'px';
-            bgGlow.style.top = glowY + 'px';
+            glowX = lerp(glowX, mouseX, 0.05);
+            glowY = lerp(glowY, mouseY, 0.05);
+            if (bgGlow) {
+                bgGlow.style.left = glowX + 'px';
+                bgGlow.style.top = glowY + 'px';
+            }
         }
 
         requestAnimationFrame(render);
     };
     render();
 
-    // 2. Cursor Hover Effects (only real interactive targets)
+    // 2. Cursor Hover Effects using high-performance event delegation
+    document.addEventListener('mouseover', (e) => {
+        if (outline && e.target.closest('a, button, select, .filter-pill, .modal-thumb, .modal-close-btn, .modal-nav-arrow, .card-action-btn, .case-study-item-card, .back-btn-pill, .contact-card, .edition-card-media, .bento-card-thumb, .physical-img-wrap')) {
+            outline.classList.add('hover-active');
+        }
+    });
+    document.addEventListener('mouseout', (e) => {
+        if (outline && e.target.closest('a, button, select, .filter-pill, .modal-thumb, .modal-close-btn, .modal-nav-arrow, .card-action-btn, .case-study-item-card, .back-btn-pill, .contact-card, .edition-card-media, .bento-card-thumb, .physical-img-wrap')) {
+            outline.classList.remove('hover-active');
+        }
+    });
+
     attachCursorHovers = function() {
-        const hoverElements = document.querySelectorAll('a, button, select, .filter-pill, .modal-thumb, .modal-close-btn, .modal-nav-arrow, .card-action-btn, .case-study-item-card, .back-btn-pill, .contact-card, .edition-card-media, .bento-card-thumb');
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                if (outline) outline.classList.add('hover-active');
-            });
-            el.addEventListener('mouseleave', () => {
-                if (outline) outline.classList.remove('hover-active');
-            });
-        });
+        // No-op for backwards compatibility with dynamic renders
     };
-    attachCursorHovers();
 
     // 3. Magnetic Physics (Replaced with rock-solid CSS hover)
     function attachMagnetics() {
@@ -184,17 +188,13 @@ function initPersistentDraggableBtn() {
     const STORAGE_KEY = 'nitish_draggable_btn_pos';
     const dragBtnText = dragBtn.querySelector('.btn-text');
 
+    const contactHref = dragBtn.getAttribute('href') || fixPath('contact/index.html');
+
     function updateBtnLabel() {
         if (!dragBtnText) return;
-        if (window.innerWidth <= 768) {
-            dragBtnText.textContent = 'RESUME';
-            dragBtn.href = 'https://drive.google.com/file/d/1DieFi6Mk-B6EoKDMg8yGlseBv7SV4-5v/view?usp=sharing';
-            dragBtn.target = '_blank';
-        } else {
-            dragBtnText.textContent = 'CONNECT';
-            dragBtn.href = 'mailto:nitishsinghslg@gmail.com';
-            dragBtn.removeAttribute('target');
-        }
+        dragBtnText.textContent = 'CONNECT';
+        dragBtn.href = contactHref;
+        dragBtn.removeAttribute('target');
     }
     updateBtnLabel();
     window.addEventListener('resize', updateBtnLabel);
@@ -507,6 +507,13 @@ function openProjectLightbox(projectId) {
     openCustomGalleryModal(galleryItems, 0, project.title, project);
 }
 
+function openAwardsGallery(index = 0) {
+    if (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.awardsGallery) {
+        openCustomGalleryModal(PORTFOLIO_DATA.awardsGallery, index, 'Awards & Honors Photographic Exhibits');
+    }
+}
+window.openAwardsGallery = openAwardsGallery;
+
 let currentLightboxProjectContext = null;
 
 function openCustomGalleryModal(galleryItems, startIndex = 0, title = '', projectContext = null) {
@@ -518,10 +525,10 @@ function openCustomGalleryModal(galleryItems, startIndex = 0, title = '', projec
     if (!modal) return;
 
     modal.classList.add('is-active');
+    document.body.classList.add('modal-open');
     document.body.style.overflow = 'hidden';
 
     renderCurrentLightboxSlide(projectContext);
-    attachCursorHovers();
 }
 
 function renderCurrentLightboxSlide(projectContext = null) {
@@ -539,12 +546,15 @@ function renderCurrentLightboxSlide(projectContext = null) {
     const nextBtn = document.getElementById('lightboxNextBtn');
     const strip = document.getElementById('lightboxThumbStrip');
 
-    if (mainImg) mainImg.src = fixPath(item.src);
+    if (mainImg) {
+        mainImg.decoding = 'async';
+        mainImg.src = fixPath(item.src);
+    }
     if (titleEl) titleEl.textContent = item.title || (projectContext ? projectContext.title : '');
     if (descEl) descEl.textContent = item.caption || (projectContext ? projectContext.description : '');
 
     if (catEl) {
-        catEl.textContent = projectContext ? (projectContext.categoryLabel || projectContext.category) : 'Artwork Preview';
+        catEl.textContent = item.type || (projectContext ? (projectContext.categoryLabel || projectContext.category) : 'Artwork Preview');
     }
 
     if (toolsEl) {
@@ -570,12 +580,20 @@ function renderCurrentLightboxSlide(projectContext = null) {
             strip.style.display = 'flex';
             strip.innerHTML = currentLightboxGallery.map((thumb, idx) => `
                 <div class="modal-thumb ${idx === currentGalleryIndex ? 'active' : ''}" onclick="setLightboxIndex(${idx})">
-                    <img src="${fixPath(thumb.src)}" alt="Thumbnail ${idx + 1}">
+                    <img src="${fixPath(thumb.src)}" alt="Thumbnail ${idx + 1}" loading="lazy">
                 </div>
             `).join('');
         } else {
             strip.style.display = 'none';
         }
+    }
+
+    // Preload adjacent images asynchronously
+    if (currentLightboxGallery.length > 1) {
+        const nextItem = currentLightboxGallery[(currentGalleryIndex + 1) % currentLightboxGallery.length];
+        const prevItem = currentLightboxGallery[(currentGalleryIndex - 1 + currentLightboxGallery.length) % currentLightboxGallery.length];
+        if (nextItem && nextItem.src) { const imgN = new Image(); imgN.src = fixPath(nextItem.src); }
+        if (prevItem && prevItem.src) { const imgP = new Image(); imgP.src = fixPath(prevItem.src); }
     }
 }
 
@@ -600,6 +618,9 @@ function closeLightboxModal() {
     const modal = document.getElementById('lightboxModal');
     if (!modal) return;
     modal.classList.remove('is-active');
+    document.body.classList.remove('modal-open');
+    const mainImg = document.getElementById('lightboxMainImage');
+    if (mainImg) mainImg.src = '';
     if (!document.getElementById('caseStudyView')?.classList.contains('is-active')) {
         document.body.style.overflow = 'initial';
     }
@@ -664,6 +685,7 @@ function openVideoModal(source, title, isLocal = false) {
     }
 
     modal.classList.add('is-active');
+    document.body.classList.add('modal-open');
     document.body.style.overflow = 'hidden';
 }
 
@@ -673,6 +695,7 @@ function closeVideoModal() {
     if (!modal) return;
 
     modal.classList.remove('is-active');
+    document.body.classList.remove('modal-open');
     if (wrap) wrap.innerHTML = '';
     if (!document.getElementById('caseStudyView')?.classList.contains('is-active')) {
         document.body.style.overflow = 'initial';

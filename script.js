@@ -60,37 +60,41 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const render = () => {
-        outlineX = lerp(outlineX, mouseX, 0.15);
-        outlineY = lerp(outlineY, mouseY, 0.15);
-        if(outline) {
-            outline.style.left = outlineX + 'px';
-            outline.style.top = outlineY + 'px';
-        }
+        if (!document.body.classList.contains('modal-open')) {
+            outlineX = lerp(outlineX, mouseX, 0.15);
+            outlineY = lerp(outlineY, mouseY, 0.15);
+            if(outline) {
+                outline.style.left = outlineX + 'px';
+                outline.style.top = outlineY + 'px';
+            }
 
-        glowX = lerp(glowX, mouseX, 0.05);
-        glowY = lerp(glowY, mouseY, 0.05);
-        if(bgGlow) {
-            bgGlow.style.left = glowX + 'px';
-            bgGlow.style.top = glowY + 'px';
+            glowX = lerp(glowX, mouseX, 0.05);
+            glowY = lerp(glowY, mouseY, 0.05);
+            if(bgGlow) {
+                bgGlow.style.left = glowX + 'px';
+                bgGlow.style.top = glowY + 'px';
+            }
         }
 
         requestAnimationFrame(render);
     };
     render();
 
-    // Attach hover effects to interactive elements (only real interactive targets)
+    // Attach hover effects using high-performance event delegation (avoids memory leaks & repeated listener loops)
+    document.addEventListener('mouseover', (e) => {
+        if (outline && e.target.closest('a, button, select, .filter-pill, .modal-thumb, .modal-close-btn, .modal-nav-arrow, .card-action-btn, .case-study-item-card, .case-study-back-btn, .edition-card-media, .bento-card-thumb, .physical-img-wrap')) {
+            outline.classList.add('hover-active');
+        }
+    });
+    document.addEventListener('mouseout', (e) => {
+        if (outline && e.target.closest('a, button, select, .filter-pill, .modal-thumb, .modal-close-btn, .modal-nav-arrow, .card-action-btn, .case-study-item-card, .case-study-back-btn, .edition-card-media, .bento-card-thumb, .physical-img-wrap')) {
+            outline.classList.remove('hover-active');
+        }
+    });
+
     attachCursorHovers = function() {
-        const hoverElements = document.querySelectorAll('a, button, select, .filter-pill, .modal-thumb, .modal-close-btn, .modal-nav-arrow, .card-action-btn, .case-study-item-card, .case-study-back-btn, .edition-card-media, .bento-card-thumb');
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                if(outline) outline.classList.add('hover-active');
-            });
-            el.addEventListener('mouseleave', () => {
-                if(outline) outline.classList.remove('hover-active');
-            });
-        });
+        // No-op for backwards compatibility with dynamic renders
     };
-    attachCursorHovers();
 
     // 2. Magnetic Buttons Engine (Replaced with rock-solid CSS hover)
     function attachMagnetics() {
@@ -208,16 +212,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const STORAGE_KEY = 'nitish_draggable_btn_pos';
         const dragBtnText = dragBtn.querySelector('.btn-text');
 
+        const contactHref = dragBtn.getAttribute('href') || 'contact/index.html';
+
         function updateDragBtn() {
-            if (window.innerWidth <= 768) {
-                if (dragBtnText) dragBtnText.textContent = 'RESUME';
-                dragBtn.href = 'https://drive.google.com/file/d/1DieFi6Mk-B6EoKDMg8yGlseBv7SV4-5v/view?usp=sharing';
-                dragBtn.target = '_blank';
-            } else {
-                if (dragBtnText) dragBtnText.textContent = 'CONNECT';
-                dragBtn.href = 'mailto:nitishsinghslg@gmail.com';
-                dragBtn.removeAttribute('target');
-            }
+            if (dragBtnText) dragBtnText.textContent = 'CONNECT';
+            dragBtn.href = contactHref;
+            dragBtn.removeAttribute('target');
         }
         updateDragBtn();
         window.addEventListener('resize', updateDragBtn);
@@ -688,7 +688,7 @@ function renderHomepageArchive() {
 
     if (currentPrimaryCategory === 'featured') {
         // Up to 4 curated projects representing the strongest and broadest range
-        const featuredIds = ['idt4-identity', 'valo-stay', 'gta6-disc', 'idt5-rockstar'];
+        const featuredIds = ['tech-channel-logo', 'laldingpuii-logo', 'sit-technovision-posters', 'gta6-disc'];
         displayProjects = featuredIds
             .map(id => PORTFOLIO_DATA.projects.find(p => p.id === id))
             .filter(Boolean);
@@ -884,13 +884,25 @@ function openCustomGalleryModal(galleryItems, initialIdx = 0, title = '', desc =
     currentGalleryIndex = initialIdx;
 
     const modal = document.getElementById('lightboxModal');
-    document.getElementById('lightboxTitle').innerText = title || galleryItems[initialIdx].title;
-    document.getElementById('lightboxDescription').innerText = desc || '';
-    document.getElementById('lightboxCategoryTag').innerText = category && year ? `${category} • ${year}` : (category || 'Creative Asset');
+    if (!modal) return;
+
+    const curItem = galleryItems[initialIdx] || {};
+    const titleEl = document.getElementById('lightboxTitle');
+    const descEl = document.getElementById('lightboxDescription');
+    const catEl = document.getElementById('lightboxCategoryTag');
+
+    if (titleEl) titleEl.innerText = curItem.title || title || 'Creative Asset';
+    if (descEl) descEl.innerText = curItem.caption || desc || '';
+    if (catEl) catEl.innerText = curItem.type || (category && year ? `${category} • ${year}` : (category || 'Creative Asset'));
 
     const toolsContainer = document.getElementById('lightboxTools');
     if (toolsContainer) {
         toolsContainer.innerHTML = (tools || []).map(t => `<span class="tag-tech">${t}</span>`).join('') || '';
+    }
+
+    const extraActions = document.getElementById('lightboxExtraActions');
+    if (extraActions) {
+        extraActions.innerHTML = '';
     }
 
     const prevBtn = document.getElementById('lightboxPrevBtn');
@@ -898,24 +910,119 @@ function openCustomGalleryModal(galleryItems, initialIdx = 0, title = '', desc =
     const thumbStrip = document.getElementById('lightboxThumbStrip');
 
     if (galleryItems.length > 1) {
-        prevBtn.style.display = 'flex';
-        nextBtn.style.display = 'flex';
-        thumbStrip.style.display = 'flex';
-        
-        thumbStrip.innerHTML = galleryItems.map((item, idx) => `
-            <div onclick="setLightboxSlide(${idx})" class="modal-thumb ${idx === initialIdx ? 'active' : ''}">
-                <img src="${item.src}" alt="${item.title || ''}">
-            </div>
-        `).join('');
+        if (prevBtn) prevBtn.style.display = 'flex';
+        if (nextBtn) nextBtn.style.display = 'flex';
+        if (thumbStrip) {
+            thumbStrip.style.display = 'flex';
+            thumbStrip.innerHTML = galleryItems.map((item, idx) => `
+                <div onclick="setLightboxSlide(${idx})" class="modal-thumb ${idx === initialIdx ? 'active' : ''}">
+                    <img src="${item.src}" alt="${item.title || ''}" loading="lazy">
+                </div>
+            `).join('');
+        }
     } else {
-        prevBtn.style.display = 'none';
-        nextBtn.style.display = 'none';
-        thumbStrip.style.display = 'none';
-        thumbStrip.innerHTML = '';
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+        if (thumbStrip) {
+            thumbStrip.style.display = 'none';
+            thumbStrip.innerHTML = '';
+        }
     }
 
     setLightboxSlide(initialIdx);
     modal.classList.add('is-active');
+    document.body.classList.add('modal-open');
+    document.body.style.overflow = 'hidden';
+}
+
+function openIdeathonLightbox(edition) {
+    const modal = document.getElementById('lightboxModal');
+    if (!modal) return;
+
+    let title = '';
+    let desc = '';
+    let category = '';
+    let year = '';
+    let tools = [];
+    let imgSrc = '';
+    let exploreHref = '';
+    let exploreLabel = '';
+    let ytUrl = '';
+
+    if (edition === 3 || edition === '3' || edition === '3.0') {
+        imgSrc = '_CreativeWorkCollection/IDT/3/id3_montagethumbnail.jpg';
+        title = 'SIT Ideathon 3.0 — Event Identity & Production';
+        category = 'Flagship Case Study';
+        year = '2024–2025';
+        desc = 'Visual identity and event collateral including promotional flyers, stage banners, logo treatments, tiered participant credentials, dummy checks, and the event recap video.';
+        tools = ['Vice President', 'Brand Identity', 'Stage Banners', 'Premiere Pro'];
+        exploreHref = 'ideathon/3/index.html';
+        exploreLabel = 'EXPLORE 3.0 →';
+        ytUrl = 'https://youtu.be/fYRBwF7v4Vk';
+    } else if (edition === 4 || edition === '4' || edition === '4.0') {
+        imgSrc = '_CreativeWorkCollection/IDT/4/id4_backdropbanner.jpg';
+        title = 'SIT Ideathon 4.0 — Brand System & Production';
+        category = 'Flagship Case Study';
+        year = '2025–2026';
+        desc = 'Visual identity and complete collateral suite including grand stage backdrops, red-carpet photography walls, posters, credentials, digital displays, publications, and opening montage.';
+        tools = ['President', 'Stage Backdrops', 'Digital Displays', 'Opening Montage'];
+        exploreHref = 'ideathon/4/index.html';
+        exploreLabel = 'EXPLORE 4.0 →';
+        ytUrl = 'https://youtu.be/3i-MoULXUFg';
+    } else {
+        return;
+    }
+
+    currentLightboxGallery = [{ src: imgSrc, original: imgSrc, title: title, type: category }];
+    currentGalleryIndex = 0;
+
+    const mainImg = document.getElementById('lightboxMainImage');
+    const titleEl = document.getElementById('lightboxTitle');
+    const descEl = document.getElementById('lightboxDescription');
+    const catEl = document.getElementById('lightboxCategoryTag');
+    const rawLink = document.getElementById('lightboxRawLink');
+    const toolsContainer = document.getElementById('lightboxTools');
+    const prevBtn = document.getElementById('lightboxPrevBtn');
+    const nextBtn = document.getElementById('lightboxNextBtn');
+    const thumbStrip = document.getElementById('lightboxThumbStrip');
+    const extraActions = document.getElementById('lightboxExtraActions');
+
+    if (mainImg) {
+        mainImg.src = imgSrc;
+        mainImg.alt = title;
+    }
+    if (titleEl) titleEl.innerText = title;
+    if (descEl) descEl.innerText = desc;
+    if (catEl) catEl.innerText = `${category} • ${year}`;
+    if (rawLink) rawLink.href = imgSrc;
+
+    if (toolsContainer) {
+        toolsContainer.innerHTML = tools.map(t => `<span class="tag-tech">${t}</span>`).join('');
+    }
+
+    if (prevBtn) prevBtn.style.display = 'none';
+    if (nextBtn) nextBtn.style.display = 'none';
+    if (thumbStrip) {
+        thumbStrip.style.display = 'none';
+        thumbStrip.innerHTML = '';
+    }
+
+    if (extraActions) {
+        extraActions.innerHTML = `
+            <a href="${exploreHref}" class="btn sm primary">
+                <span class="btn-text">${exploreLabel}</span>
+            </a>
+            <a href="${ytUrl}" target="_blank" rel="noopener noreferrer" class="btn sm secondary">
+                <span class="btn-text">YOUTUBE ↗</span>
+            </a>
+            <a href="https://ideathon.pages.dev" target="_blank" rel="noopener noreferrer" class="btn sm secondary" style="border-color: rgba(0, 242, 254, 0.4); color: var(--accent-cyan);">
+                <span class="btn-text">VISIT SITE ↗</span>
+            </a>
+        `;
+    }
+
+    modal.classList.add('is-active');
+    document.body.classList.add('modal-open');
     document.body.style.overflow = 'hidden';
 }
 
@@ -928,15 +1035,35 @@ function setLightboxSlide(index) {
     const mainImg = document.getElementById('lightboxMainImage');
     const rawLink = document.getElementById('lightboxRawLink');
 
-    mainImg.src = current.src;
-    mainImg.alt = current.title || 'Artwork Preview';
-    rawLink.href = current.original || current.src;
+    if (mainImg) {
+        mainImg.decoding = 'async';
+        mainImg.src = current.src;
+        mainImg.alt = current.title || 'Artwork Preview';
+    }
+    if (rawLink) {
+        rawLink.href = current.original || current.src;
+    }
+
+    const titleEl = document.getElementById('lightboxTitle');
+    const descEl = document.getElementById('lightboxDescription');
+    const catEl = document.getElementById('lightboxCategoryTag');
+    if (titleEl && current.title) titleEl.innerText = current.title;
+    if (descEl && current.caption) descEl.innerText = current.caption;
+    if (catEl && current.type) catEl.innerText = current.type;
 
     const thumbs = document.querySelectorAll('#lightboxThumbStrip .modal-thumb');
     thumbs.forEach((t, i) => {
         if (i === currentGalleryIndex) t.classList.add('active');
         else t.classList.remove('active');
     });
+
+    // Asynchronously preload adjacent gallery images to ensure instantaneous navigation without lag
+    if (currentLightboxGallery.length > 1) {
+        const nextItem = currentLightboxGallery[(currentGalleryIndex + 1) % currentLightboxGallery.length];
+        const prevItem = currentLightboxGallery[(currentGalleryIndex - 1 + currentLightboxGallery.length) % currentLightboxGallery.length];
+        if (nextItem && nextItem.src) { const imgN = new Image(); imgN.src = nextItem.src; }
+        if (prevItem && prevItem.src) { const imgP = new Image(); imgP.src = prevItem.src; }
+    }
 }
 
 function nextLightboxSlide() {
@@ -951,7 +1078,11 @@ function closeLightboxModal() {
     const modal = document.getElementById('lightboxModal');
     if(!modal) return;
     modal.classList.remove('is-active');
-    document.getElementById('lightboxMainImage').src = '';
+    document.body.classList.remove('modal-open');
+    const mainImg = document.getElementById('lightboxMainImage');
+    if (mainImg) mainImg.src = '';
+    const extraActions = document.getElementById('lightboxExtraActions');
+    if (extraActions) extraActions.innerHTML = '';
     currentLightboxGallery = [];
     document.body.style.overflow = 'initial';
 }
@@ -1011,6 +1142,7 @@ function openVideoModal(source, title, isLocal = false) {
     }
 
     modal.classList.add('is-active');
+    document.body.classList.add('modal-open');
     document.body.style.overflow = 'hidden';
 }
 
@@ -1019,6 +1151,7 @@ function closeVideoModal() {
     const wrap = document.getElementById('videoPlayerWrap');
     if (wrap) wrap.innerHTML = '';
     if (modal) modal.classList.remove('is-active');
+    document.body.classList.remove('modal-open');
     if (!document.getElementById('caseStudyView')?.classList.contains('is-active')) {
         document.body.style.overflow = 'initial';
     }

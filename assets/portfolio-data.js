@@ -215,7 +215,6 @@ const PORTFOLIO_DATA = {
             { src: "_CreativeWorkCollection/IDT/4/id4_icard1.png", original: "_CreativeWorkCollection/IDT/4/id4_icard1.png", title: "Dignitary & Guest Pass", type: "Credential Badge" },
             { src: "_CreativeWorkCollection/IDT/4/id4_idcard2.png", original: "_CreativeWorkCollection/IDT/4/id4_idcard2.png", title: "Jury Credential Pass", type: "Credential Badge" },
             { src: "_CreativeWorkCollection/IDT/4/id4_idcard3.png", original: "_CreativeWorkCollection/IDT/4/id4_idcard3.png", title: "Organizing Committee Pass", type: "Credential Badge" },
-            { src: "_CreativeWorkCollection/IDT/4/id4_idcard4.png", original: "_CreativeWorkCollection/IDT/4/id4_idcard4.png", title: "Volunteer Crew Pass", type: "Credential Badge" },
             { src: "_CreativeWorkCollection/IDT/4/id4_dummycheck.png", original: "_CreativeWorkCollection/IDT/4/id4_dummycheck.png", title: "Cash Prize Dummy Check", type: "Ceremonial Check" }
           ]
         }
@@ -271,17 +270,18 @@ const PORTFOLIO_DATA = {
         ]
     },
     {
-        "id": "idt3-master-video",
-        "title": "Ideathon 3.0 — Event Master Video",
-        "category": "Event Master Edit",
-        "year": "2025 – 2026",
-        "youtubeId": "fYRBwF7v4Vk",
-        "thumbnail": "_CreativeWorkCollection/Thumbnails/ideathon/id3_edit.jpg",
-        "description": "Official event recap and master showcase video for SIT Ideathon 3.0, capturing participant pitches, jury reactions, and award ceremonies.",
+        "id": "client-hushpuppi-video",
+        "title": "Hushpuppi — Motion Graphics Video",
+        "category": "Motion Graphics",
+        "year": "2023",
+        "youtubeId": "H1M3WzE4sOs",
+        "thumbnail": "_CreativeWorkCollection/Thumbnails/trailers/hushpuppi_edit.png",
+        "description": "Specialized kinetic motion graphics piece exploring rapid typographic animation, fast cuts, punchy sound design, and client-tailored visual pacing.",
         "techniques": [
-            "Pacing Alignment",
+            "Kinetic Typography",
+            "Motion Graphics",
             "Sound Design",
-            "Atmosphere Grading"
+            "Client Delivery"
         ]
     },
     {
@@ -316,35 +316,183 @@ const PORTFOLIO_DATA = {
 
   physicalProjects: [
     {
-        "id": "techdeck-hardware",
-        "slNo": 99,
-        "title": "TechDeck — Mechanical Macropad & CAD Enclosure",
-        "category": "3d",
-        "primaryCategory": "3d",
-        "categories": [
-            "3d"
-        ],
-        "categoryLabel": "Physical Prototyping & CAD",
-        "year": "2025 – 2026",
-        "client": "Independent Hardware Build",
-        "role": "Industrial Design, CAD & Firmware",
-        "tools": [
-            "CATIA V5",
-            "FDM 3D Printing",
-            "Python",
-            "Embedded C++"
-        ],
-        "description": "Standalone programmable macro keypad designed with a custom 3D-printed enclosure modeled in CATIA V5, running custom firmware and a dynamic Python macro engine. Ranked #1 at CDAC Additive Manufacturing training; placed 4th globally at IHMMC 2026.",
-        "thumbnail": "assets/techdeck_macropad.png",
-        "original": "assets/techdeck_macropad.png",
-        "featured": true,
-        "tags": [
-            "3D Design",
-            "Physical Prototyping",
-            "Hardware Build"
-        ]
+      "id": "techdeck-hardware",
+      "slNo": 99,
+      "title": "TechDeck — Mechanical Macropad & CAD Enclosure",
+      "category": "3d",
+      "primaryCategory": "3d",
+      "categories": [
+        "3d"
+      ],
+      "categoryLabel": "Physical Prototyping & CAD",
+      "year": "2025 – 2026",
+      "client": "Independent Hardware Build",
+      "role": "Industrial Design, CAD & Firmware",
+      "tools": [
+        "CATIA V5",
+        "FDM 3D Printing",
+        "Python",
+        "Embedded C++"
+      ],
+      "description": "Standalone programmable macro keypad designed with a custom 3D-printed enclosure modeled in CATIA V5, running custom firmware and a dynamic Python macro engine. Ranked #1 at CDAC Additive Manufacturing training; placed 4th globally at IHMMC 2026.",
+      "thumbnail": "_CreativeWorkCollection/Physical/techdeck1.jpeg",
+      "original": "_CreativeWorkCollection/Physical/techdeck1.jpeg",
+      "featured": true,
+      "tags": [
+        "3D Design",
+        "Physical Prototyping",
+        "Hardware Build"
+      ],
+      "gallery": [
+        {
+          "src": "_CreativeWorkCollection/Physical/techdeck1.jpeg",
+          "original": "_CreativeWorkCollection/Physical/techdeck1.jpeg",
+          "title": "TechDeck — Mechanical Macropad Prototype",
+          "caption": "Custom mechanical macropad featuring tactile switches and 3D printed structural chassis.",
+          "type": "Physical Hardware • 2025–2026"
+        },
+        {
+          "src": "_CreativeWorkCollection/Physical/techdeck2.jpeg",
+          "original": "_CreativeWorkCollection/Physical/techdeck2.jpeg",
+          "title": "TechDeck — Keycap & Switch Assembly",
+          "caption": "Ergonomic key arrangement with individual switch seating and wiring architecture.",
+          "type": "Physical Hardware • 2025–2026"
+        },
+        {
+          "src": "_CreativeWorkCollection/Physical/techdeck3.jpg",
+          "original": "_CreativeWorkCollection/Physical/techdeck3.jpg",
+          "title": "TechDeck — Custom CATIA V5 Enclosure",
+          "caption": "FDM 3D-printed enclosure engineered in CATIA V5 with tight component clearances.",
+          "type": "CAD & Prototyping • 2025–2026"
+        },
+        {
+          "src": "_CreativeWorkCollection/Physical/techdeck4.png",
+          "original": "_CreativeWorkCollection/Physical/techdeck4.png",
+          "title": "TechDeck — Desktop Production Setup",
+          "caption": "Live deployment on desk for rapid application switching and automated media macros.",
+          "type": "Physical Hardware • 2025–2026"
+        }
+      ]
+    },
+    {
+      "id": "custom-playbutton",
+      "slNo": 100,
+      "title": "Custom 1K Creator Award (Unofficial Milestone Piece)",
+      "category": "3d",
+      "primaryCategory": "3d",
+      "categories": [
+        "3d"
+      ],
+      "categoryLabel": "Custom Fabrication & Awards",
+      "year": "2020",
+      "client": "Personal Milestone Piece",
+      "role": "Fabrication & Finishing Lead",
+      "tools": [
+        "Material Layering",
+        "Metallic Finishing",
+        "Graphic Design",
+        "Plaque Assembly"
+      ],
+      "description": "Unofficial custom-made creator award piece fabricated to celebrate crossing 1,000 YouTube subscribers on the TechnologyHell channel, exploring multi-layer plaque construction and metallic finishes.",
+      "thumbnail": "_CreativeWorkCollection/Physical/playbutton1.png",
+      "original": "_CreativeWorkCollection/Physical/playbutton1.png",
+      "featured": true,
+      "tags": [
+        "Custom Fabrication",
+        "Milestone Plaque",
+        "Creative Build"
+      ],
+      "gallery": [
+        {
+          "src": "_CreativeWorkCollection/Physical/playbutton1.png",
+          "original": "_CreativeWorkCollection/Physical/playbutton1.png",
+          "title": "Custom 1K Creator Award — Final Plaque",
+          "caption": "Completed custom creator award with metallic finish celebrating the 1K subscriber milestone.",
+          "type": "Custom Fabrication • 2020"
+        },
+        {
+          "src": "_CreativeWorkCollection/Physical/playbutton2.jpg",
+          "original": "_CreativeWorkCollection/Physical/playbutton2.jpg",
+          "title": "Custom 1K Creator Award — Dimensional Detailing",
+          "caption": "Angled perspective showing reflective surface treatment and play button bevel.",
+          "type": "Custom Fabrication • 2020"
+        },
+        {
+          "src": "_CreativeWorkCollection/Physical/playbutton3.jpg",
+          "original": "_CreativeWorkCollection/Physical/playbutton3.jpg",
+          "title": "Custom 1K Creator Award — Material Assembly",
+          "caption": "Layered plaque fabrication demonstrating precision edge alignment and mounting.",
+          "type": "Custom Fabrication • 2020"
+        },
+        {
+          "src": "_CreativeWorkCollection/Physical/playbutton4.jpg",
+          "original": "_CreativeWorkCollection/Physical/playbutton4.jpg",
+          "title": "Custom 1K Creator Award — Finished Display",
+          "caption": "Studio display demonstrating high-contrast metallic presentation and plaque relief.",
+          "type": "Custom Fabrication • 2020"
+        }
+      ]
+    },
+    {
+      "id": "custom-pc-build",
+      "slNo": 101,
+      "title": "Custom PC Build Portfolio",
+      "category": "3d",
+      "primaryCategory": "3d",
+      "categories": [
+        "3d"
+      ],
+      "categoryLabel": "Hardware Assembly & Systems",
+      "year": "2024",
+      "client": "Personal Creative Workstation",
+      "role": "System Architecture & Assembly",
+      "tools": [
+        "Hardware Assembly",
+        "Cable Management",
+        "Thermal Optimization",
+        "Workstation Tuning"
+      ],
+      "description": "High-performance personal workstation crafted with bespoke cable management, optimal thermal airflow routing, component synergy, and sleek hardware aesthetics.",
+      "thumbnail": "_CreativeWorkCollection/Physical/pc1.jpg",
+      "original": "_CreativeWorkCollection/Physical/pc1.jpg",
+      "featured": true,
+      "tags": [
+        "Hardware Assembly",
+        "Custom PC Build",
+        "Thermal Tuning"
+      ],
+      "gallery": [
+        {
+          "src": "_CreativeWorkCollection/Physical/pc1.jpg",
+          "original": "_CreativeWorkCollection/Physical/pc1.jpg",
+          "title": "Custom PC Build — Interior Hardware & Lighting",
+          "caption": "Custom workstation interior showing component clearances, liquid cooler routing, and GPU mount.",
+          "type": "Hardware Assembly • 2024"
+        },
+        {
+          "src": "_CreativeWorkCollection/Physical/pc2.jpg",
+          "original": "_CreativeWorkCollection/Physical/pc2.jpg",
+          "title": "Custom PC Build — Component Architecture",
+          "caption": "Component symmetry, motherboard interconnects, and clean power distribution cabling.",
+          "type": "Hardware Assembly • 2024"
+        },
+        {
+          "src": "_CreativeWorkCollection/Physical/pc3.jpg",
+          "original": "_CreativeWorkCollection/Physical/pc3.jpg",
+          "title": "Custom PC Build — Thermal & Cable Layout",
+          "caption": "High-efficiency static-pressure fan configuration ensuring sustained multi-hour render cooling.",
+          "type": "Hardware Assembly • 2024"
+        },
+        {
+          "src": "_CreativeWorkCollection/Physical/pc4.jpg",
+          "original": "_CreativeWorkCollection/Physical/pc4.jpg",
+          "title": "Custom PC Build — Complete Workstation Setup",
+          "caption": "Finished battlestation setup powering 4K video rendering and 3D simulation workflows.",
+          "type": "Hardware Assembly • 2024"
+        }
+      ]
     }
-],
+  ],
 
   projects: [
     {
@@ -2313,12 +2461,6 @@ const PORTFOLIO_DATA = {
                 "original": "_CreativeWorkCollection/IDT/4/id4_idcard3.png",
                 "title": "Organizing Committee Pass",
                 "type": "Badge"
-            },
-            {
-                "src": "_CreativeWorkCollection/IDT/4/id4_idcard4.png",
-                "original": "_CreativeWorkCollection/IDT/4/id4_idcard4.png",
-                "title": "Volunteer Crew Pass",
-                "type": "Badge"
             }
         ]
     },
@@ -2475,27 +2617,6 @@ const PORTFOLIO_DATA = {
     },
     {
         "badge": "WINNER",
-        "year": "January 2026",
-        "title": "SIT Ideathon 4.0 — 1st Place Champion",
-        "org": "Siliguri Institute of Technology",
-        "desc": "Emerged as winner at the national-level innovation and business idea tournament, while simultaneously directing event visual branding and presidential coordination."
-    },
-    {
-        "badge": "1ST RANK",
-        "year": "July 2025",
-        "title": "CDAC Additive Manufacturing Training — Ranked #1",
-        "org": "Centre for Development of Advanced Computing (CDAC)",
-        "desc": "Capstone hardware and CAD modeling project ranked first in the specialized 3D Printing & Additive Manufacturing intensive training programme."
-    },
-    {
-        "badge": "WINNER",
-        "year": "August 2025",
-        "title": "Winner — Vision to Venture",
-        "org": "Eureka! IIT Bombay",
-        "desc": "Winners at a Business Idea Event organized by Eureka! IIT Bombay — went in with strategic venture proposition, market model, and business execution framework."
-    },
-    {
-        "badge": "WINNER",
         "year": "February 2026",
         "title": "Winner — Startup Challenge @ Technovision 2k26",
         "org": "Technovision 2k26",
@@ -2517,6 +2638,27 @@ const PORTFOLIO_DATA = {
     },
     {
         "badge": "RUNNERS UP",
+        "year": "September 2025",
+        "title": "Inter-College Debate Championship",
+        "org": "SIT Literary Club",
+        "desc": "Stood as Runners-Up in the college-level parliamentary debate tournament evaluating technology ethics and automation."
+    },
+    {
+        "badge": "WINNER",
+        "year": "August 2025",
+        "title": "Winner — Vision to Venture",
+        "org": "Eureka! IIT Bombay",
+        "desc": "Winners at a Business Idea Event organized by Eureka! IIT Bombay — went in with strategic venture proposition, market model, and business execution framework."
+    },
+    {
+        "badge": "1ST RANK",
+        "year": "July 2025",
+        "title": "CDAC Additive Manufacturing Training — Ranked #1",
+        "org": "Centre for Development of Advanced Computing (CDAC)",
+        "desc": "Capstone hardware and CAD modeling project ranked first in the specialized 3D Printing & Additive Manufacturing intensive training programme."
+    },
+    {
+        "badge": "RUNNERS UP",
         "year": "September 2024",
         "title": "Digital Marketing & Design Competition",
         "org": "SIT Annual Tech & Cultural Fest",
@@ -2528,13 +2670,51 @@ const PORTFOLIO_DATA = {
         "title": "Quiz-O-Mania — Runners Up",
         "org": "Computer Engineers Society",
         "desc": "Secured 2nd place in the inter-departmental technical and computer science engineering quiz tournament."
+    }
+],
+
+  awardsGallery: [
+    {
+      "src": "_CreativeWorkCollection/Awards/1.jpg",
+      "original": "_CreativeWorkCollection/Awards/1.jpg",
+      "title": "Trophies & Honors Showcase",
+      "caption": "Collection of trophies, mementos, and awards won across hardware hackathons, model making, and design competitions.",
+      "type": "Trophy Showcase • Battlestation Display"
     },
     {
-        "badge": "RUNNERS UP",
-        "year": "September 2025",
-        "title": "Inter-College Debate Championship",
-        "org": "SIT Literary Club",
-        "desc": "Stood as Runners-Up in the college-level parliamentary debate tournament evaluating technology ethics and automation."
+      "src": "_CreativeWorkCollection/Awards/6.jpeg",
+      "original": "_CreativeWorkCollection/Awards/6.jpeg",
+      "title": "Technovision Award Ceremony",
+      "caption": "Receiving the 1st place winner prize check on stage for the Startup Challenge during the annual Tech Management Fest 2026 (TMF2K26).",
+      "type": "Stage Felicitation • TMF2K26"
+    },
+    {
+      "src": "_CreativeWorkCollection/Awards/2.jpg",
+      "original": "_CreativeWorkCollection/Awards/2.jpg",
+      "title": "Prize Checks & Competition Grants",
+      "caption": "Framed ceremonial dummy prize checks from TMF2K26 Startup Challenge, Robosoccer, Hardware Prototyping, and IHMMC 2026.",
+      "type": "Prize Checks • Competition Wins"
+    },
+    {
+      "src": "_CreativeWorkCollection/Awards/3.jpg",
+      "original": "_CreativeWorkCollection/Awards/3.jpg",
+      "title": "Certificates of Excellence & Appreciation",
+      "caption": "Official institutional certificates recognizing top rankings, hackathon victories, and technical leadership.",
+      "type": "Credentials • Certificates of Honor"
+    },
+    {
+      "src": "_CreativeWorkCollection/Awards/5.jpg",
+      "original": "_CreativeWorkCollection/Awards/5.jpg",
+      "title": "Hackathon Victory Ceremony",
+      "caption": "Team celebration holding the 1st place champion trophy and recognition plaques at SIT Hackaverse.",
+      "type": "Ceremony • Team Victory"
+    },
+    {
+      "src": "_CreativeWorkCollection/Awards/4.jpg",
+      "original": "_CreativeWorkCollection/Awards/4.jpg",
+      "title": "Event Passes, Credentials & Badges",
+      "caption": "Access passes and credentials from DevFest, CDAC summits, international conferences, and technical fests.",
+      "type": "Credentials • Badges & Lanyards"
     }
-]
+  ]
 };
